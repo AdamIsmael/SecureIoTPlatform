@@ -36,7 +36,7 @@ void setup() {
 }
 
 void loop() {
-  ret = crypto_box(c, m, 40, nonce, bobpk, alicesk);
+  ret = crypto_box(c, (const)m, 40, nonce, bobpk, alicesk);
   Serial.println(ret);
  
   //if(crypto_box(c, m, 40, nonce, bobpk, alicesk)==0){
