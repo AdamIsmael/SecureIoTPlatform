@@ -5,7 +5,8 @@
 byte mac[] = {
 0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6
 };
-char server[]= "www.tonterias.site88.net";
+//char server[]= "www.tonterias.site88.net";
+char server[] = "192.168.0.6";
 EthernetClient client;
 
 String data;
@@ -38,19 +39,22 @@ void setup() {
 }
 
 void loop() {
-  
+  //80 for 000webhost
   if(client.connect(server,80)){ //server address port:21
      Serial.println("Connected");
      
-     client.println("POST /add.php HTTP/1.1"); 
-     client.println("HOST: www.tonterias.site88.net"); //server address
+     client.println("POST /tempLog/add.php HTTP/1.1"); 
+     client.println("HOST: 192.168.0.6"); //server address
      client.println("Content-Type: application/x-www-form-urlencoded");
      client.print("Content-Length: ");
-     client.println(14);
+     client.println(37);
      client.println();
-     client.print("temperature=");
+     client.print("temperatureInt=");
      client.print("22");
+     client.print("&temperatureHex=");
+     client.print("adsa");
      
+     Serial.println("Data sent");
 //     client.println("GET tonterias.site88.net/add.php?"); 
 //     client.print("temperature=");
 //     client.print("21");
