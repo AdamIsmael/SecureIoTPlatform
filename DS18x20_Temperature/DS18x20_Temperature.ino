@@ -1,4 +1,6 @@
 #include <OneWire.h>
+#include <Ethernet2.h>
+#include <SPI.h>
 
 // OneWire DS18S20, DS18B20, DS1822 Temperature Example
 //
@@ -8,9 +10,17 @@
 // http://milesburton.com/Dallas_Temperature_Control_Library
 
 OneWire  ds(10);  // on pin 10 (a 4.7K resistor is necessary)
+byte mac[] = {
+0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6
+};
 
 void setup(void) {
   Serial.begin(9600);
+  if(Ethernet.begin(mac)==0){
+    Serial.println("Failed to assign IP");
+  }else{
+     Serial.println("Assigned IP");
+  }
 }
 
 void loop(void) {
