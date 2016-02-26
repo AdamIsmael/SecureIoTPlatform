@@ -53,22 +53,18 @@ void loop() {
   Serial.println("loop");
   byte i;
   byte present = 0;
-  byte type_s;
   byte data[12]; //12?? not 9?
   byte addr[8];
   
   if ( !ds.search(addr)) {
-    //Serial.println("No more addresses.");
-    //Serial.println();
     ds.reset_search();
     delay(250);
-    //return;
   }
   
   if (OneWire::crc8(addr, 7) != addr[7]) {
       Serial.println("CRC is not valid!");
-      //return;
   } 
+  
   ds.reset();
   ds.select(addr);
   ds.write(0x44, 1); // start conversion, with parasite power on at the end
@@ -87,6 +83,32 @@ void loop() {
     Serial.print(m[i], HEX);
     Serial.print(" ");
   }
+    for ( i = 0; i < 9; i++) {           // we need 9 bytes
+    data[i] = ds.read();
+    //Serial.print(data[i], HEX);
+    //Serial.print(" ");
+  }
+  byte type_s=1;
+  int16_t raw = (data[1] << 8) | data[0];
+  if (type_s) {
+    raw = raw << 3; // 9 bit resolution default
+    if (data[7] == 0x10) {
+      // "count remain" gives full 12 bit resolution
+      raw = (raw & 0xFFF0) + 12 - data[6];
+    }
+  } else {
+    byte cfg = (data[4] & 0x60);
+    // at lower res, the low bits are undefined, so let's zero them
+    if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
+    else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
+    else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
+    //// default is 12 bit resolution, 750 ms conversion time
+  }
+  float celsius = (float)raw / 16.0;
+  Serial.println(" ");
+  Serial.println("Temp (C) ");
+  Serial.print(celsius);
+  
    Serial.println(" ");
   for ( i = 0; i < 41; i++) {
     Serial.print(" ,0x"); 
@@ -96,32 +118,7 @@ void loop() {
          Serial.println();
        }
   }
-  
-  unsigned char testMessage[163] = {
-    0,   0,   0,   0,   0,   0,   0,   0
-,   0,   0,   0,   0,   0,   0,   0,   0
-,   0,   0,   0,   0,   0,   0,   0,   0
-,   0,   0,   0,   0,   0,   0,   0,   0
-,0xbe,0x07,0x5f,0xc5,0x3c,0x81,0xf2,0xd5
-,0xcf,0x14,0x13,0x16,0xeb,0xeb,0x0c,0x7b
-,0x52,0x28,0xc5,0x2a,0x4c,0x62,0xcb,0xd4
-,0x4b,0x66,0x84,0x9b,0x64,0x24,0x4f,0xfc
-,0xe5,0xec,0xba,0xaf,0x33,0xbd,0x75,0x1a
-,0x1a,0xc7,0x28,0xd4,0x5e,0x6c,0x61,0x29
-,0x6c,0xdc,0x3c,0x01,0x23,0x35,0x61,0xf4
-,0x1d,0xb6,0x6c,0xce,0x31,0x4a,0xdb,0x31
-,0x0e,0x3b,0xe8,0x25,0x0c,0x46,0xf0,0x6d
-,0xce,0xea,0x3a,0x7f,0xa1,0x34,0x80,0x57
-,0xe2,0xf6,0x55,0x6a,0xd6,0xb1,0x31,0x8a
-,0x02,0x4a,0x83,0x8f,0x21,0xaf,0x1f,0xde
-,0x04,0x89,0x77,0xeb,0x48,0xf5,0x9f,0xfd
-,0x49,0x24,0xca,0x1c,0x60,0x90,0x2e,0x52
-,0xf0,0xa0,0x89,0xbc,0x76,0x89,0x70,0x40
-,0xe0,0x82,0xf9,0x37,0x76,0x38,0x48,0x64
-,0x5e,0x07,0x05
-};
-  
-  
+
   Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, alicesk);
   Serial.print(" Successful encrypt: ");
   Serial.println(Suc_Crypt);
@@ -134,15 +131,11 @@ void loop() {
     Serial.print(" ,0x");
     Serial.print(c[j],HEX);
     sprintf(temp, "%x",c[j]);
-    //if()
-    //c[j].length();
     if(c[j]<=15&&j>15){
       final = final +0+ temp;
     }else{
-    //c[j].length();
     final = final + temp;
     }
-    //Serial.println(final);
      if(j%8==7){
          Serial.println();
        }
@@ -150,8 +143,6 @@ void loop() {
   Serial.println("Hex ");
   Serial.print(final);
   Serial.println();
-   //String string = c[0];  
-   //data1 = c[0] + c[1];
   
   //setup has to be here otherwise the CRC from tempsen becomes in valid 
   if(Ethernet.begin(mac)==0){
@@ -190,6 +181,7 @@ void loop() {
        Serial.println("Failed to Connect");
    }
   
+  client.stop(); // Temp sensor fails if Ethernet Shield is connected
   Serial.println("endofloop");
   delay(300000);
   
