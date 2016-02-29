@@ -3,7 +3,7 @@
 #include <Ethernet2.h>
 #include <SPI.h>
 
-OneWire  ds(10);  // on pin 10 (a 4.7K resistor is necessary)
+OneWire  ds(9);  // on pin 10 (a 4.7K resistor is necessary)
 
 TweetNaCl2 tuit;
 
@@ -14,7 +14,7 @@ char server[] = "192.168.0.6";
 EthernetClient client;
 int assigned = 0;
 
-int const clen = 41;
+
 
 //byte = unsigned char
  const byte alicesk[crypto_box_SECRETKEYBYTES]
@@ -22,6 +22,16 @@ int const clen = 41;
         0x3c, 0x16, 0xc1, 0x72, 0x51, 0xb2, 0x66, 0x45, 
         0xdf, 0x4c, 0x2f, 0x87, 0xeb, 0xc0, 0x99, 0x2a, 
         0xb1, 0x77, 0xfb, 0xa5, 0x1d, 0xb9, 0x2c, 0x2a };
+
+  byte alicesksign[crypto_sign_SECRETKEYBYTES]
+    = { 0x74,0xc5,0x5a,0xcc,0x8b,0xa0,0x8f,0x01,
+        0xec,0x2b,0xed,0x47,0x4f,0x64,0x15,0x5a,
+        0x4c,0xb3,0x7a,0x61,0x71,0x66,0xf5,0x58,
+        0xb4,0x83,0xc7,0x29,0x47,0x68,0xc6,0x40,
+        0xb6,0xa6,0x83,0x9a,0x41,0x03,0x25,0xb1,
+        0xc8,0x04,0x33,0xc1,0x19,0x50,0xdd,0x26,
+        0x96,0x62,0xb1,0x67,0xe9,0x0b,0xa5,0x46,
+        0xe7,0x48,0x5f,0xa9,0x15,0x10,0x2e,0x51 };
 
  const byte bobpk[crypto_box_PUBLICKEYBYTES] 
     = { 0xde, 0x9e, 0xdb, 0x7d, 0x7b, 0x7d, 0xc1, 0xb4, 
@@ -34,16 +44,23 @@ int const clen = 41;
         0xcd, 0x62, 0xbd, 0xa8, 0x75, 0xfc, 0x73, 0xd6,
         0x82, 0x19, 0xe0, 0x03, 0x6b, 0x7a, 0x0b, 0x37 };
  
-   byte m[clen] 
+   int const mlen = 41;
+   byte m[mlen] 
     = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,    
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
         
-  byte c[clen];
+  
+ 
+  
+  unsigned char sm[mlen+crypto_sign_BYTES];
+  
+  unsigned long long smlen=0;
  
  int Suc_Crypt=20;
-  
+ int Suc_Sign=20;
+ 
 void setup() {
   Serial.begin(9600);
   delay(1000);
@@ -96,17 +113,10 @@ void loop() {
       // "count remain" gives full 12 bit resolution
       raw = (raw & 0xFFF0) + 12 - data[6];
     }
-  } else {
-    byte cfg = (data[4] & 0x60);
-    // at lower res, the low bits are undefined, so let's zero them
-    if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
-    else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
-    else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
-    //// default is 12 bit resolution, 750 ms conversion time
   }
   float celsius = (float)raw / 16.0;
   Serial.println(" ");
-  Serial.println("Temp (C) ");
+  Serial.print("Temp (C) ");
   Serial.print(celsius);
   
    Serial.println(" ");
@@ -119,19 +129,26 @@ void loop() {
        }
   }
 
-  Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, alicesk);
+
+  Suc_Sign = tuit.crypto_sign(sm, &smlen, m, mlen, alicesksign);
+  Serial.println(" Successful Signing: ");
+  Serial.print(Suc_Sign);
+   byte sc[smlen];
+  //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, alicesk);
+  Suc_Crypt = tuit.crypto_box(sc, sm, smlen, nonce, bobpk, alicesk);
   Serial.print(" Successful encrypt: ");
   Serial.println(Suc_Crypt);
+  
   
   char temp[4];
   String final;
   byte j;
   Serial.print("datatobesent ");
-  for (j=0;j<clen;j++){
+  for (j=0;j<smlen;j++){
     Serial.print(" ,0x");
-    Serial.print(c[j],HEX);
-    sprintf(temp, "%x",c[j]);
-    if(c[j]<=15&&j>15){
+    Serial.print(sc[j],HEX);
+    sprintf(temp, "%x",sc[j]);
+    if(sc[j]<=15&&j>15){
       final = final +0+ temp;
     }else{
     final = final + temp;
