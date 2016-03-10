@@ -24,8 +24,22 @@ What are some of the options for the base station, Due/MSP430?  And for the inte
 
 \section{Server Side}
 
-For the prototype, an Apache server with SQL and tomcat was set up using XAMPP on a desktop. A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before displaying in a simple HTML table that can be accessed by the user. 
+For the prototype, an Apache server, SQL server and Tomcat server was set up using XAMPP on a desktop. A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
 
-PHP, Java? Externally hosted?
+\subsection{XAMPP}
+
+explain what XAMPP, Apache, SQL and Tomcat are. (maybe should be in background)
+Xampp is a 
+
+\subsection{Java web app}
+
+The Java Web app details what the server is do when it gets various types of request, be it get or post...(more on requests?). In this type of application you can dynamically printout all the HTML that will be used to make up the page. The usual  HTML, head, body tags are printed at the top and the titles in the table are printed as well. (How it gets the keys?!). The web app uses JDBC to create a driver(idk man) to get the connection to the SQL database. Then using Java language it builds up a SQL query to take out all the values from the database and executes that. This puts all the table entries into a result set and the app cycles through that results set getting the relevant information out. The signed and encrypted hex is encoded as string and some leading zeros are lost in the conversion from byte array to string in the Arduino so these are added now before the string is converted back into a byte array. There is a try catch around the crypto\_box\_open and crypto\_sign\_open method so the server doesn't crash if one result set has been broken. Following this is the conversion from hex into integer for the user to read (how does it do it?) and finally the values are written to the browser along with the ending html tags.
+
+\subsection{PHP}
+PHP is a server-side scripting language 
+
+There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. 
 
 \section{NaCl}
+
+The keypair, crypto\_sign, crypto\_box and equivalent opens were used. These are simple to use, abstracted methods that make this library easy to use. For the encryption the method needs the message to be encrypted which needs to have the first 32 bytes be zero, an empty array that needs to be at least the size of the message with the leading zeros, the length of the message, the nonce, arduino public key and the servers private key. This will reveal the temperature data with the signature. To remove the signature, the crypto\_sign\_open method needs the server secret signature key and the signed cipher array.

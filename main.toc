@@ -5,23 +5,29 @@
 \contentsline {chapter}{Abstract}{iii}{section*.2}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.4}
 \contentsline {chapter}{\numberline {2}Background}{2}{chapter.5}
-\contentsline {section}{\numberline {2.1}Public Key}{2}{section.6}
-\contentsline {section}{\numberline {2.2}Signature}{2}{section.7}
-\contentsline {section}{\numberline {2.3}Authenticated Encryption}{2}{section.8}
-\contentsline {chapter}{\numberline {3}Design}{3}{chapter.9}
-\contentsline {section}{\numberline {3.1}IoT Platform}{3}{section.10}
-\contentsline {section}{\numberline {3.2}Server Side}{3}{section.11}
-\contentsline {section}{\numberline {3.3}NaCl}{3}{section.12}
-\contentsline {chapter}{\numberline {4}Strength Of Security}{4}{chapter.13}
-\contentsline {section}{\numberline {4.1}SubSection}{4}{section.14}
-\contentsline {section}{\numberline {4.2}Other SubSection}{4}{section.15}
-\contentsline {chapter}{\numberline {5}Results}{5}{chapter.16}
-\contentsline {section}{\numberline {5.1}Power Consumption!}{5}{section.17}
-\contentsline {section}{\numberline {5.2}Other SubSection}{5}{section.18}
-\contentsline {chapter}{\numberline {6}Critical Evaluation}{6}{chapter.19}
-\contentsline {section}{\numberline {6.1}SubSection}{6}{section.20}
-\contentsline {section}{\numberline {6.2}Other SubSection}{6}{section.21}
-\contentsline {chapter}{\numberline {7}Conclusion}{7}{chapter.22}
-\contentsline {section}{\numberline {7.1}SubSection}{7}{section.23}
-\contentsline {section}{\numberline {7.2}Other SubSection}{7}{section.24}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{8}{appendix.25}
+\contentsline {section}{\numberline {2.1}Cryptography}{2}{section.6}
+\contentsline {subsection}{\numberline {2.1.1}TweetNaCl}{2}{subsection.7}
+\contentsline {subsection}{\numberline {2.1.2}Public Key}{2}{subsection.8}
+\contentsline {subsection}{\numberline {2.1.3}Signature}{2}{subsection.9}
+\contentsline {subsection}{\numberline {2.1.4}Authenticated Encryption}{2}{subsection.10}
+\contentsline {section}{\numberline {2.2}Technollogies used}{2}{section.11}
+\contentsline {chapter}{\numberline {3}Design}{3}{chapter.12}
+\contentsline {section}{\numberline {3.1}IoT Platform}{3}{section.13}
+\contentsline {section}{\numberline {3.2}Server Side}{3}{section.14}
+\contentsline {subsection}{\numberline {3.2.1}XAMPP}{3}{subsection.15}
+\contentsline {subsection}{\numberline {3.2.2}Java web app}{4}{subsection.16}
+\contentsline {subsection}{\numberline {3.2.3}PHP}{4}{subsection.17}
+\contentsline {section}{\numberline {3.3}NaCl}{4}{section.18}
+\contentsline {chapter}{\numberline {4}Strength Of Security}{5}{chapter.19}
+\contentsline {section}{\numberline {4.1}SubSection}{5}{section.20}
+\contentsline {section}{\numberline {4.2}Other SubSection}{5}{section.21}
+\contentsline {chapter}{\numberline {5}Results}{6}{chapter.22}
+\contentsline {section}{\numberline {5.1}Power Consumption!}{6}{section.23}
+\contentsline {section}{\numberline {5.2}Other SubSection}{6}{section.24}
+\contentsline {chapter}{\numberline {6}Critical Evaluation}{7}{chapter.25}
+\contentsline {section}{\numberline {6.1}SubSection}{7}{section.26}
+\contentsline {section}{\numberline {6.2}Other SubSection}{7}{section.27}
+\contentsline {chapter}{\numberline {7}Conclusion}{8}{chapter.28}
+\contentsline {section}{\numberline {7.1}SubSection}{8}{section.29}
+\contentsline {section}{\numberline {7.2}Other SubSection}{8}{section.30}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{9}{appendix.31}
