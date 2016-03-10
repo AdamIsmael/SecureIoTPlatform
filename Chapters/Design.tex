@@ -1,0 +1,31 @@
+%Chapter of Design
+%What my app has, (how it evolved?) in terms of physical structure and technologies involved
+
+\chapter{Design}
+\label{design}
+
+
+
+\section{IoT Platform}
+
+The basic concept of this platform is an Arduino Due that takes the current temperature of the room from a DS1820 temperature sensor. Then that data is signed and encrypted with TweetNaCL before being transmitted, using an Ethernet Shield, across to an SQL server. A web application takes the SQL data decrypts, checks the signature is valid then displays on a website. 
+
+graphic here pls
+
+Why was the Due chosen, 32 bit?
+
+DS1820 is a lost cost temperature sensor that is very accurate, 12 bits of precision? and is also low power. It can scavenge power from the data with the arduino and thus does not need it's own power source. 
+
+
+For the prototype, an Ethernet Shield was used as it is much cheaper than a WiFi shield but ultimately completes the same job. The shield is a simple way to connect arduinos to the internet. The shield used was the second revision, R2 and has a w500 ethernet controller. 
+
+
+What are some of the options for the base station, Due/MSP430?  And for the internet connection   Ethernet?WiFi shield?
+
+\section{Server Side}
+
+For the prototype, an Apache server with SQL and tomcat was set up using XAMPP on a desktop. A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before displaying in a simple HTML table that can be accessed by the user. 
+
+PHP, Java? Externally hosted?
+
+\section{NaCl}
