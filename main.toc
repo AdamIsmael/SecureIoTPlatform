@@ -17,32 +17,35 @@
 \contentsline {section}{\numberline {2.3}Machine to Machine}{5}{section.15}
 \contentsline {section}{\numberline {2.4}Technologies used}{6}{section.16}
 \contentsline {section}{\numberline {2.5}Secure Transimission of Keys}{6}{section.17}
-\contentsline {chapter}{\numberline {3}Implementation}{7}{chapter.18}
-\contentsline {section}{\numberline {3.1}IoT Platform}{7}{section.19}
-\contentsline {subsection}{\numberline {3.1.1}Temperature reading}{7}{subsection.20}
-\contentsline {section}{\numberline {3.2}Data transmission}{7}{section.21}
-\contentsline {section}{\numberline {3.3}Server Side}{8}{section.22}
-\contentsline {subsection}{\numberline {3.3.1}Java web app}{8}{subsection.23}
-\contentsline {subsection}{\numberline {3.3.2}PHP}{8}{subsection.24}
-\contentsline {subsection}{\numberline {3.3.3}XAMPP Server}{8}{subsection.25}
-\contentsline {section}{\numberline {3.4}NaCl}{9}{section.26}
-\contentsline {section}{\numberline {3.5}Machine to Machine}{9}{section.27}
-\contentsline {chapter}{\numberline {4}Strength Of Security}{10}{chapter.28}
-\contentsline {section}{\numberline {4.1}Sign then Encrypt}{10}{section.29}
-\contentsline {section}{\numberline {4.2}Public Key Transmission}{10}{section.30}
-\contentsline {section}{\numberline {4.3}Bit Banging}{10}{section.31}
-\contentsline {section}{\numberline {4.4}Whats the name for gleaning info based on the cipher text}{11}{section.32}
-\contentsline {chapter}{\numberline {5}Results}{12}{chapter.33}
-\contentsline {section}{\numberline {5.1}Recording of temperature}{12}{section.34}
-\contentsline {section}{\numberline {5.2}Sending Data}{12}{section.35}
-\contentsline {section}{\numberline {5.3}Power Consumption!}{12}{section.36}
-\contentsline {section}{\numberline {5.4}Web App}{12}{section.37}
-\contentsline {section}{\numberline {5.5}Secure transmission of Public keys}{12}{section.38}
-\contentsline {section}{\numberline {5.6}Machine to Machine}{12}{section.39}
-\contentsline {chapter}{\numberline {6}Critical Evaluation}{13}{chapter.40}
-\contentsline {section}{\numberline {6.1}SubSection}{13}{section.41}
-\contentsline {section}{\numberline {6.2}Other SubSection}{13}{section.42}
-\contentsline {chapter}{\numberline {7}Conclusion}{14}{chapter.43}
-\contentsline {section}{\numberline {7.1}SubSection}{14}{section.44}
-\contentsline {section}{\numberline {7.2}Other SubSection}{14}{section.45}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{15}{appendix.46}
+\contentsline {chapter}{\numberline {3}Design}{7}{chapter.18}
+\contentsline {section}{\numberline {3.1}Microcontroller}{7}{section.19}
+\contentsline {section}{\numberline {3.2}Security}{7}{section.20}
+\contentsline {chapter}{\numberline {4}Implementation}{9}{chapter.21}
+\contentsline {section}{\numberline {4.1}IoT Platform}{9}{section.22}
+\contentsline {subsection}{\numberline {4.1.1}Temperature reading}{9}{subsection.23}
+\contentsline {section}{\numberline {4.2}Data transmission}{9}{section.24}
+\contentsline {section}{\numberline {4.3}Server Side}{10}{section.25}
+\contentsline {subsection}{\numberline {4.3.1}Java web app}{10}{subsection.26}
+\contentsline {subsection}{\numberline {4.3.2}PHP}{10}{subsection.27}
+\contentsline {subsection}{\numberline {4.3.3}XAMPP Server}{10}{subsection.28}
+\contentsline {section}{\numberline {4.4}NaCl}{11}{section.29}
+\contentsline {section}{\numberline {4.5}Machine to Machine}{11}{section.30}
+\contentsline {chapter}{\numberline {5}Strength Of Security}{12}{chapter.31}
+\contentsline {section}{\numberline {5.1}Sign then Encrypt}{12}{section.32}
+\contentsline {section}{\numberline {5.2}Public Key Transmission}{12}{section.33}
+\contentsline {section}{\numberline {5.3}Bit Banging}{12}{section.34}
+\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{13}{section.35}
+\contentsline {chapter}{\numberline {6}Results}{14}{chapter.36}
+\contentsline {section}{\numberline {6.1}Recording of temperature}{14}{section.37}
+\contentsline {section}{\numberline {6.2}Sending Data}{14}{section.38}
+\contentsline {section}{\numberline {6.3}Power Consumption!}{14}{section.39}
+\contentsline {section}{\numberline {6.4}Web App}{14}{section.40}
+\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{14}{section.41}
+\contentsline {section}{\numberline {6.6}Machine to Machine}{14}{section.42}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{15}{chapter.43}
+\contentsline {section}{\numberline {7.1}SubSection}{15}{section.44}
+\contentsline {section}{\numberline {7.2}Other SubSection}{15}{section.45}
+\contentsline {chapter}{\numberline {8}Conclusion}{16}{chapter.46}
+\contentsline {section}{\numberline {8.1}SubSection}{16}{section.47}
+\contentsline {section}{\numberline {8.2}Other SubSection}{16}{section.48}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{17}{appendix.49}

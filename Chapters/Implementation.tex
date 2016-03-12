@@ -1,4 +1,4 @@
-%Chapter of Design
+%Chapter of Implementation
 %What my app has, (how it evolved?) in terms of physical structure and technologies involved
 
 \chapter{Implementation}
@@ -41,10 +41,14 @@ The Java Web app details what the server is do when it gets various types of req
 \subsection{PHP}
 PHP is a server-side scripting language 
 
-There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. 
+There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. cooodee snippets
 
 \subsection{XAMPP Server}
 Apache for php files, SQL and Tomcat for web app. Accessible through web by port forwarding.
+what does the SQL table have?!
+
+how does one access the xampp
+
 
 \section{NaCl}
 
