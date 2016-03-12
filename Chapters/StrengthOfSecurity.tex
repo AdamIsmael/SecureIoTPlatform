@@ -7,10 +7,68 @@
 
 
 
-\section{SubSection}
+\section{Sign then Encrypt}
 
-Sign then encrypt to get round little, subtle pit falls like the if the message is encrypt first then an attacker could peel off the signature then attach their own. But if it's encrypt last then they have no access to the message without the secret key.
+Encryption stops unauthorised parties from accessing information, assuming authorised parties are the only party with access to a secret key. Signatures prove the message was not altered in transit, integrity, that the message came from a known sender and that sender cannot deny sending the message. These are two distinct operations and the order of these operations matters. If a user was to encrypt a message then sign and send it, as the signature is added to the message it can be stripped off by an attacker and replaced with their own. If the attacker managed to intercept the transmission of public keys in the first place then they can now impersonated the real recipient. Or they could change the message content through a bit banging attack and because there is no hash of the message to be compared to the receiver can't know if the message integrity has failed. In addition the attack can add any signature to the message, encrypting then signing does not prove that the owner of the signature was aware what was in the message as it was encrypted. In this application the message is signed first so the hash is taken of the plaintext message and it can be proved that the signer was aware as to the contents of the message and then it is encrypted.
 
 can protect against the attacks mentioned earlier because...
 
-\section{Other SubSection}
+%http://world.std.com/~dtd/sign_encrypt/sign_encrypt7.html
+
+\section{Public Key Transmission}
+
+If they keys are preinstalled they can be used to sign and encrytp new public keys before they are sent. Or if they are not, the most secure and safe to make sure the keys are the same is to have a human user manually inspected the keys and carefully ascertain that the one sent is correct. Which has been demostrated in this prokect with the Arduino Due to Arduino UNo comms.
+
+
+
+changing the public key in transit then it's being sent for the first time, human operator notices the different (mitm)
+
+\section{Bit Banging}
+
+bit banging the encrypted message
+In this project a test was set up to demostrate the cryptoghtraphy caused detected that the message had been altered in transit.
+After a signed message was encrypted it was altered before being decrytpted and the signature checked
+
+As the format of the message is known, key areas of the message were altered and the following output notice
+
+TABLE
+
+
+\section{Whats the name for gleaning info based on the cipher text}
+
+sending encrypted the one and 9999
+yes and no
+
+To encrypt the hex of the word YES, produces 
+
+,0xAE ,0x43 ,0xCD ,0xA5 ,0x8E ,0x54 ,0xE9 ,0x30
+ ,0x59 ,0xB1 ,0xD5 ,0xA5 ,0xBF ,0x24 ,0x9D ,0xEE
+ ,0x69 ,0xDB ,0x37
+ 105, 219, 55
+
+To encrypt the hex of the word NO, produces 
+
+ ,0x2E ,0xBC ,0xCC ,0x6B ,0x9E ,0xDB ,0x29 ,0x64
+ ,0xF6 ,0x26 ,0x49 ,0xEF ,0xE9 ,0xFA ,0xBD ,0x9C
+ ,0x7E ,0xD1
+126, 209
+
+From this message it is possible to tell the number of bytes sent if you know that the encryption method adds 16 extra bytes but other than that this test shows there isn't a discernable difference
+
+
+To encrypt a message of all zeros
+,0x5B ,0x74 ,0x76 ,0x4C ,0xF4 ,0x19 ,0x65 ,0x37
+ ,0xC4 ,0x53 ,0xAF ,0xB0 ,0xCE ,0x18 ,0x1 ,0x1
+ ,0x30 ,0x9E
+
+To encrypt a message of a 1
+,0x49 ,0x1B ,0x1E ,0x52 ,0x10 ,0x38 ,0xD7 ,0x38
+ ,0x30 ,0x65 ,0x71 ,0xBC ,0xEE ,0x65 ,0x3D ,0x6
+ ,0x31 ,0x9E
+
+To encrypt a message of 99999
+,0xC ,0xC ,0x29 ,0xE2 ,0x4E ,0x81 ,0x67 ,0x5
+ ,0x78 ,0x49 ,0x8C ,0xA1 ,0x4F ,0x69 ,0x8 ,0xBB
+ ,0x9 ,0xA7 ,0x5D ,0x63 ,0x4D
+
+and the other attacks

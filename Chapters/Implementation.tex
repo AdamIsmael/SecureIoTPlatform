@@ -23,7 +23,7 @@ What are some of the options for the base station, Due/MSP430?  And for the inte
 
 \subsection{Temperature reading}
 
-The Due is used in two seperate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. The first takes the raw hex values from the DS18S20 temperature sensor, example code for this is fairly common as the Arduino can use the OneWire library which is a proprietary protocol developed by Dallas Semiconductor. In essence the command 0x44 is sent to the device using ds.write(0x44), where ds is at instance of the OneWire class,
+The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. The first takes the raw hex values from the DS18S20 temperature sensor, example code for this is fairly common as the Arduino can use the OneWire library which is a proprietary protocol developed by Dallas Semiconductor. In essence the command 0x44 is sent to the device using ds.write(0x44), where ds is at instance of the OneWire class,
 %/cite{http://playground.arduino.cc/Learning/OneWire}
 the sensor reads the internal ADC and copies the data to the scratchpad registers which can be read by sending the command 0xBE then using the command ds.read() which returns the value. Those values are put into an array which is then added to the end of an array where the first 32 bytes entries are 0x00. Then encrypted
 
@@ -53,5 +53,7 @@ The TweetNaCl library as it stands in it's original form is not compatible with 
 The keypair, crypto\_sign, crypto\_box and equivalent opens were used. These are simple to use, abstracted methods that make this library easy to use. For the encryption the method needs the message to be encrypted which needs to have the first 32 bytes be zero, an empty array that needs to be at least the size of the message with the leading zeros, the length of the message, the nonce, arduino public key and the servers private key. This will reveal the temperature data with the signature. To remove the signature, the crypto\_sign\_open method needs the server secret signature key and the signed cipher array.
 
 \section{Machine to Machine}
+
+
 secure M2M public key transmission
 talk more about that

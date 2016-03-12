@@ -5,21 +5,19 @@
 \chapter{Background}
 \label{back}
 
+more detail description of IoT?
 
 \section{Cryptography}
 
 Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties or at least parties in possession of the keys can view them. There are two main ways of encryption Symmetric Key encryption and Public Key encryption. In Symmetric Key encryption both parties have the same key the which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. This this project Asymmetric Key encryption and Digital signatures.
 
-
 \subsection{Asymmetric Key Encryption}
 
 To get round the problem of securing sending secret keys, one can use Asymmetric Key encryption has a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her private key and she can decrypt it with her secret key. This type of key encryption gets past the sharing key problem but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
 
-
 \subsection{Digital Signature}
 
 This is a mathematical scheme for proving message authenticity, message integrity and message non-repudation. Similarly to asymmetric key encryption a random private key is created with a corresponding public key. Double check.''!! The algorithm takes in a message and a private key and using SHA-512 and? it produces a signature. If Alice signs a message in this way, Bob can use another algorithm to verify the message with the public key and signature.
-
 
 \subsection{TweetNaCl}
 
@@ -62,6 +60,14 @@ chosen plain text attack
 
 Side channel attack, does NaCl protect a bit against this
 
+\section{Machine to Machine}
+
+M2M refers to the direct communication between two devices using any sort of channel. This is a component of IoT when connected in this way small, low power sensors can transmit their data to another device which can collate, perform analysis or some extra computation or pass the data along again before it reaches a human user. Present day applications monioring the health of machinery, digital billboards or sensory networks. An application may multiple sensors in a network that pass sensor data to multiple nodes which do some computation, such as adjust machines to correct errors, replenish stock or manage a system and possibly sending information, such as state across the Internet to a human user 
+
 \section{Technologies used}
 
 In this project the Arduino was programmed using C++. The C++ was developed in the Arduino IDE. An Arduino Due, Arduino UNO, DS1820S temperature sensor with resistor and two Ethernet Shield R2 boards. On the server side there is an SQL server, PHP scripts that accept that Arduino data and put it in the SQL server. And a Java web application that uses JBCD.. to access the SQL server and outputs dynamic HTML when accessed. The Java code was developed using Eclipse Jee Mars.
+
+\section{Secure Transimission of Keys}
+
+The problem is more acute with symmetric key encryption as it is the same key used to encrypt and decrypt a message, if the key is compromised messages can no longer be trusted. The only thing and most high tech solution is to meet in person and in private with the person you plan to communicate with and exchange keys there. If the communication with be of a diplomatic nature, the bag used to transport the keys can have special legal protection against being opened and this is called a diplomatic bag(pg 52 of book chpt 2). You could send a key over a another secure channel that you trust but there is always the chance that has been compromised and it is not possible to verify that the person on the other side of the secure channel is who you think it is without first having a secure identifier which you can't get solely through internet communication. There is a similar problem with Asymmetric key encryption, a user can freely distribute their public key and they can be pretty sure that the messages they receive are secure but it is not possible to prove who has sent you the message without their public key signature but initially public key transmission is vulnerable to man in the middle attacks.
