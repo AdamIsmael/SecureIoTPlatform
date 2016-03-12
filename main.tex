@@ -41,10 +41,10 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage{palatino} % Use the Palatino font by default
 
-\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 %\usepackage[style=authoryear,natbib=true]{biblatex}
-%\addbibresource{example.bib} % The filename of the bibliography
-%\bibliography{example}
+\addbibresource{example.bib} % The filename of the bibliography
+\bibliography{example}
 
 %\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
@@ -297,18 +297,16 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 %need to compile bib.bib
 %then run bibtex main.aux
-%\printbibliography
+\printbibliography
 
-\begin{thebibliography}{99}
-
-\bibitem{[1]}
-  Leslie Lamport,
-  \emph{\LaTeX: a document preparation system},
-  Addison Wesley, Massachusetts,
-  2nd edition,
-  1994.
-
-\end{thebibliography}
+%\begin{thebibliography}{99}
+%\bibitem{lamport}
+ % Leslie Lamport,
+  %\emph{\LaTeX: a document preparation system},
+  %Addison Wesley, Massachusetts,
+  %2nd edition,
+  %1994.
+%\end{thebibliography}
 
 
 %----------------------------------------------------------------------------------------

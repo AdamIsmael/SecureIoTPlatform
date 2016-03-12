@@ -16,6 +16,68 @@
   {}
 \endgroup
 
+\entry{jeephack}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Greenburg}{G.}%
+     {Andy}{A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GA1}
+  \strng{fullhash}{GA1}
+  \field{labelyear}{2015}
+  \field{sortinit}{G}
+  \field{title}{Hackers Remotely Kill a Jeep on the Highway—With Me in It}
+  \verb{url}
+  \verb http://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/
+  \endverb
+  \field{year}{2015}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{teslahack}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Korzeniewski}{K.}%
+     {Jeremy}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KJ1}
+  \strng{fullhash}{KJ1}
+  \field{labelyear}{2014}
+  \field{sortinit}{K}
+  \field{title}{Tesla Model S successfully hacked by Zhejiang University team}
+  \verb{url}
+  \verb http://www.autoblog.com/2014/07/18/tesla-model-s-successfully-hacked-by
+  \verb -zhejiang-university-team/
+  \endverb
+  \field{year}{2014}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{priushack}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Scharr}{S.}%
+     {Jill}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SJ1}
+  \strng{fullhash}{SJ1}
+  \field{labelyear}{2013}
+  \field{sortinit}{S}
+  \field{title}{Hackers Hijack Prius with Mac Laptop}
+  \verb{url}
+  \verb http://www.tomsguide.com/us/hackers-hijack-prius-with-laptop,review-179
+  \verb 7.html
+  \endverb
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \lossort
 \endlossort
 

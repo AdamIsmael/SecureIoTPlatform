@@ -23,12 +23,10 @@ more automated and to work with other machines, like a home hub device that can 
 central hub.
 	
 	However IoT will be ultimately be useless if it is unsecure. IoT is an emerging field but there have already been some high profile security disasters. Ranging from relatively less serious problems such as
-some ``hackers''  been able to glean important wfif information from your internet connected lights\cite{[1]} to very concerning, potentially fatal security breaches like someone gaining unauthorised access to your car
+some ``hackers''  been able to glean important wifi information from your internet connected lights %\cite{lamport} to very concerning, potentially fatal security breaches like someone gaining unauthorised access to your car
 and assuming control. There have been three examples of this with a Jeep Cherokee, Toyota Prius and Tesla. The hackers were able to control the accelerator, door locks and brakes, among other things. This highlights
 a very real problem that will only become more important. Too often security is an afterthought but it really needs to be built into products from the offset.
 	
 Within the last three years there have been three high profile security breaches on commercial cars, one on a Cheroke Jeep \cite{jeephack}, a Toyota Prius \cite{priushack} and a tesla \cite{teslahack}
 
-With that in mind the subject of this report is the secure transmission of a users private home temperature data. If they have a system that monitors the temperature of all the rooms, that data can be used to figure out when they
-are likely to be home or not. So, using an Arduino Due as the base station that talks to the temperature sensors throughout the house, it takes the sensor data signs then encrypts it and sends it using an Ethernet Shield to a remote
-server. 
+With that in mind the subject of this report is the secure transmission of a users private home temperature data. If they have a system that monitors the temperature of all the rooms, that data can be used to figure out when they are likely to be home or not. So, using an Arduino Due as the base station that talks to the temperature sensors throughout the house, it takes the sensor data signs then encrypts it and sends it using an Ethernet Shield to a remote server. 

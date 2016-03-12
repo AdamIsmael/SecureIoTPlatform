@@ -8,13 +8,18 @@
 
 \section{Cryptography}
 
-Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties or at least parties in possession of the keys can view them. There are two main ways of encryption Symmetric Key encryption and Public Key encryption. In Symmetric Key encryption both parties have the same key the which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. To prove authenticity and integrity of the message, one can use HMAC
+Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties or at least parties in possession of the keys can view them. There are two main ways of encryption Symmetric Key encryption and Public Key encryption. In Symmetric Key encryption both parties have the same key the which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. This this project Asymmetric Key encryption and Digital signatures.
 
-\section{Types of attacks}
-play back/replay attacks
-man in the middle attacks
 
-stream cipher attacks, if the same key is used
+\subsection{Asymmetric Key Encryption}
+
+To get round the problem of securing sending secret keys, one can use Asymmetric Key encryption has a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her private key and she can decrypt it with her secret key. This type of key encryption gets past the sharing key problem but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
+
+
+\subsection{Digital Signature}
+
+This is a mathematical scheme for proving message authenticity, message integrity and message non-repudation. Similarly to asymmetric key encryption a random private key is created with a corresponding public key. Double check.''!! The algorithm takes in a message and a private key and using SHA-512 and? it produces a signature. If Alice signs a message in this way, Bob can use another algorithm to verify the message with the public key and signature.
+
 
 \subsection{TweetNaCl}
 
@@ -26,23 +31,37 @@ Also, as mentioned later Arduino can't use the C library as is, it needs to be c
 Another problem is that the library is relatively quite large, the Arduino Due has at it's disposal 512KB flash memory and the full library is 3MB. Fortunately the same creators along with Bernard van Gastel, Wesley Janssen and Sjaak Smetsers made TweetNaCl. Which is a tiny implementation of NaCl, still providing speed and security but with a significantly smaller code size 40KB. It retains the same protections against (from tweetNack-201409..) timing attacks, cache-timing attacks, has to branches depending on secret data and no array indices depending on secret data. In addition it is thread-safe and has no dynamic memory allocation. It is portable and easy to integrate, the library is easily added as it consists of two files, there is no complicated configuration to be set up or any dependencies on external libraries. Because of this compactness it is easier to read and understand it's operation. Although not as fast as NaCl it is still fast enough for most applications. ``Most applications can tolerate the 4.2 million cycles that OpenSSL uses
 on an Ivy Bridge CPU for RSA-2048 decryption, for example, so they can certainly tolerate
 the 2.5 million cycles that TweetNaCl uses for higher-security decryption (Curve25519).''
-TweetNaCl is still small after compilation at 11KB thus avoiding instruction cache misses. 
+TweetNaCl is still small after compilation at 11KB thus avoiding instruction cache misses. It is a full library and not a set of isolated functions for a simple NaCl application, only six functions are needed. crypto\_box for public-key authenticated encryption; crypto\_box\_open for verification and decryption; crypto\_box\_keypair to create a public key; and similarly for signatures crypto\_sign, crypto\_sign\_open, and crypto\_sign\_keypair. It is open source and the developers encourage it to be used as much as possible. 
+
+NaCl will move to Ed25519 signature system, what is that?
+
+TweetNaCl encrypts messages by xor'ing them with the output of Bernsteins Salsa20?? stream cipher
+
+NaCl crypto\_stream uses Bernsteins X
+
+Again, TweetNaCl uses SHA-512 as it's hash function with the Ed25519 signature scheme and the code is simplified compared to the NaCl implementation
+
+For asymmetric cryptography TweetNaCl uses Bernsteins' Ed25519 elliptic curve Diffie-Hellman key exchange?? 
 
 
-\subsection{Public Key}
+\section{Types of attacks}
 
-To get round the problem of securing sending secret keys, one can use Asymmetric Key encryption has a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her private key and she can decrypt it with her secret key.
+\subsection{Replay Attack}
+When this attack occurs the attacker replays a valid message. If Bob wants Alice to prove who she and she duly provides some encrypted signature to prove so. Eve can capture that signature, She does not know what the signature is but she knows that it is a signature. She can then connect to Bob and use this message to pretend she is Alice. To prevent this attack, use an identifier that is only valid for one use, this can be session tokens or one-time passwords. 
 
+\subsection{Man in the Middle Attack}
+In this attack there is an attack between two parties, Bob and Alice, who wish to communicate. The man in the middle, Eve, changes messages as they are in transit and manages to pretend that she is the person that the other thinks they are talking to. An example is if Alice asks for Bob's public key, Eve can capture that public key, replace it with her own and send that and because Alice has no way to prove that it is Bob's key or not she accepts it. So when Alice sends a message that has been encrypted with what she thinks is Bob's key, Eve can take it, decrypt it with her key, change the message then encrypt it with Bob's real public key. Which Bob receives and believes the message is from Alice.
 
-\subsection{Signature}
+\subsection{Bit-Flipping Attack}
+This is where the attacker can change the cipher text in some way that cause a predictable change in the plain text. The attacker does not know exactly what the plain text is. If Alice was to send a message to Bob saying that she owes him £100. If Eve knows the format of the message, she can change the number at the end into £1000. 
 
-The method used in this project to prove authenticity and integrity is a digital signature. 
+\subsection{Stream Cipher Attack}
 
+stream cipher attacks, if the same key is used
+chosen plain text attack
 
+Side channel attack, does NaCl protect a bit against this
 
 \section{Technologies used}
 
-php/java/C++/SQL
-
-
-All Arduino code was created using the Arduino IDE and the server Java was created using Eclipse Jee Mars.
+In this project the Arduino was programmed using C++. The C++ was developed in the Arduino IDE. An Arduino Due, Arduino UNO, DS1820S temperature sensor with resistor and two Ethernet Shield R2 boards. On the server side there is an SQL server, PHP scripts that accept that Arduino data and put it in the SQL server. And a Java web application that uses JBCD.. to access the SQL server and outputs dynamic HTML when accessed. The Java code was developed using Eclipse Jee Mars.
