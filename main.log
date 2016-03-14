@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  12 MAR 2016 21:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  14 MAR 2016 15:39
 entering extended mode
 **main.tex
 (E:\UNINotes\4th\Project\Report1\main.tex
@@ -1144,7 +1144,7 @@ LaTeX Info: Redefining \pageref on input line 6369.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 46.
+(scrhack)             need that hack, on input line 47.
 
 
 Package hyperref Message: Driver (autodetected): hpdftex.
@@ -1161,17 +1161,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 46.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 46.
-Package hyperref Info: Option `colorlinks' set `true' on input line 46.
-Package hyperref Info: Option `unicode' set `true' on input line 46.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 47.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 47.
+Package hyperref Info: Option `colorlinks' set `true' on input line 47.
+Package hyperref Info: Option `unicode' set `true' on input line 47.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 46.
+Package hyperref Info: Option `breaklinks' set `true' on input line 47.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1194,23 +1194,23 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 87.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 88.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -1351,13 +1351,13 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 87.
-Package scrbase Info: activating english \authorshipname on input line 87.
-Package scrbase Info: activating english \byname on input line 87.
-Package scrbase Info: activating english \abbrevname on input line 87.
-Package scrbase Info: activating english \constantsname on input line 87.
-Package scrbase Info: activating english \symbolsname on input line 87.
-Package scrbase Info: activating english \acknowledgementname on input line 87.
+(scrlayer)             \begin{document} on input line 88.
+Package scrbase Info: activating english \authorshipname on input line 88.
+Package scrbase Info: activating english \byname on input line 88.
+Package scrbase Info: activating english \abbrevname on input line 88.
+Package scrbase Info: activating english \constantsname on input line 88.
+Package scrbase Info: activating english \symbolsname on input line 88.
+Package scrbase Info: activating english \acknowledgementname on input line 88.
 
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
@@ -1371,12 +1371,17 @@ Package biblatex Info: ... file 'main.bbl' found.
 (E:\UNINotes\4th\Project\Report1\main.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
-(biblatex)                with 'jeephack':
+(biblatex)                with '50milby2020':
 (biblatex)                - Invalid format of field 'month'.
 
 
 Package biblatex Warning: BibTeX reported the following issues
-(biblatex)                with 'teslahack':
+(biblatex)                with 'hackingsum':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'jeephack':
 (biblatex)                - Invalid format of field 'month'.
 
 
@@ -1384,9 +1389,14 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'priushack':
 (biblatex)                - Invalid format of field 'month'.
 
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'teslahack':
+(biblatex)                - Invalid format of field 'month'.
+
 )
-Package biblatex Info: Reference section=0 on input line 87.
-Package biblatex Info: Reference segment=0 on input line 87.
+Package biblatex Info: Reference section=0 on input line 88.
+Package biblatex Info: Reference segment=0 on input line 88.
 \AtBeginShipoutBox=\box53
  ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
@@ -1397,7 +1407,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-Package hyperref Info: Link coloring ON on input line 87.
+Package hyperref Info: Link coloring ON on input line 88.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1407,30 +1417,30 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count358
 )
-LaTeX Info: Redefining \ref on input line 87.
-LaTeX Info: Redefining \pageref on input line 87.
-LaTeX Info: Redefining \nameref on input line 87.
+LaTeX Info: Redefining \ref on input line 88.
+LaTeX Info: Redefining \pageref on input line 88.
+LaTeX Info: Redefining \nameref on input line 88.
 
 (E:\UNINotes\4th\Project\Report1\main.out)
 (E:\UNINotes\4th\Project\Report1\main.out)
 \@outlinefile=\write4
 \c__siunitx_mathsf_int=\count359
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 87.
+(Font)              <10.95> on input line 88.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 87.
+(Font)              <8> on input line 88.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 87.
+(Font)              <6> on input line 88.
 \c__siunitx_mathtt_int=\count360
 
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 104.
-<img/uni_logo_eng.jpg, id=196, 188.20313pt x 134.75343pt>
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 105.
+<img/uni_logo_eng.jpg, id=208, 188.20313pt x 134.75343pt>
 File: img/uni_logo_eng.jpg Graphic file (type jpg)
 
 <use img/uni_logo_eng.jpg>
-Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 132.
+Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 133.
 (pdftex.def)             Requested size: 188.20265pt x 134.7531pt.
  [1
 
@@ -1441,15 +1451,15 @@ INotes/4th/Project/Report1/img/uni_logo_eng.jpg>]
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 148.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 149.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\omsppl.fd"
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 148.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
@@ -1461,14 +1471,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--154
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 179.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 180.
 1: section
 [3
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 201.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 202.
  (E:\UNINotes\4th\Project\Report1\main.toc
 1: section
 [4
@@ -1481,49 +1491,57 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 
 ] (E:\UNINotes\4th\Project\Report1\Chapters/Introduction.tex
 Chapter 1.
-)
+
+LaTeX Warning: Citation 'which' on page 2 undefined on input line 25.
+
 1: section
 [2
 
 
-] (E:\UNINotes\4th\Project\Report1\Chapters/Background.tex
+]) [3] (E:\UNINotes\4th\Project\Report1\Chapters/Background.tex
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 14.
 1: section
-[3
+[4
 
 
 
-] [4] [5]) [6] (E:\UNINotes\4th\Project\Report1\Chapters/Design.tex
+] [5] [6]) [7] (E:\UNINotes\4th\Project\Report1\Chapters/Design.tex
 Chapter 3.
-)
 1: section
-[7
+[8
 
 
 
-] [8] (E:\UNINotes\4th\Project\Report1\Chapters/Implementation.tex
+]) [9] (E:\UNINotes\4th\Project\Report1\Chapters/Implementation.tex
 Chapter 4.
 1: section
-[9
+[10
 
 
 
-] [10]) [11] (E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
+] [11]) [12]
+(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
 Chapter 5.
+
+Overfull \hbox (1.70361pt too wide) in paragraph at lines 28--31
+\T1/ppl/m/n/10.95 bit bang-ing the en-crypted mes-sage In this project a test w
+as set up to demon-
+ []
+
 1: section
-[12
+[13
 
 
 
-]) [13] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
+]) [14] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
 Chapter 6.
 )
 1: section
-[14
+[15
 
 
 
@@ -1531,7 +1549,7 @@ Chapter 6.
 Chapter 7.
 )
 1: section
-[15
+[16
 
 
 
@@ -1539,7 +1557,7 @@ Chapter 7.
 Chapter 8.
 )
 1: section
-[16
+[17
 
 
 
@@ -1547,23 +1565,27 @@ Chapter 8.
 Appendix A.
 )
 1: section
-[17
-
-
-
-]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 300.
- ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
-
-1: section
 [18
 
 
+
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 301.
+ ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (9.70453pt too wide) in paragraph at lines 302--302
+\T1/ppl/m/n/10.95 2014. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : [][]$\T1/pcr/
+m/n/10.95 http : / / www . alphr . com / features / 389920 / hacking -[]$
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
+1: section
+[19
+
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
  (E:\UNINotes\4th\Project\Report1\main.aux
 (E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
@@ -1574,85 +1596,39 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
 (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 314.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 9D2B0D274BD9DEEBC8297B4C8444915B;6800.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: C6950146157235094161CA09745879CE;6542
-(rerunfilecheck)             After:  3D64F4415503C9C0D67F686FC81F28E3;6638.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 28017 strings out of 493921
- 581112 string characters out of 3144858
- 681274 words of memory out of 3000000
- 30843 multiletter control sequences out of 15000+200000
+ 28013 strings out of 493921
+ 581108 string characters out of 3144858
+ 681369 words of memory out of 3000000
+ 30849 multiletter control sequences out of 15000+200000
  39114 words of font info for 67 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  52i,20n,77p,10402b,2187s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{appendix.48} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.46} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.45} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.43} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.42} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.36} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.35} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.31} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.30} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.28} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.25} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.23} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.22} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.21} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.20} has been referenced but does not exist,
- replaced by a fixed one
-
-{C:/Program Files (x86)/MiKTeK 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program 
-Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
-les (x86)/MiKTeK 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)
-/MiKTeK 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeK 
-2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/font
-s/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/
-urw/palatino/uplri8a.pfb>
-Output written on main.pdf (23 pages, 198381 bytes).
+{C:/Program Files (x86)/MiKTeK 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
+Files (x86)/MiKTeK 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
+6)/MiKTeK 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTe
+K 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fo
+nts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type
+1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (24 pages, 206612 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 382 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 434 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

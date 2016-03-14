@@ -41,7 +41,8 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage{palatino} % Use the Palatino font by default
 
-\usepackage[backend=bibtex,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
+%autocite = superscript    maybe without natbib=true
+\usepackage[backend=bibtex,natbib=true,style=numeric,sorting=none]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 %\usepackage[style=authoryear,natbib=true]{biblatex}
 \addbibresource{example.bib} % The filename of the bibliography
 \bibliography{example}
