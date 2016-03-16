@@ -5,30 +5,65 @@
 \label{imple}
 
 
+The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. 
+
 \section{IoT Platform}
 
 The basic concept of this platform is an Arduino Due that takes the current temperature of the room from a DS1820 temperature sensor. Then that data is signed and encrypted with TweetNaCL before being transmitted, using an Ethernet Shield, across to an SQL server. A web application takes the SQL data decrypts, checks the signature is valid then displays on a website. 
 
 graphic here pls
 
-Why was the Due chosen, 32 bit?
 
-DS1820 is a lost cost temperature sensor that is very accurate, 12 bits of precision? and is also low power. It can scavenge power from the data with the arduino and thus does not need it's own power source. 
+DS1820 is a lost cost temperature sensor that is very accurate, 9 bits of precision and is also low power. It can scavenge power from the data with the arduino and thus does not need it's own power source. 
 
+For the prototype, an Ethernet Shield was used as it is much cheaper than a WiFi shield but ultimately completes the same job. The shield is a simple way to connect arduinos to the internet. The shield used was the second revision, R2 and has a w500 ethernet controller which means it needs an different library to the first revision. Fortunately the two libraries share the same API so the the codes are compatible. Simply swap put the older shield and library and replace with the newer one.
 
-For the prototype, an Ethernet Shield was used as it is much cheaper than a WiFi shield but ultimately completes the same job. The shield is a simple way to connect arduinos to the internet. The shield used was the second revision, R2 and has a w500 ethernet controller. 
-
-
-What are some of the options for the base station, Due/MSP430?  And for the internet connection   Ethernet?WiFi shield?
 
 \subsection{Temperature reading}
 
-The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. The first takes the raw hex values from the DS18S20 temperature sensor, example code for this is fairly common as the Arduino can use the OneWire library which is a proprietary protocol developed by Dallas Semiconductor. In essence the command 0x44 is sent to the device using ds.write(0x44), where ds is at instance of the OneWire class,
+The DS18S20 temperature sensor is wired up with a pull up 4.7$\Omega$ resistor, between the orange wires, on the bread board shown in figure \ref{fig:tempcircuit}. A pull up resistor is a resistor between the sensor and the positive power supply so that the signal will be a valid logic level if external devices are disconnected or a high impedance is introduced. It is connected to digital pin 9, yellow wire, because it can't be on pins 10, 11, 12, 13 as they will be used by the Ethernet Shield. When looking at the temperature sensor the furtherest left pin is V$_{dd}$ and normally this would be connected to the Arduinos 3.5v or 5v output but the DS18S20 is in parasite power mode which scavenge power off the middle data line, DQ. When the DQ pin is high some of the charge is stored in capacitor DS18S20 to power the device. In parasite power mode both the GND and V$_{dd}$ are connected together, by the blue wire, and then to ground.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\linewidth]{Figures/TempSensor_bb.pdf}
+	\caption{DS18S20 in parasitic power mode connected to Arduino}
+	\label{fig:tempcircuit}
+\end{figure}
+
+
+%can explain full scratchpad memory, CRC, 
+The library used to read the DS18S20 is OneWire, which is a proprietary library from Maxim. {\tt ds.write(0x44, 1) } This is the command to start the internal A-D conversion operation. Once this process is finished the data is copied to the Scratchpad registers. A delay is need to charge the capacitor and to ensure conversion is complete before reading the data. Which is done with ds.write(0xBE) and then the data is read out using ds.read() then put into an array which is then added to the end of an array where the first 32 bytes entries are 0x00.
+
+\begin{figure}[H]
+\begin{lstlisting}[style=Arduino]
+  							OneWire  ds(9);
+								...
+  							ds.write(0x44, 1); 
+  						 	delay(1000);
+
+  							present = ds.reset();
+  							ds.select(addr);    
+ 							ds.write(0xBE)
+
+  							Serial.print("  Data = "); 
+  							Serial.print(present, HEX);
+ 						 	Serial.print(" ");
+  							for ( i = 0; i < 9; i++) {          
+    								data[i] = ds.read();
+    								Serial.print(data[i], HEX);
+    								Serial.print(" ");
+  							}
+
+\end{lstlisting}
+\caption{DS18S20 in parasitic power mode connected to Arduino}
+\label{snip:tempcode}
+\end{figure}
+
+
 %/cite{http://playground.arduino.cc/Learning/OneWire}
-the sensor reads the internal ADC and copies the data to the scratchpad registers which can be read by sending the command 0xBE then using the command ds.read() which returns the value. Those values are put into an array which is then added to the end of an array where the first 32 bytes entries are 0x00. Then encrypted
 
 \section{Data transmission}
-The data is packaged up as a POST request
+The data is packaged up as a POST request, a POST request is a request method in the HTTP protocol which when a server receives it takes the data in the body and stores it. Explain server details 
  
 \section{Server Side}
 

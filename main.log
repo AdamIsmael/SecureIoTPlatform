@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  14 MAR 2016 15:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  16 MAR 2016 23:24
 entering extended mode
 **main.tex
 (E:\UNINotes\4th\Project\Report1\main.tex
@@ -1144,7 +1144,7 @@ LaTeX Info: Redefining \pageref on input line 6369.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 47.
+(scrhack)             need that hack, on input line 49.
 
 
 Package hyperref Message: Driver (autodetected): hpdftex.
@@ -1161,17 +1161,159 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 47.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 47.
-Package hyperref Info: Option `colorlinks' set `true' on input line 47.
-Package hyperref Info: Option `unicode' set `true' on input line 47.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 49.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 49.
+Package hyperref Info: Option `colorlinks' set `true' on input line 49.
+Package hyperref Info: Option `unicode' set `true' on input line 49.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 47.
+Package hyperref Info: Option `breaklinks' set `true' on input line 49.
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count350
+\float@exts=\toks21
+\float@box=\box52
+\@float@everytoks=\toks22
+\@floatcapt=\box53
+)
+Package scrhack Info: loading float hack on input line 59.
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\float.hak"
+File: float.hak 2015/10/03 v3.19a KOMA-Script package (hacking package float)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\tocbasic.sty"
+Package: tocbasic 2015/10/03 v3.19a KOMA-Script package (handling toc-files)
+)
+Package scrhack Info: redefining \newfloat on input line 161.
+Package scrhack Info: redefining \listof on input line 161.
+Package scrhack Info: undefining \float@addtolists on input line 161.
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count351
+\lst@gtempboxa=\box54
+\lst@token=\toks23
+\lst@length=\count352
+\lst@currlwidth=\dimen185
+\lst@column=\count353
+\lst@pos=\count354
+\lst@lostspace=\dimen186
+\lst@width=\dimen187
+\lst@newlines=\count355
+\lst@lineno=\count356
+\lst@maxwidth=\dimen188
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count357
+\lst@skipnumbers=\count358
+\lst@framebox=\box55
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package scrhack Info: loading listings hack on input line 60.
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\listings.hak"
+File: listings.hak 2015/10/03 v3.19a KOMA-Script package (hacking package listi
+ngs)
+Package tocbasic Info: setting babel extension for `lol' on input line 137.
+Package scrhack Info: redefining \lstlistoflistings on input line 137.
+)
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\typearea.sty"
+Package: typearea 2015/10/03 v3.19a KOMA-Script package (type area)
+
+Package typearea, 2015/10/03 v3.19a KOMA-Script package (type area)
+                  Copyright (C) Frank Neukam, 1992-1994
+                  Copyright (C) Markus Kohm, 1994-
+
+\ta@bcor=\skip70
+\ta@div=\count359
+\ta@hblk=\skip71
+\ta@vblk=\skip72
+\ta@temp=\skip73
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 1509.
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1ppl.fd"
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 10
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 418.25555pt
+(typearea)              DIV departure   = -2%
+(typearea)              \evensidemargin = 47.2316pt
+(typearea)              \oddsidemargin  = -12.5192pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 595.80026pt
+(typearea)              \topmargin      = -25.16531pt
+(typearea)              \headheight     = 17.0pt
+(typearea)              \headsep        = 20.40001pt
+(typearea)              \topskip        = 11.0pt
+(typearea)              \footskip       = 47.6pt
+(typearea)              \baselineskip   = 13.6pt
+(typearea)              on input line 1509.
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\mwe\mwe.sty"
+Package: mwe 2012/05/15 v0.3 Package to support minimal working examples (MWE)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\lipsum\lipsum.sty"
+Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count360
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\blindtext\blindtext.sty"
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count361
+\c@Blindtext=\count362
+\c@blind@countparstart=\count363
+\blind@countxx=\count364
+\blindtext@numBlindtext=\count365
+\blind@countyy=\count366
+\c@blindlist=\count367
+\c@blindlistlevel=\count368
+\c@blindlist@level=\count369
+\blind@listitem=\count370
+\c@blind@listcount=\count371
+\c@blind@levelcount=\count372
+\blind@mathformula=\count373
+\blind@Mathformula=\count374
+\c@blind@randomcount=\count375
+\c@blind@randommax=\count376
+\c@blind@pangramcount=\count377
+\c@blind@pangrammax=\count378
+))
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+)
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1182,8 +1324,8 @@ File: english.lbx 2015/12/22 v3.2 biblatex localization (PK/JW/AB)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count350
-\@quotereset=\count351
+\@quotelevel=\count379
+\@quotereset=\count380
 (E:\UNINotes\4th\Project\Report1\main.aux
 (E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
@@ -1194,27 +1336,22 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
-LaTeX Font Info:    ... okay on input line 88.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 88.
-
-("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1ppl.fd"
-File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
-)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
@@ -1299,20 +1436,22 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 ) ("C:\Program Files (x86)\MiKTeK 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count352
-\scratchdimen=\dimen185
-\scratchbox=\box52
-\nofMPsegments=\count353
-\nofMParguments=\count354
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count355
-\MPscratchDim=\dimen186
-\MPnumerator=\count356
-\makeMPintoPDFobject=\count357
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count381
+\scratchdimen=\dimen189
+\scratchbox=\box56
+\nofMPsegments=\count382
+\nofMParguments=\count383
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count384
+\MPscratchDim=\dimen190
+\MPnumerator=\count385
+\makeMPintoPDFobject=\count386
+\everyMPtoPDFconversion=\toks25
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
@@ -1329,16 +1468,16 @@ Package caption Info: End \AtBeginDocument code.
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=361.34995pt
-* \textheight=693.49821pt
+* \textheight=672.83495pt
 * \oddsidemargin=55.7674pt
 * \evensidemargin=35.85056pt
 * \topmargin=-29.59087pt
 * \headheight=18.85364pt
-* \headsep=19.8738pt
+* \headsep=20.40001pt
 * \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=116.0pt
-* \marginparsep=7.0pt
+* \footskip=47.6pt
+* \marginparwidth=89.62619pt
+* \marginparsep=12.8401pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
@@ -1350,15 +1489,13 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 88.
-Package scrbase Info: activating english \authorshipname on input line 88.
-Package scrbase Info: activating english \byname on input line 88.
-Package scrbase Info: activating english \abbrevname on input line 88.
-Package scrbase Info: activating english \constantsname on input line 88.
-Package scrbase Info: activating english \symbolsname on input line 88.
-Package scrbase Info: activating english \acknowledgementname on input line 88.
-
+Package scrbase Info: activating english \authorshipname on input line 164.
+Package scrbase Info: activating english \byname on input line 164.
+Package scrbase Info: activating english \abbrevname on input line 164.
+Package scrbase Info: activating english \constantsname on input line 164.
+Package scrbase Info: activating english \symbolsname on input line 164.
+Package scrbase Info: activating english \acknowledgementname on input line 164
+.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1395,52 +1532,44 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                - Invalid format of field 'month'.
 
 )
-Package biblatex Info: Reference section=0 on input line 88.
-Package biblatex Info: Reference segment=0 on input line 88.
-\AtBeginShipoutBox=\box53
- ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\graphics\color.sty"
-Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
-LaTeX Info: Redefining \color on input line 76.
-
-("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: pdftex.def on input line 130.
-)
-Package hyperref Info: Link coloring ON on input line 88.
-
-("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\nameref.sty"
+Package biblatex Info: Reference section=0 on input line 164.
+Package biblatex Info: Reference segment=0 on input line 164.
+\AtBeginShipoutBox=\box57
+Package hyperref Info: Link coloring ON on input line 164.
+ ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count358
+\c@section@level=\count387
 )
-LaTeX Info: Redefining \ref on input line 88.
-LaTeX Info: Redefining \pageref on input line 88.
-LaTeX Info: Redefining \nameref on input line 88.
+LaTeX Info: Redefining \ref on input line 164.
+LaTeX Info: Redefining \pageref on input line 164.
+LaTeX Info: Redefining \nameref on input line 164.
 
 (E:\UNINotes\4th\Project\Report1\main.out)
 (E:\UNINotes\4th\Project\Report1\main.out)
 \@outlinefile=\write4
-\c__siunitx_mathsf_int=\count359
+\c@lstlisting=\count388
+Package scrhack Info: undefining \float@addtolists on input line 164.
+\c__siunitx_mathsf_int=\count389
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 88.
+(Font)              <10.95> on input line 164.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 88.
+(Font)              <8> on input line 164.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 88.
-\c__siunitx_mathtt_int=\count360
+(Font)              <6> on input line 164.
+\c__siunitx_mathtt_int=\count390
 
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 105.
-<img/uni_logo_eng.jpg, id=208, 188.20313pt x 134.75343pt>
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 181.
+<img/uni_logo_eng.jpg, id=212, 188.20313pt x 134.75343pt>
 File: img/uni_logo_eng.jpg Graphic file (type jpg)
 
 <use img/uni_logo_eng.jpg>
-Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 133.
+Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 209.
 (pdftex.def)             Requested size: 188.20265pt x 134.7531pt.
  [1
 
@@ -1451,15 +1580,15 @@ INotes/4th/Project/Report1/img/uni_logo_eng.jpg>]
 --------------------
  Declaration of Authorship
 --------------------
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 149.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 225.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\omsppl.fd"
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 225.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
@@ -1471,14 +1600,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--155
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 180.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 256.
 1: section
 [3
 
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 202.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 278.
  (E:\UNINotes\4th\Project\Report1\main.toc
 1: section
 [4
@@ -1518,13 +1647,30 @@ Chapter 3.
 
 ]) [9] (E:\UNINotes\4th\Project\Report1\Chapters/Implementation.tex
 Chapter 4.
+<Figures/TempSensor_bb.pdf, id=343, 314.17375pt x 356.33125pt>
+File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
+
+<use Figures/TempSensor_bb.pdf>
+Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 28.
+(pdftex.def)             Requested size: 180.67497pt x 204.91605pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 35.
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 1: section
 [10
 
 
 
-] [11]) [12]
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
+]
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 48.
+ [11 <E:/UNINotes/4th/Project/Report1/Figures/TempSensor_bb.pdf>] [12])
+[13] (E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
 Chapter 5.
 
 Overfull \hbox (1.70361pt too wide) in paragraph at lines 28--31
@@ -1533,23 +1679,22 @@ as set up to demon-
  []
 
 1: section
-[13
+[14
 
 
 
-]) [14] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
+]) [15] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
 Chapter 6.
-)
 1: section
-[15
+[16
 
 
 
-] (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.tex
+]) [17] (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.tex
 Chapter 7.
 )
 1: section
-[16
+[18
 
 
 
@@ -1557,7 +1702,7 @@ Chapter 7.
 Chapter 8.
 )
 1: section
-[17
+[19
 
 
 
@@ -1565,27 +1710,23 @@ Chapter 8.
 Appendix A.
 )
 1: section
-[18
+[20
 
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 301.
- ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (9.70453pt too wide) in paragraph at lines 302--302
+Overfull \hbox (9.70453pt too wide) in paragraph at lines 379--379
 \T1/ppl/m/n/10.95 2014. \T1/ppl/m/sc/10.95 url\T1/ppl/m/n/10.95 : [][]$\T1/pcr/
 m/n/10.95 http : / / www . alphr . com / features / 389920 / hacking -[]$
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
 1: section
-[19
+[21
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
  (E:\UNINotes\4th\Project\Report1\main.aux
 (E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
@@ -1596,10 +1737,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
 (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9D2B0D274BD9DEEBC8297B4C8444915B;6800.
+(rerunfilecheck)             Checksum: D01083C5D0911DE64D85CBA019BD6769;6886.
 
 
 LaTeX Warning: There were undefined references.
@@ -1612,23 +1753,26 @@ Package biblatex Warning: Please (re)run BibTeX on the file(s):
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 28013 strings out of 493921
- 581108 string characters out of 3144858
- 681369 words of memory out of 3000000
- 30849 multiletter control sequences out of 15000+200000
- 39114 words of font info for 67 fonts, out of 3000000 for 9000
+ 30618 strings out of 493921
+ 617935 string characters out of 3144858
+ 836027 words of memory out of 3000000
+ 33374 multiletter control sequences out of 15000+200000
+ 44212 words of font info for 75 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 52i,20n,77p,10402b,2187s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,20n,83p,10402b,2207s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeK 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
-Files (x86)/MiKTeK 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
-6)/MiKTeK 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTe
-K 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fo
-nts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type
-1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (24 pages, 206612 bytes).
+m Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program F
+iles (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program File
+s (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files 
+(x86)/MiKTeK 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files (x86)/MiK
+TeK 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/f
+onts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/typ
+e1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/p
+alatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/
+uplri8a.pfb>
+Output written on main.pdf (26 pages, 1258434 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 406 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 534 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 419 words of extra memory for PDF output out of 10000 (max. 10000000)
 
