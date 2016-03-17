@@ -4,7 +4,12 @@
 \chapter{Implementation}
 \label{imple}
 
-%over view first?
+\section{Overview}
+
+There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. cooodee snippets
+
+The Java Web app details what the server is do when it gets various types of request, be it get or post...(more on requests?). In this type of application you can dynamically printout all the HTML that will be used to make up the page. The usual  HTML, head, body tags are printed at the top and the titles in the table are printed as well. (How it gets the keys?!). The web app uses JDBC to create a driver(idk man) to get the connection to the SQL database. Then using Java language it builds up a SQL query to take out all the values from the database and executes that. This puts all the table entries into a result set and the app cycles through that results set getting the relevant information out. The signed and encrypted hex is encoded as string and some leading zeros are lost in the conversion from byte array to string in the Arduino so these are added now before the string is converted back into a byte array. There is a try catch around the crypto\_box\_open and crypto\_sign\_open method so the server doesn't crash if one result set has been broken. Following this is the conversion from hex into integer for the user to read (how does it do it?) and finally the values are written to the browser along with the ending html tags.
+
 
 The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. 
 
@@ -138,7 +143,7 @@ For the prototype, an Apache server, SQL server and Tomcat server were set up us
 
 \begin{figure}[H]
 %\begin{lstlisting}[language=PHP]
-\begin{lstlisting}[style=blah]
+\begin{lstlisting}[style=PHP]
 <?php
    	include("connect.php");
  
@@ -159,27 +164,77 @@ For the prototype, an Apache server, SQL server and Tomcat server were set up us
 \label{snip:php}
 \end{figure}
 
-The data to be stored is extracted out of the POST request and place in a variable. Then an SQL query is built up before being sent to the SQL server and the connection terminated.
+The data to be stored is extracted out of the POST request and place in a variable. Then an SQL query is built up before being sent to the SQL server and the connection terminated. The SQL table contains an ID, the time at which the temperature data was received and the data and is created using the command shown in figure \ref{snip:sql} Notice the corresponding variables, tempLog, the table and tempHex, the data.
 
-SQL!
+\begin{figure}[H]
+\begin{lstlisting}[style=SQL]
+CREATE TABLE `iotplatform`.`tempLog` ( `id` INT(255) NOT NULL AUTO_INCREMENT , `timeStamp` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `tempHex` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+\end{lstlisting}
+\caption{SQL database creation code}
+\label{snip:sql}
+\end{figure}
+%InnoDB?
+The data stored in the database is still encrypted, now a way is needed to decrypt it and display it to the user. A Java web app, using Java server pages, JSP, was created as there are Java implementations of the TweetNaCl library, among other variations, available \cite{ian}. Eclipse JEE Mars was used to create a dynamic web project which extends HttpServlet for the creation of dynamic web pages. In this you override at least one of the following methods, doGet, doPost, doPut and doDelete so the depending on the type of request received a different action will occur. This application has the code in the doGet as server will receive a get request when it is accessed by a user.
 
-A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
+\begin{figure}[H]
+\begin{lstlisting}[style=Java]
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+response.setContentType("text/html");
+PrintWriter printWriter  = response.getWriter();
+printWriter.println("<html>");
+}
+\end{lstlisting}
+\caption{Prepping the client printer in JSP}
+\label{snip:clientprinterjsp}
+\end{figure}
 
-\subsection{Java web app}
+The headers and tags you would need and expect in a HTML page can now be print dynamically much like printing to a console. The keys are defined similarly  to the code on the Arduino expect the server has it's own secret key and the Arduino's public key.
 
-The Java Web app details what the server is do when it gets various types of request, be it get or post...(more on requests?). In this type of application you can dynamically printout all the HTML that will be used to make up the page. The usual  HTML, head, body tags are printed at the top and the titles in the table are printed as well. (How it gets the keys?!). The web app uses JDBC to create a driver(idk man) to get the connection to the SQL database. Then using Java language it builds up a SQL query to take out all the values from the database and executes that. This puts all the table entries into a result set and the app cycles through that results set getting the relevant information out. The signed and encrypted hex is encoded as string and some leading zeros are lost in the conversion from byte array to string in the Arduino so these are added now before the string is converted back into a byte array. There is a try catch around the crypto\_box\_open and crypto\_sign\_open method so the server doesn't crash if one result set has been broken. Following this is the conversion from hex into integer for the user to read (how does it do it?) and finally the values are written to the browser along with the ending html tags.
+\begin{figure}[H]
+\begin{lstlisting}[style=Java]
+	final String DB_URL="jdbc:mysql://localhost/iotplatform";
+	String user = "root"; 
+	String password = "";
+	try
+	        {
+	          // Register JDBC driver
+	          Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-\subsection{PHP}
-PHP is a server-side scripting language 
+	            // Open a connection
+	            Connection conn = DriverManager.getConnection(DB_URL, user, password);
 
-There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. cooodee snippets
+	            // Execute SQL query
+	            Statement stmt = conn.createStatement();
+	            String sql;
+	            sql = "SELECT id, timeStamp, tempHex FROM tempLog";
+	            ResultSet rs = stmt.executeQuery(sql);
+	            // Extract data from result set
+	            while(rs.next()){
+	               //Retrieve by column name
+	               int id  = rs.getInt("id");
+	               String tempHex = rs.getString("tempHex");
+	               Timestamp timeStamp = rs.getTimestamp("timeStamp");
+	}
+}
+\end{lstlisting}
+\caption{Accessing the SQL database in JSP}
+\label{snip:sqlaccessjsp}
+\end{figure}
 
-\subsection{XAMPP Server}
-Apache for php files, SQL and Tomcat for web app. Accessible through web by port forwarding.
-what does the SQL table have?!
+The app is given the server details and access to it before entering a try catch that prints whatever the error message is to the client. Java database connectivity, JDBC, is an API for client access to a database. The app gets a new instance of JDBC and then opens a connection to the server before building up a query to pull out the contents of the table. The variables are put into a result set which much be accessed for each individually variable with the string name as a parameter. The encrypted message is still in it's String format and needs to be converted back into a byte array. During the conversion to a String on the Arduino half of the leading zeros are lost and they are added before the conversion to byte array. The API in the Java implementation of TweetNaCl is the exact same as the C.
 
-how does one access the xampp
+\begin{figure}[H]
+\begin{lstlisting}[style=Java]
+TweetNaCl.crypto_box_open(signedMessage, cipher, messageLength, nonce, arduinoPublicKey, serverSecretKey);
+byte[] javaPlainTextMessage = TweetNaCl.crypto_sign_open(signedCipherArray, ArduinoPublicSignatureKey);
+\end{lstlisting}
+\caption{Decryption of message and verification of signature in JSP}
+\label{snip:decryptjsp}
+\end{figure}
 
+The security needs to be taken open in the reverse order as to how it was put on. \emph{TweetNaCl.crypto\_box\_open} passes the decrypted message out by ref but for \emph{TweetNaCl.crypto\_sign\_open} the message without the signature is returned. The variable \emph{javaPlainTextMessage} is the temperature in plain hexadecimal but it still needs conversion to integer so it can be read by the average user. The code is taken from the DS18S20 example.
+
+The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
 
 \section{NaCl}
 
@@ -189,9 +244,8 @@ The keypair, crypto\_sign, crypto\_box and equivalent opens were used. These are
 
 \section{Machine to Machine}
 
-
 secure M2M public key transmission
 talk more about that
 
 
-1105
+2150
