@@ -72,6 +72,7 @@ headsepline, % Uncomment to get a line under the header
 \definecolor{myorange}{rgb}{0.8,0.4,0}
 \definecolor{myblue}{rgb}{0.1,0.61,0.98}
 \definecolor{darkblue}{rgb}{.5,0.61,0.98}
+\definecolor{lightbrown}{rgb}{0.8, 0.58, 0.46}
 
 \lstset{frame=tb,
   language=C,
@@ -105,7 +106,7 @@ headsepline, % Uncomment to get a line under the header
   stringstyle=\color{myblue},
 }
 
-\lstdefinestyle{blah}{
+\lstdefinestyle{PHP}{
   %style=FormattedNumber,
     keywords={php},%                 define keywords
     morecomment=[l]{//},%             treat // as comments
@@ -115,6 +116,29 @@ headsepline, % Uncomment to get a line under the header
     emphstyle=\bfseries\color{NavyBlue},
     keywordstyle=\color{red},
     stringstyle=\color{grey},
+}
+
+\lstdefinestyle{SQL}{
+  %style=FormattedNumber,
+    keywords={CREATE, TABLE, INT, NOT, NULL, AUTO_INCREMENT, TIMESTAMP, DEFAULT, CURRENT_TIMESTAMP, VARCHAR, PRIMARY, KEY, ENGINE},%                 define keywords
+    morecomment=[l]{//},%             treat // as comments
+    morecomment=[s]{/*}{*/},%         define /* ... */ comments
+    emph={},%        keywords to emphasize
+    emphstyle=\bfseries\color{NavyBlue},
+    keywordstyle=\color{blue},
+    stringstyle=\color{grey},
+}
+
+\lstdefinestyle{Java}{
+  %style=FormattedNumber,
+    keywords={request, response,printWriter },%                 define keywords
+    morecomment=[l]{//},%             treat // as comments
+    morecomment=[s]{/*}{*/},%         define /* ... */ comments
+    emph={protected, void, throws},%        keywords to emphasize
+    emphstyle=\bfseries\color{mauve},
+    keywordstyle=\color{lightbrown},
+    stringstyle=\color{blue},
+    numbers=left,
 }
 
 %----------------------------------------------------------------------------------------

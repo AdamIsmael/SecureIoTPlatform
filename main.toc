@@ -28,28 +28,28 @@
 \contentsline {section}{\numberline {4.2}Cryptographic}{12}{section.47}
 \contentsline {section}{\numberline {4.3}Data transmission}{12}{section.66}
 \contentsline {section}{\numberline {4.4}Server Side}{14}{section.102}
-\contentsline {subsection}{\numberline {4.4.1}Java web app}{14}{subsection.120}
-\contentsline {subsection}{\numberline {4.4.2}PHP}{15}{subsection.121}
-\contentsline {subsection}{\numberline {4.4.3}XAMPP Server}{15}{subsection.122}
-\contentsline {section}{\numberline {4.5}NaCl}{15}{section.123}
-\contentsline {section}{\numberline {4.6}Machine to Machine}{16}{section.124}
-\contentsline {chapter}{\numberline {5}Strength Of Security}{17}{chapter.125}
-\contentsline {section}{\numberline {5.1}Sign then Encrypt}{17}{section.126}
-\contentsline {section}{\numberline {5.2}Public Key Transmission}{17}{section.127}
-\contentsline {section}{\numberline {5.3}Bit Banging}{17}{section.128}
-\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{18}{section.129}
-\contentsline {section}{\numberline {5.5}nonces}{18}{section.130}
-\contentsline {chapter}{\numberline {6}Results}{19}{chapter.131}
-\contentsline {section}{\numberline {6.1}Recording of temperature}{19}{section.132}
-\contentsline {section}{\numberline {6.2}Sending Data}{19}{section.133}
-\contentsline {section}{\numberline {6.3}Power Consumption!}{19}{section.134}
-\contentsline {section}{\numberline {6.4}Web App}{19}{section.135}
-\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{19}{section.136}
-\contentsline {section}{\numberline {6.6}Machine to Machine}{20}{section.137}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{21}{chapter.138}
-\contentsline {section}{\numberline {7.1}SubSection}{21}{section.139}
-\contentsline {section}{\numberline {7.2}Other SubSection}{21}{section.140}
-\contentsline {chapter}{\numberline {8}Conclusion}{22}{chapter.141}
-\contentsline {section}{\numberline {8.1}SubSection}{22}{section.142}
-\contentsline {section}{\numberline {8.2}Other SubSection}{22}{section.143}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{23}{appendix.144}
+\contentsline {subsection}{\numberline {4.4.1}Java web app}{16}{subsection.160}
+\contentsline {subsection}{\numberline {4.4.2}PHP}{17}{subsection.161}
+\contentsline {subsection}{\numberline {4.4.3}XAMPP Server}{17}{subsection.162}
+\contentsline {section}{\numberline {4.5}NaCl}{17}{section.163}
+\contentsline {section}{\numberline {4.6}Machine to Machine}{17}{section.164}
+\contentsline {chapter}{\numberline {5}Strength Of Security}{18}{chapter.165}
+\contentsline {section}{\numberline {5.1}Sign then Encrypt}{18}{section.166}
+\contentsline {section}{\numberline {5.2}Public Key Transmission}{18}{section.167}
+\contentsline {section}{\numberline {5.3}Bit Banging}{18}{section.168}
+\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{19}{section.169}
+\contentsline {section}{\numberline {5.5}nonces}{19}{section.170}
+\contentsline {chapter}{\numberline {6}Results}{20}{chapter.171}
+\contentsline {section}{\numberline {6.1}Recording of temperature}{20}{section.172}
+\contentsline {section}{\numberline {6.2}Sending Data}{20}{section.173}
+\contentsline {section}{\numberline {6.3}Power Consumption!}{20}{section.174}
+\contentsline {section}{\numberline {6.4}Web App}{20}{section.175}
+\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{20}{section.176}
+\contentsline {section}{\numberline {6.6}Machine to Machine}{21}{section.177}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{22}{chapter.178}
+\contentsline {section}{\numberline {7.1}SubSection}{22}{section.179}
+\contentsline {section}{\numberline {7.2}Other SubSection}{22}{section.180}
+\contentsline {chapter}{\numberline {8}Conclusion}{23}{chapter.181}
+\contentsline {section}{\numberline {8.1}SubSection}{23}{section.182}
+\contentsline {section}{\numberline {8.2}Other SubSection}{23}{section.183}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{24}{appendix.184}
