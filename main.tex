@@ -58,6 +58,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{float}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[dvipsnames]{xcolor}
 
 \usepackage{typearea}
 \usepackage[utf8]{inputenc}
@@ -66,10 +67,11 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{etoolbox}  
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \definecolor{myorange}{rgb}{0.8,0.4,0}
-\definecolor{myblue}{rgb}{0.01,0.61,0.98}
+\definecolor{myblue}{rgb}{0.1,0.61,0.98}
+\definecolor{darkblue}{rgb}{.5,0.61,0.98}
 
 \lstset{frame=tb,
   language=C,
@@ -80,49 +82,39 @@ headsepline, % Uncomment to get a line under the header
   basicstyle={\small\ttfamily},
   morekeywords={HEX}
   numbers=left,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{myorange},
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{grey},
+  keywordstyle=\color{red},
   commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
   breaklines=true,
   breakatwhitespace=true,
   tabsize=3,
-  stringstyle=\color{myblue},
-  emphstyle=\bfseries\color{myorange}
 }
+
+
 
 \lstdefinestyle{Arduino}{%
     %style=FormattedNumber,
-    keywords={println, print, for, OneWire,select,write,delay, reset},%                 define keywords
+    keywords={println, print, for, OneWire,select,write,delay, reset, byte, char, const, long, unsigned, stop},%                 define keywords
     morecomment=[l]{//},%             treat // as comments
     morecomment=[s]{/*}{*/},%         define /* ... */ comments
     emph={HIGH, OUTPUT, LOW, setup, loop, Serial},%        keywords to emphasize
+    numbers=left,
+    keywordstyle=\color{myorange},
+   emphstyle=\bfseries\color{myorange},
+  stringstyle=\color{myblue},
 }
 
-\lstdefinestyle{FormattedNumber}{%
-    literate=*{0}{{\FormatDigit{0}}}{1}%
-             {1}{{\FormatDigit{1}}}{1}%
-             {2}{{\FormatDigit{2}}}{1}%
-             {3}{{\FormatDigit{3}}}{1}%
-             {4}{{\FormatDigit{4}}}{1}%
-             {5}{{\FormatDigit{5}}}{1}%
-             {6}{{\FormatDigit{6}}}{1}%
-             {7}{{\FormatDigit{7}}}{1}%
-             {8}{{\FormatDigit{8}}}{1}%
-             {9}{{\FormatDigit{9}}}{1}%
-             {.0}{{\FormatDigit{.0}}}{2}% Following is to ensure that only periods
-             {.1}{{\FormatDigit{.1}}}{2}% followed by a digit are changed.
-             {.2}{{\FormatDigit{.2}}}{2}%
-             {.3}{{\FormatDigit{.3}}}{2}%
-             {.4}{{\FormatDigit{.4}}}{2}%
-             {.5}{{\FormatDigit{.5}}}{2}%
-             {.6}{{\FormatDigit{.6}}}{2}%
-             {.7}{{\FormatDigit{.7}}}{2}%
-             {.8}{{\FormatDigit{.8}}}{2}%
-             {.9}{{\FormatDigit{.9}}}{2}%
-             %{,}{{\FormatDigit{,}}{1}% depends if you want the "," in color
-             {\ }{{ }}{1}% handle the space
-             ,%
+\lstdefinestyle{blah}{
+  %style=FormattedNumber,
+    keywords={php},%                 define keywords
+    morecomment=[l]{//},%             treat // as comments
+    morecomment=[s]{/*}{*/},%         define /* ... */ comments
+    emph={include, mysql_query, mysql_close},%        keywords to emphasize
+    numbers=left,
+    emphstyle=\bfseries\color{NavyBlue},
+    keywordstyle=\color{red},
+    stringstyle=\color{grey},
 }
 
 %----------------------------------------------------------------------------------------
@@ -388,5 +380,11 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 
 %----------------------------------------------------------------------------------------
+%	USEFUL COMMANDS I WILL FORGET
+%----------------------------------------------------------------------------------------
+% \emph{}   make the text italic
+% {\tt ``'code'} make the text look like code
+%----------------------------------------------------------------------------------------
+
 
 \end{document}  

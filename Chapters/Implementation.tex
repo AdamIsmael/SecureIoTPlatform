@@ -4,6 +4,7 @@
 \chapter{Implementation}
 \label{imple}
 
+%over view first?
 
 The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. 
 
@@ -30,9 +31,8 @@ The DS18S20 temperature sensor is wired up with a pull up 4.7$\Omega$ resistor, 
 	\label{fig:tempcircuit}
 \end{figure}
 
-
-%can explain full scratchpad memory, CRC, 
-The library used to read the DS18S20 is OneWire, which is a proprietary library from Maxim. {\tt ds.write(0x44, 1) } This is the command to start the internal A-D conversion operation. Once this process is finished the data is copied to the Scratchpad registers. A delay is need to charge the capacitor and to ensure conversion is complete before reading the data. Which is done with ds.write(0xBE) and then the data is read out using ds.read() then put into an array which is then added to the end of an array where the first 32 bytes entries are 0x00.
+%can explain full scratchpad memory, CRC, or hex to int conversion
+The library used to read the DS18S20 is OneWire, which is a proprietary library from Maxim. The command \emph{ds.write(0x44, 1)} starts the internal A-D conversion operation. Once this process is finished the data is copied to the Scratchpad registers. A delay is need to charge the capacitor and to ensure conversion is complete before reading the data. Which is done with \emph{ds.write(0xBE)} and then the data is read out using \emph{ds.read()} then put into an array.
 
 \begin{figure}[H]
 \begin{lstlisting}[style=Arduino]
@@ -55,19 +55,115 @@ The library used to read the DS18S20 is OneWire, which is a proprietary library 
   							}
 
 \end{lstlisting}
-\caption{DS18S20 in parasitic power mode connected to Arduino}
+\caption{DS18S20 temperature sensor Arduino Code}
 \label{snip:tempcode}
 \end{figure}
 
 
-%/cite{http://playground.arduino.cc/Learning/OneWire}
+\section{Cryptographic}
+\begin{figure}[H]
+\begin{lstlisting}[style=Arduino]
+#include <TweetNaCl2.h>
+TweetNaCl2 tnacl;
+
+byte arduinosk[crypto_box_SECRETKEYBYTES] = {...};
+byte arduinosksign[crypto_sign_SECRETKEYBYTES] = {...};
+byte serverpk[crypto_box_PUBLICKEYBYTES]  = {...};
+byte nonce[crypto_box_NONCEBYTES] = {...};
+
+int const messageLength = crypto_sign_BYTES + 9;
+byte message[messageLength] = {...};
+unsigned long long signedMessageLength=0;
+byte signedCipher[signedMessageLength];
+unsigned char signedMessage[messageLength+crypto_sign_BYTES];
+
+tnacl.crypto_sign(signedMessage, &signedMessageLength, message, messageLength, arduinosksign);
+tnacl.crypto_box(signedCipher, signedMessage, signedMessageLength, nonce, serverpk, arduinosk);
+\end{lstlisting}
+\caption{TweetNaCl Arduino Signature and Encryption Code}
+\label{snip:nacl}
+\end{figure}
+
+The C TweetNaCl has been converted into an Arduino library and therefore needs an instance created called \emph{tnacl}. With this instance the methods needed can be accessed. The keys are preinstalled to avoid the key distribution problem in lines 4-7. The next chunk sets up the messages that are two be passed between the methods. Message is initialised as a byte array of size \emph{messageLength} which can has to be \emph{crypto\_sign\_BYTES}, 32 bytes, plus the message. The first 32 bytes have to be zero for the signing to work. \emph{signedMessage} and \emph{signedMessageLength} are passed in by reference so after \emph{crypto\_sign()} is complete the message with the signature and the size of that array will be in those variables, respectively. The signed message has to have the leading 32 bytes(ummm) be zero but \emph{crypto\_sign()} takes care of that. Now that the plain text message has been signed it is to be encrypted. \emph{signedCipher} and \emph{signedMessage} are passed in by reference as well and the length of the cipher has the same size as the signature. The final product is the signed message cipher and that is the array sent.
+%explain what is happening?
 
 \section{Data transmission}
-The data is packaged up as a POST request, a POST request is a request method in the HTTP protocol which when a server receives it takes the data in the body and stores it. Explain server details 
+Once the data has been encrypted it is to be packaged up and sent across the network.
+
+\begin{figure}[H]
+\begin{lstlisting}[style=Arduino]
+#include<Ethernet2.h> //Ethernet Shield R2 library
+#include<SPI.h>
+
+byte mac[] = {
+0x90, 0xA2, 0xDA, 0x10, 0x2D, 0xD6 //of the Ethernet Shield
+};
+char server[] = "192.168.0.6"; //IP of apache web server
+EthernetClient client;
+
+ if(Ethernet.begin(mac)==0){
+      Serial.println("Failed to assign IP");
+  }else{
+     Serial.println("Assigned IP");
+     assigned=1; //static IP?!
+  }
+
+if(client.connect(server,80)){
+     String data = "temperatureHex=";
+     int contentLength = data.length()+final.length();
+     Serial.println("Connected");   
+     client.println("POST /tempLog/add.php HTTP/1.1"); 
+     client.println("HOST: 192.168.0.6"); 
+     client.println("Content-Type: application/x-www-form-urlencoded");
+     client.print("Content-Length: ");
+     client.println(contentLength);
+     client.println();
+     client.print("temperatureHex=");
+     client.print(final);
+   }else{
+       Serial.println("Failed to Connect");
+   }
+   
+   client.stop();
+\end{lstlisting}
+\caption{Ethernet interfacing and transmission Code }
+\label{snip:ethernet}
+\end{figure}
+ Just before the cipher is sent the byte array is converted into a String so that it can be passed around easily as one parameter. This is completed simply be cycling through the byte array and adding each entry together. Care has to be taken when there are hexadecimals that are 0x0F or lower. The leading zero is lost during the conversion to String which means the cipher is incorrect and cannot be decrypted. This is solved by explicitly adding an extra ``'0'' String if the byte is less than or equal to 0x0F. First the device needs an IP address which is complete through DHCP by the router, this is completed with the line \emph{Ethernet.begin(mac)} which returns a 1 on successful IP allocation or 0 on failure. If it fails then a static IP can be assigned manually. A connection to the server is attempted using the IP and the port number, 80 in this case. If it successful the information is sent as a POST request, a POST request is a request method in the HTTP protocol. When a server receives a POST request it knows to take the data and complete an action with it. The request makes it known that it wants add.php to be executed upon receiving the data. %extra params, the content size and urlencoding
+Once the data is sent the connection can be closed and other actions performed on the Arduino.
  
 \section{Server Side}
+						%needs an intro
+For the prototype, an Apache server, SQL server and Tomcat server were set up using XAMPP on a desktop. The Arduino causes the add.php to be run and the first thing that does is make a connection to the SQL server using SQl server address, username, password and the name of the database. If it can't connect it abandons the task and returns an error message. On successful connect it returns the connection variable.
 
-For the prototype, an Apache server, SQL server and Tomcat server was set up using XAMPP on a desktop. A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
+\begin{figure}[H]
+%\begin{lstlisting}[language=PHP]
+\begin{lstlisting}[style=blah]
+<?php
+   	include("connect.php");
+ 
+   	$link=Connection();
+	
+	$temp=$_POST["temperatureHex"];
+ 
+	$query = "INSERT INTO tempLog (tempHex) 
+		VALUE ('".$temp."')"; 
+ 
+   	mysql_query($query,$link);
+   	mysql_close($link);
+ 
+   	header("Location: index.php");
+?>
+\end{lstlisting}
+\caption{Arduino to SQL interfacing code}
+\label{snip:php}
+\end{figure}
+
+The data to be stored is extracted out of the POST request and place in a variable. Then an SQL query is built up before being sent to the SQL server and the connection terminated.
+
+SQL!
+
+A Java web app was created as that is the language the writer has the most experience in and there are Java implementations of the TweetNaCl library, among other variations, available. The SQL table is a simple table that holds a key, timestamp and the signed and encrypted temperature sensor. (example?). The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
 
 \subsection{Java web app}
 
