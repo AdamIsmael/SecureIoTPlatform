@@ -16,40 +16,44 @@
 \contentsline {subsection}{\numberline {2.2.4}Stream Cipher Attack}{6}{subsection.14}
 \contentsline {section}{\numberline {2.3}Machine to Machine}{6}{section.15}
 \contentsline {section}{\numberline {2.4}Technologies used}{7}{section.16}
-\contentsline {section}{\numberline {2.5}Secure Transimission of Keys}{7}{section.17}
-\contentsline {chapter}{\numberline {3}Design}{8}{chapter.18}
-\contentsline {section}{\numberline {3.1}Aims}{8}{section.19}
-\contentsline {section}{\numberline {3.2}Microcontroller}{8}{section.20}
-\contentsline {section}{\numberline {3.3}Security}{9}{section.21}
-\contentsline {section}{\numberline {3.4}Server}{9}{section.22}
-\contentsline {chapter}{\numberline {4}Implementation}{10}{chapter.23}
-\contentsline {section}{\numberline {4.1}IoT Platform}{10}{section.24}
-\contentsline {subsection}{\numberline {4.1.1}Temperature reading}{10}{subsection.25}
-\contentsline {section}{\numberline {4.2}Cryptographic}{12}{section.47}
-\contentsline {section}{\numberline {4.3}Data transmission}{12}{section.66}
-\contentsline {section}{\numberline {4.4}Server Side}{14}{section.102}
-\contentsline {subsection}{\numberline {4.4.1}Java web app}{16}{subsection.160}
-\contentsline {subsection}{\numberline {4.4.2}PHP}{17}{subsection.161}
-\contentsline {subsection}{\numberline {4.4.3}XAMPP Server}{17}{subsection.162}
-\contentsline {section}{\numberline {4.5}NaCl}{17}{section.163}
-\contentsline {section}{\numberline {4.6}Machine to Machine}{17}{section.164}
-\contentsline {chapter}{\numberline {5}Strength Of Security}{18}{chapter.165}
-\contentsline {section}{\numberline {5.1}Sign then Encrypt}{18}{section.166}
-\contentsline {section}{\numberline {5.2}Public Key Transmission}{18}{section.167}
-\contentsline {section}{\numberline {5.3}Bit Banging}{18}{section.168}
-\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{19}{section.169}
-\contentsline {section}{\numberline {5.5}nonces}{19}{section.170}
-\contentsline {chapter}{\numberline {6}Results}{20}{chapter.171}
-\contentsline {section}{\numberline {6.1}Recording of temperature}{20}{section.172}
-\contentsline {section}{\numberline {6.2}Sending Data}{20}{section.173}
-\contentsline {section}{\numberline {6.3}Power Consumption!}{20}{section.174}
-\contentsline {section}{\numberline {6.4}Web App}{20}{section.175}
-\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{20}{section.176}
-\contentsline {section}{\numberline {6.6}Machine to Machine}{21}{section.177}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{22}{chapter.178}
-\contentsline {section}{\numberline {7.1}SubSection}{22}{section.179}
-\contentsline {section}{\numberline {7.2}Other SubSection}{22}{section.180}
-\contentsline {chapter}{\numberline {8}Conclusion}{23}{chapter.181}
-\contentsline {section}{\numberline {8.1}SubSection}{23}{section.182}
-\contentsline {section}{\numberline {8.2}Other SubSection}{23}{section.183}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{24}{appendix.184}
+\contentsline {subsection}{\numberline {2.4.1}PHP}{7}{subsection.17}
+\contentsline {subsection}{\numberline {2.4.2}XAMPP Server}{7}{subsection.18}
+\contentsline {subsection}{\numberline {2.4.3}SQL}{7}{subsection.19}
+\contentsline {subsection}{\numberline {2.4.4}Apache Tomcat}{7}{subsection.20}
+\contentsline {section}{\numberline {2.5}Secure Transmission of Keys}{7}{section.21}
+\contentsline {chapter}{\numberline {3}Design}{9}{chapter.22}
+\contentsline {section}{\numberline {3.1}Aims}{9}{section.23}
+\contentsline {section}{\numberline {3.2}Microcontroller}{9}{section.24}
+\contentsline {section}{\numberline {3.3}Security}{10}{section.25}
+\contentsline {section}{\numberline {3.4}Server}{10}{section.26}
+\contentsline {subsection}{\numberline {3.4.1}Web Server}{10}{subsection.27}
+\contentsline {subsection}{\numberline {3.4.2}Arduino Server}{11}{subsection.28}
+\contentsline {chapter}{\numberline {4}Implementation}{12}{chapter.29}
+\contentsline {section}{\numberline {4.1}Overview}{12}{section.30}
+\contentsline {section}{\numberline {4.2}IoT Platform}{12}{section.31}
+\contentsline {subsection}{\numberline {4.2.1}Temperature reading}{13}{subsection.32}
+\contentsline {section}{\numberline {4.3}Cryptographic}{14}{section.54}
+\contentsline {section}{\numberline {4.4}Data transmission}{15}{section.73}
+\contentsline {section}{\numberline {4.5}Server Side}{17}{section.109}
+\contentsline {section}{\numberline {4.6}NaCl}{19}{section.167}
+\contentsline {section}{\numberline {4.7}Machine to Machine}{20}{section.168}
+\contentsline {chapter}{\numberline {5}Strength Of Security}{21}{chapter.169}
+\contentsline {section}{\numberline {5.1}Sign then Encrypt}{21}{section.170}
+\contentsline {section}{\numberline {5.2}Public Key Transmission}{21}{section.171}
+\contentsline {section}{\numberline {5.3}Bit Banging}{21}{section.172}
+\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{22}{section.173}
+\contentsline {section}{\numberline {5.5}nonces}{22}{section.174}
+\contentsline {chapter}{\numberline {6}Results}{23}{chapter.175}
+\contentsline {section}{\numberline {6.1}Recording of temperature}{23}{section.176}
+\contentsline {section}{\numberline {6.2}Sending Data}{23}{section.177}
+\contentsline {section}{\numberline {6.3}Power Consumption!}{23}{section.178}
+\contentsline {section}{\numberline {6.4}Web App}{24}{section.179}
+\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{24}{section.180}
+\contentsline {section}{\numberline {6.6}Machine to Machine}{24}{section.181}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{25}{chapter.182}
+\contentsline {section}{\numberline {7.1}SubSection}{25}{section.183}
+\contentsline {section}{\numberline {7.2}Other SubSection}{25}{section.184}
+\contentsline {chapter}{\numberline {8}Conclusion}{26}{chapter.185}
+\contentsline {section}{\numberline {8.1}SubSection}{26}{section.186}
+\contentsline {section}{\numberline {8.2}Other SubSection}{26}{section.187}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{27}{appendix.188}

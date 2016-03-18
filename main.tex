@@ -72,8 +72,8 @@ headsepline, % Uncomment to get a line under the header
 \definecolor{myorange}{rgb}{0.8,0.4,0}
 \definecolor{myblue}{rgb}{0.1,0.61,0.98}
 \definecolor{darkblue}{rgb}{.5,0.61,0.98}
-\definecolor{lightbrown}{rgb}{0.8, 0.58, 0.46}
-
+\definecolor{lightbrown}{rgb}{0.6, 0.38, 0.23}
+\definecolor{beaver}{rgb}{0.62, 0.51, 0.44}
 \lstset{frame=tb,
   language=C,
   aboveskip=3mm,
@@ -131,10 +131,10 @@ headsepline, % Uncomment to get a line under the header
 
 \lstdefinestyle{Java}{
   %style=FormattedNumber,
-    keywords={request, response,printWriter },%                 define keywords
+    keywords={request, response,printWriter, signedCipherArray, ArduinoPublicSignatureKey, javaPlainTextMessage, signedMessage, cipher, messageLength, nonce, arduinoPublicKey, serverSecretKey, DB_URL, user, password, sql, rs, id, tempHex, timeStamp, conn, stmt},%                 define keywords
     morecomment=[l]{//},%             treat // as comments
     morecomment=[s]{/*}{*/},%         define /* ... */ comments
-    emph={protected, void, throws},%        keywords to emphasize
+    emph={protected, void, throws, byte, final, try},%        keywords to emphasize
     emphstyle=\bfseries\color{mauve},
     keywordstyle=\color{lightbrown},
     stringstyle=\color{blue},

@@ -23,7 +23,6 @@ Once the temperature data is on the board there needs to be a way to transmit th
 
 \section{Security}
 
-
 There a lot of security options for desktop programmes and communications like AES, WEP, SSL. In this more ubiquitous field the implementations have been around for a while but for microcontrollers only in recent times have they become powerful enough at a cheap price and therefore popular enough for developers to write or adapt cryptographic libraries suited for microntroller communications. The library in this application had to have acceptable security, really as close as possible to encryption systems in more powerful computers but still have acceptable performance, have a small enough code size to be store on the microcontroller and be easy to use. Of course, it needs to prevent attackers from reading or altering the data and proving who sent it.
 
 some have extra chips to do the encryption
@@ -35,6 +34,9 @@ TweetNaCl was chosen for this project. It is a public-domain cryptographic libra
 
 \section{Server}
 
+\subsection{Web Server}
 The data needs to be sent in some way, how data is passed to and taken from servers is using POST and GET requests. And it is possible to send a GET or POST request to for a file and that file then executes. It was decided the arduino would GET PHP because taking the encrypted and signed data and storing it is a relatively simple job and could be left to a simple php script but the decryption and checking signature and integrity is more complex and extra code needs to be run. There are many different implementations of NaCl in many different programming languages. It was decided to use a Java implementation from the developer Ian Preston in conjunction with Java server pages, JSP, which is a tool to dynamically create web pages using Java code. JSP could be joined with the Java implementation of the C library, NaCl to retrieve the encrypted values from a database and display them. For the database structured query language, SQL, was chosen.
 
-878
+\subsection{Arduino Server}
+
+If it is desired that the temperature be taken from more than one location then there will need to be multiple nodes on the network. Or if there needs to be extra microcontrollers on the network for some other task. One such task is the distribution of public keys, if the server is to update it's public key, say as part of a regular update schedule to provide good security or if a key is known to be comprised then it will need a way to pass on the key. The Due can request a new key or the server can indicate to the Due that a new key has been made a available and the Due will make a request for that key then make a connection to the other Arduinos in the network and send them that key. An extra Arduino Uno was chosen as an extra node for testing. The network will be built using Ethernet and be an extension of the Arduino Due to web server relationship. As the Arduino Due is a client to the web server the other nodes will need to be hosts if information is to be passed between them. The setup described in \ref{} is desired. 

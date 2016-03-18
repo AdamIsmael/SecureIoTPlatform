@@ -62,23 +62,28 @@ Side channel attack, does NaCl protect a bit against this
 
 \section{Machine to Machine}
 
-M2M refers to the direct communication between two devices using any sort of channel. This is a component of IoT when connected in this way small, low power sensors can transmit their data to another device which can collate, perform analysis or some extra computation or pass the data along again before it reaches a human user. Present day applications monioring the health of machinery, digital billboards or sensory networks. An application may multiple sensors in a network that pass sensor data to multiple nodes which do some computation, such as adjust machines to correct errors, replenish stock or manage a system and possibly sending information, such as state across the Internet to a human user 
+M2M refers to the direct communication between two devices using any sort of channel. This is a component of IoT when connected in this way small, low power sensors can transmit their data to another device which can collate, perform analysis or some extra computation or pass the data along again before it reaches a human user. Present day applications monioring the health of machinery, digital billboards or sensory networks. An application may multiple sensors in a network that pass sensor data to multiple nodes which do some computation, such as adjust machines to correct errors, replenish stock or manage a system and possibly sending information, such as state across the Internet to a human user.
 
 \section{Technologies used}
 
-In this project the Arduino was programmed using C++. The C++ was developed in the Arduino IDE. An Arduino Due, Arduino UNO, DS1820S temperature sensor with resistor and two Ethernet Shield R2 boards. On the server side there is an SQL server, PHP scripts that accept that Arduino data and put it in the SQL server. And a Java web application that uses JBCD.. to access the SQL server and outputs dynamic HTML when accessed. The Java code was developed using Eclipse Jee Mars.
+In this project the Arduino was programmed using C++. The C++ was developed in the Arduino IDE. An Arduino Due, Arduino UNO, DS1820S temperature sensor with resistor and two Ethernet Shield R2 boards. On the server side there is an SQL server, PHP scripts that accept that Arduino data and put it in the SQL server. And a Java web application that uses Java Database Connectivity, JBCD, to access the SQL server and outputs dynamic HTML when accessed. The Java code was developed using Eclipse Jee Mars.
 
 \subsection{PHP}
-PHP is a server-side scripting language 
+PHP is a server-side scripting language used in web development. It is especially suited server-side applications as it is very portable. PHP code in a file that is requested is executed by the PHP runtime. It can be used with many OS's, web serves and relational database management systems. It is very common for web hosting providers to support PHP use by their clients.
 
 \subsection{XAMPP Server}
-Apache for php files, SQL and Tomcat for web app. Accessible through web by port forwarding.
-what does the SQL table have?!
 
-how does one access the xampp
+XAMPP, Apache, MySQL, PHP and Perl come together to form XAMPP which is free, open source, cross platform, web server stack package for the creation and testing of local server systems that can then be moved as they are onto live systems. This XAMPP used in this project also contains Tomcat.
 
+\subsection{SQL}
+
+Standard Query Language is a special purpose programming language for managing data store in relational databases. SQL organises data into databases and tables and has operations for inserting, updating, deleting, altering and querying data. The vast majority of the databases use SQL.
+
+\subsection{Apache Tomcat}
+
+Tomcat is an open source implementation of the Java servlet, JavaServer Pages, Java Expression Language and Java Websocket technologies. It provides the ability to produce dynamic HTML in a pure Java environment. It accepts web application archives, WAR, files for ease of updating web apps.
+
+%JBCD? Accessible through web by port forwarding.
 \section{Secure Transmission of Keys}
 
 The problem is more acute with symmetric key encryption as it is the same key used to encrypt and decrypt a message, if the key is compromised messages can no longer be trusted. The only thing and most high tech solution is to meet in person and in private with the person you plan to communicate with and exchange keys there. If the communication with be of a diplomatic nature, the bag used to transport the keys can have special legal protection against being opened and this is called a diplomatic bag(pg 52 of book chpt 2). You could send a key over a another secure channel that you trust but there is always the chance that has been compromised and it is not possible to verify that the person on the other side of the secure channel is who you think it is without first having a secure identifier which you can't get solely through internet communication. There is a similar problem with Asymmetric key encryption, a user can freely distribute their public key and they can be pretty sure that the messages they receive are secure but it is not possible to prove who has sent you the message without their public key signature but initially public key transmission is vulnerable to man in the middle attacks.
-
-1550
