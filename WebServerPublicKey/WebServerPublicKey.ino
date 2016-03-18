@@ -62,6 +62,9 @@ void setup() {
 void loop() {
   // listen for incoming clients
   EthernetClient client = server.available();
+  String words = " ";
+  String key = "";
+  int saveNextWord = 0;
   if (client) {
     Serial.println("new client");
     // an http request ends with a blank line
@@ -70,6 +73,16 @@ void loop() {
       if (client.available()) {
         char c = client.read();
         Serial.write(c);
+        if(c == ' '){
+          key = words;
+          words=" ";
+        }else{
+          //Serial.print(words);
+          words = words + c;
+        }
+        if(words=="Content"){
+           saveNextWord = 1; 
+        }
         // if you've gotten to the end of the line (received a newline
         // character) and the line is blank, the http request has ended,
         // so you can send a reply
@@ -83,14 +96,14 @@ void loop() {
           client.println("<!DOCTYPE HTML>");
           client.println("<html>");
           // output the value of each analog input pin
-          for (int analogChannel = 0; analogChannel < 6; analogChannel++) {
-            int sensorReading = analogRead(analogChannel);
-            client.print("analog input ");
-            client.print(analogChannel);
-            client.print(" is ");
-            client.print(sensorReading);
-            client.println("<br />");
-          }
+//          for (int analogChannel = 0; analogChannel < 6; analogChannel++) {
+//            int sensorReading = analogRead(analogChannel);
+//            client.print("analog input ");
+//            client.print(analogChannel);
+//            client.print(" is ");
+//            client.print(sensorReading);
+//            client.println("<br />");
+//          }
           client.println("</html>");
           break;
         }
@@ -104,6 +117,7 @@ void loop() {
         }
       }
     }
+    Serial.print(key);
     // give the web browser time to receive the data
     delay(1);
     // close the connection:

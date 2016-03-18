@@ -64,13 +64,24 @@ void setup() {
   //int connecte = client.connect(server,8081);
   //Serial.println(connecte);
   // if you get a connection, report back via serial:
+  String PostData = "f9fg8d7a3jn53jkx87as83nj34kajshdasd834j34fd67f";
+  
   if (client.connect(server,8081)) {
     Serial.println("connected");
     // Make a HTTP request:
-    client.println("GET HTTP/1.1");
-    client.println("Host: www.google.com");
-    client.println("Connection: close");
+    client.println("POST arduino HTTP/1.1 ");
+    client.println("Host: 192.168.0.50 ");
+    client.println("User-Agent: Arduino/1.0 ");
+    client.println("Content-Type: application/x-www-form-urlencoded ");
+    client.print("Content-Length: ");
+    client.println(PostData.length());
+    client.print(" ");
+    client.print("Content: ");
+    client.print(PostData);
+    client.println(" ");
     client.println();
+    //client.print("data=");
+    //client.print(PostData);
   }
   else {
     // kf you didn't get a connection to the server:
