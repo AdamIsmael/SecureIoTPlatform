@@ -3,10 +3,11 @@
 #include <SPI.h>
 
 byte mac[] = {
-0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6
+//0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6
+0x90, 0xA2, 0xDA, 0x10, 0x04, 0xB5
 };
 //char server[]= "www.tonterias.site88.net";
-char server[] = "192.168.0.6";
+char server[] = "192.168.0.3";
 EthernetClient client;
 
 String data;
@@ -44,14 +45,12 @@ void loop() {
      Serial.println("Connected");
      
      client.println("POST /tempLog/add.php HTTP/1.1"); 
-     client.println("HOST: 192.168.0.6"); //server address
+     client.println("HOST: 192.168.0.3"); //server address
      client.println("Content-Type: application/x-www-form-urlencoded");
      client.print("Content-Length: ");
-     client.println(37);
+     client.println(19);
      client.println();
-     client.print("temperatureInt=");
-     client.print("22");
-     client.print("&temperatureHex=");
+     client.print("temperatureHex=");
      client.print("adsa");
      
      Serial.println("Data sent");

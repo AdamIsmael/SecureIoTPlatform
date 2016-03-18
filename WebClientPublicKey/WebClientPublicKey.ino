@@ -24,10 +24,10 @@ byte mac[] = {0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6 };
 // use the numeric IP instead of the name for the server:
 //IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
 //char server[] = "www.google.com";    // name address for Google (using DNS)
-char server[] = "192.168.1.177";
+char server[] = "192.168.0.50";
 //char server[] = "216.58.213.142";
 // Set the static IP address to use if the DHCP fails to assign
-IPAddress ip(192, 168, 0, 50);
+IPAddress ip(192, 168, 0, 22);
 
 // Initialize the Ethernet client library
 // with the IP address and port of the server
@@ -61,13 +61,13 @@ void setup() {
   // give the Ethernet shield a second to initialize:
   delay(1000);
   Serial.println("connecting...");
-  int connecte = client.connect(server,81);
-  Serial.println(connecte);
+  //int connecte = client.connect(server,8081);
+  //Serial.println(connecte);
   // if you get a connection, report back via serial:
-  if (client.connect(server,81)) {
+  if (client.connect(server,8081)) {
     Serial.println("connected");
     // Make a HTTP request:
-    client.println("GET /search?q=arduino HTTP/1.1");
+    client.println("GET HTTP/1.1");
     client.println("Host: www.google.com");
     client.println("Connection: close");
     client.println();
