@@ -15,6 +15,11 @@ The device successfully transmits data in the form of a POST request across to a
 
 \section{Power Consumption!}
 
+So when the ethernet shield but no ethernet cable is plugged in, the platform starts with 4.96V, 0.123A, 613mW and stays that way when reading from the temp sensor as the sensor is in parasite moew, even if it wasn't it would not be noticeable compare to the idle power needs of the due. When the signing was ocurring it jumpred to .17A/970mW and for encrypt it was .20A/1000mW. Then during dchp when ethernet shield was in but not cable .199A and990W. With a tiny drop when it failed to connect and was in the busy wait at .198A and 980mW.
+
+However with the ethernet cable plugged the power consumption shot up to 1.30w/0.265a and remained at that level even during the encryption process. Evidently the shield requires the lions share of the power and the cyrptograpphic library is good as to be unnoticable.
+
+
 is flashed the normal way
 take temp reading every couple of seconds in parasite mode, 
 4.96V, 0.123A, 613mW
@@ -31,12 +36,24 @@ same again
 
 When reading the data from the temperature and encrypting said data
 the current increases from .123A  .17 to .20 and
+					resting sign and encrypt
 the wattage increases from 613mW to 970 for signing to 1000 for encryption
 
-During the dhcp and connecting to server .199A and 990mW
+				and failing to connect		
+				
+During the dhcp and connecting to server .199A and 990mW with no ethernet plugged in
 
 During the busy wait at the end of loop delay() the current is .198A and 980mW
 a tiny drop in current
+
+
+with ethernet plugged in, sending encrypted data
+1.30w /0.265a
+
+tested on data of 19 length and 209, made no difference
+
+with ethernet plugged in but no encryption
+1.30w /0.265a
 
 \section{Web App}
 
