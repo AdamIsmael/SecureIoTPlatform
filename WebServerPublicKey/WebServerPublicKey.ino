@@ -62,11 +62,11 @@ void setup() {
 void loop() {
   // listen for incoming clients
   EthernetClient client = server.available();
-  String words = " ";
-  String key = "";
-  int saveNextWord = 0;
+  String incomingWord = " ", key = "";
+  int saveNextWord = 0, takeData = 0;
   if (client) {
     Serial.println("new client");
+    client.println("ACK");
     // an http request ends with a blank line
     boolean currentLineIsBlank = true;
     while (client.connected()) {
@@ -74,14 +74,19 @@ void loop() {
         char c = client.read();
         Serial.write(c);
         if(c == ' '){
-          key = words;
-          words=" ";
+          if(saveNextWord == 1){
+            key = incomingWord;
+          }
+          incomingWord=" ";
+          saveNextWord=0;
         }else{
-          //Serial.print(words);
-          words = words + c;
+          incomingWord = incomingWord + c;
         }
-        if(words=="Content"){
+        if((incomingWord=="Content") && (takeData)){
            saveNextWord = 1; 
+        }
+        if(incomingWord=="POST"){
+          takeData=1;
         }
         // if you've gotten to the end of the line (received a newline
         // character) and the line is blank, the http request has ended,
