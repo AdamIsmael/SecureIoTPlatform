@@ -35,8 +35,8 @@
 \contentsline {section}{\numberline {4.3}Cryptographic}{14}{section.54}
 \contentsline {section}{\numberline {4.4}Data transmission}{15}{section.73}
 \contentsline {section}{\numberline {4.5}Server Side}{17}{section.109}
-\contentsline {section}{\numberline {4.6}NaCl}{19}{section.167}
-\contentsline {section}{\numberline {4.7}Machine to Machine}{20}{section.168}
+\contentsline {section}{\numberline {4.6}Machine to Machine}{19}{section.167}
+\contentsline {section}{\numberline {4.7}TweetNaCl Library}{20}{section.168}
 \contentsline {chapter}{\numberline {5}Strength Of Security}{21}{chapter.169}
 \contentsline {section}{\numberline {5.1}Sign then Encrypt}{21}{section.170}
 \contentsline {section}{\numberline {5.2}Public Key Transmission}{21}{section.171}

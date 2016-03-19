@@ -236,15 +236,17 @@ The security needs to be taken open in the reverse order as to how it was put on
 
 The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
 
-\section{NaCl}
+
+\section{Machine to Machine}
+
+For the creation of other nodes on the network that are connected onto the Due, an Arduino Uno was set up as a host and example node. As two clients can't directly connect together with the Ethernet protocol and since the Arduino Due is a client to a web server, the Uno must be a host. The Uno will be a server similar to the XAMPP web server expect it isn't directly connected to the internet. 
+additional web server code to facilitate sending of keys to Due??
+The Due sends a POST request to the Uno, very similar to the one it sends to the XAMPP web server however the key is under the content header. The method that the Due uses, sending a POST request that executes a php file to extract the data from the POST cannot be used, without difficulty??, as PHP can't be run on an Arduino web server. Instead there is an extra header in the POST, \emph{``Content: key''}.
+
+\section{TweetNaCl Library}
 
 The TweetNaCl library as it stands in it's original form is not compatible with Arduinos. The C library compiles without errors but the compiler warns that the TweetNaCl method names are undefined and as a result do not perform their tasks. The method simply returns random numbers, it is possibly that it is trying to access some area of memory and simply returns whatever it finds.(ask greg/james). It is not understand why this is the case but it is a simple case of converting the library into C++ syntax. With a header file that has the main methods used in the project and the \#defines and a cpp file with the TweetNaCl code. This is added in the same way to the Arduino IDE and in the code an instance of the class is created and methods are accessed with the dot operator.
 
 The keypair, crypto\_sign, crypto\_box and equivalent opens were used. These are simple to use, abstracted methods that make this library easy to use. For the encryption the method needs the message to be encrypted which needs to have the first 32 bytes be zero, an empty array that needs to be at least the size of the message with the leading zeros, the length of the message, the nonce, arduino public key and the servers private key. This will reveal the temperature data with the signature. To remove the signature, the crypto\_sign\_open method needs the server secret signature key and the signed cipher array.
 
-\section{Machine to Machine}
-
-
-secure M2M public key transmission
-talk more about that
 
