@@ -41,7 +41,7 @@ const byte nonce[crypto_box_NONCEBYTES]
 int const mlen = 41;
 
 unsigned char smtemp[mlen+crypto_sign_BYTES];
-unsigned char sm[mlen+crypto_sign_BYTES+32]; //41 + 64 +32
+; //41 + 64 +32
 
 unsigned long long smlen = 0;
 
@@ -73,9 +73,9 @@ void setup() {
   }
   
   Serial.println();
-  byte sc[smlen+32];
-  byte temp;
+  byte sc[137];
  
+  unsigned char sm[mlen+crypto_sign_BYTES+32]
   for(i=0;i<32;i++){
     sm[i]=0;
   }
@@ -96,8 +96,7 @@ void setup() {
   int fulllength = smlen + 32;
   Serial.println(fulllength);
   
-  
-  
+ 
   
   int Suc_Encry=20;
   Suc_Encry = tuit.crypto_box(sc, sm, 137, nonce, serverpk, arduinosk);
