@@ -31,6 +31,9 @@ on an Ivy Bridge CPU for RSA-2048 decryption, for example, so they can certainly
 the 2.5 million cycles that TweetNaCl uses for higher-security decryption (Curve25519).''
 TweetNaCl is still small after compilation at 11KB thus avoiding instruction cache misses. It is a full library and not a set of isolated functions for a simple NaCl application, only six functions are needed. crypto\_box for public-key authenticated encryption; crypto\_box\_open for verification and decryption; crypto\_box\_keypair to create a public key; and similarly for signatures crypto\_sign, crypto\_sign\_open, and crypto\_sign\_keypair. It is open source and the developers encourage it to be used as much as possible. 
 
+
+
+%explain how the encryption and signature's work. high level overview
 NaCl will move to Ed25519 signature system, what is that?
 
 TweetNaCl encrypts messages by xor'ing them with the output of Bernsteins Salsa20?? stream cipher

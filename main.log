@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  20 MAR 2016 16:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  20 MAR 2016 21:54
 entering extended mode
 **main.tex
-(E:\UNINotes\4th\Project\Report1\main.tex
+(E:\UNINotes\4th\Project\IoTPlatform\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(E:\UNINotes\4th\Project\Report1\MastersDoctoralThesis.cls
+(E:\UNINotes\4th\Project\IoTPlatform\MastersDoctoralThesis.cls
 Document Class: MastersDoctoralThesis 2015/11/08 v1.2 LaTeXTemplates.com
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
@@ -1347,17 +1347,17 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count379
 \@quotereset=\count380
-(E:\UNINotes\4th\Project\Report1\main.aux
-(E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/ProjectToolsandPlanning.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Design.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Implementation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Results.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
-(E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
+(E:\UNINotes\4th\Project\IoTPlatform\main.aux
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/ProjectToolsandPlanning.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 180.
 LaTeX Font Info:    ... okay on input line 180.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 180.
@@ -1527,7 +1527,7 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
-(E:\UNINotes\4th\Project\Report1\main.bbl
+(E:\UNINotes\4th\Project\IoTPlatform\main.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with '50milby2020':
@@ -1570,8 +1570,8 @@ LaTeX Info: Redefining \ref on input line 180.
 LaTeX Info: Redefining \pageref on input line 180.
 LaTeX Info: Redefining \nameref on input line 180.
 
-(E:\UNINotes\4th\Project\Report1\main.out)
-(E:\UNINotes\4th\Project\Report1\main.out)
+(E:\UNINotes\4th\Project\IoTPlatform\main.out)
+(E:\UNINotes\4th\Project\IoTPlatform\main.out)
 \@outlinefile=\write4
 \c@lstlisting=\count388
 Package scrhack Info: undefining \float@addtolists on input line 180.
@@ -1587,7 +1587,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 197.
-<img/uni_logo_eng.jpg, id=232, 188.20313pt x 134.75343pt>
+<img/uni_logo_eng.jpg, id=228, 188.20313pt x 134.75343pt>
 File: img/uni_logo_eng.jpg Graphic file (type jpg)
 
 <use img/uni_logo_eng.jpg>
@@ -1598,7 +1598,7 @@ Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 225.
 
 
 {C:/Users/Turkleton's/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <E:/UN
-INotes/4th/Project/Report1/img/uni_logo_eng.jpg>]
+INotes/4th/Project/IoTPlatform/img/uni_logo_eng.jpg>]
 --------------------
  Declaration of Authorship
 --------------------
@@ -1630,7 +1630,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 294.
- (E:\UNINotes\4th\Project\Report1\main.toc
+ (E:\UNINotes\4th\Project\IoTPlatform\main.toc
 1: section
 [4
 
@@ -1640,7 +1640,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 1: section
 [1
 
-] (E:\UNINotes\4th\Project\Report1\Chapters/Introduction.tex
+] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.tex
 Chapter 1.
 
 LaTeX Warning: Citation 'which' on page 2 undefined on input line 25.
@@ -1649,7 +1649,8 @@ LaTeX Warning: Citation 'which' on page 2 undefined on input line 25.
 [2
 
 
-]) [3] (E:\UNINotes\4th\Project\Report1\Chapters/ProjectToolsandPlanning.tex
+]) [3]
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/ProjectToolsandPlanning.tex
 Chapter 2.
 )
 Overfull \hbox (90.38762pt too wide) in paragraph at lines 5--364
@@ -1662,7 +1663,7 @@ HaskjfhAS;KLJLHakjsdh
 
 
 
-] (E:\UNINotes\4th\Project\Report1\Chapters/Background.tex
+] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.tex
 Chapter 3.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 10.
@@ -1674,12 +1675,12 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 
 
 ] [6] [7]
-Overfull \hbox (13.81454pt too wide) in paragraph at lines 80--81
+Overfull \hbox (13.81454pt too wide) in paragraph at lines 83--84
 \T1/ppl/m/n/10.95 man-ag-ing data store in re-la-tional databases. SQL or-gan-i
 ses data into databases
  []
 
-) [8] [9] (E:\UNINotes\4th\Project\Report1\Chapters/Design.tex
+) [8] [9] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
 Chapter 4.
 1: section
 [10
@@ -1690,27 +1691,29 @@ Chapter 4.
 
 LaTeX Warning: Reference `' on page 11 undefined on input line 42.
 
-) [11] [12] (E:\UNINotes\4th\Project\Report1\Chapters/Implementation.tex
+) [11] [12] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.tex
 Chapter 5.
 1: section
 [13
 
 
 
-] <Figures/TempSensor_bb.pdf, id=384, 314.17375pt x 356.33125pt>
+] <Figures/TempSensor_bb.pdf, id=379, 314.17375pt x 356.33125pt>
 File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
 
 <use Figures/TempSensor_bb.pdf>
 Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 34.
 (pdftex.def)             Requested size: 180.67497pt x 204.91605pt.
- [14 <E:/UNINotes/4th/Project/Report1/Figures/TempSensor_bb.pdf>]
+ [14 <E:/UNINotes/4th/Project/IoTPlatform/Figures/TempSensor_bb.pdf>]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 43.
- ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 53.
- [15] [16] [17]
+ [15] [16]
+[17]
 
 LaTeX Warning: Citation 'ian' on page 18 undefined on input line 179.
 
@@ -1721,7 +1724,7 @@ Overfull \hbox (15.14966pt too wide) in paragraph at lines 203--205
  []
 
 [19] [20] [21]) [22]
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.tex
 Chapter 6.
 
 Overfull \hbox (9.1064pt too wide) in paragraph at lines 20--22
@@ -1734,14 +1737,14 @@ n text in a database
 
 
 
-] [24]) [25] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
+] [24]) [25] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.tex
 Chapter 7.
 1: section
 [26
 
 
 
-]) [27] (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.tex
+]) [27] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.tex
 Chapter 8.
 )
 1: section
@@ -1749,19 +1752,18 @@ Chapter 8.
 
 
 
-] [29] (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.tex
+] [29] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.tex
 Chapter 9.
-)
 1: section
 [30
 
 
 
-] (E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.tex
+]) [31] (E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.tex
 Appendix A.
 )
 1: section
-[31
+[32
 
 
 
@@ -1773,26 +1775,26 @@ m/n/10.95 http : / / www . alphr . com / features / 389920 / hacking -[]$
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 414.
 1: section
-[32
+[33
 
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 414.
- (E:\UNINotes\4th\Project\Report1\main.aux
-(E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/ProjectToolsandPlanning.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Design.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Implementation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Results.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux)
-(E:\UNINotes\4th\Project\Report1\Appendices/AppendixA.aux))
+ (E:\UNINotes\4th\Project\IoTPlatform\main.aux
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/ProjectToolsandPlanning.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 414.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 414.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7970E6E28EFDE8059A0F51AB4C35DCBF;7539.
+(rerunfilecheck)             Checksum: 266EAD3BBCA55183D3C5557A284859F8;7431.
 
 
 LaTeX Warning: There were undefined references.
@@ -1805,10 +1807,10 @@ Package biblatex Warning: Please (re)run BibTeX on the file(s):
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 31678 strings out of 493921
- 632047 string characters out of 3144858
+ 31677 strings out of 493921
+ 632346 string characters out of 3144858
  870492 words of memory out of 3000000
- 34269 multiletter control sequences out of 15000+200000
+ 34268 multiletter control sequences out of 15000+200000
  45818 words of font info for 77 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  54i,20n,76p,10402b,2207s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1822,9 +1824,9 @@ onts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/typ
 e1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/p
 alatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on main.pdf (37 pages, 1319272 bytes).
+Output written on main.pdf (38 pages, 1322273 bytes).
 PDF statistics:
- 772 PDF objects out of 1000 (max. 8388607)
+ 771 PDF objects out of 1000 (max. 8388607)
  253 named destinations out of 1000 (max. 500000)
- 459 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 451 words of extra memory for PDF output out of 10000 (max. 10000000)
 
