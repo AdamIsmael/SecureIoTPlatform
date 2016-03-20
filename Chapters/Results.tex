@@ -3,70 +3,58 @@
 \chapter{Results}
 \label{res}
 
-link to objectives
+The basic objectives were to sign and encrypt a message in order to stop an attacker from reading he messages and to protect against them being altered in transit. To send that message to a web server and have that data be accessible by a user.
 
-\section{Recording of temperature}
+\section{Basic Objectives}
 
-Using the thing it can record temp, sign, encrypt to ward off the attacks mention in the background. The temper
-
-\section{Sending Data}
-
-The device successfully transmits data in the form of a POST request across to a web server.
+It can be seen that the DS18S20 temperature successfully found the temperature of the room. That that data was given a signature and then encrypted. It was then packaged up and sent as a POST request across the network to a web server that stored the data in a database. Then the user could access that database and view the temperature data. The message could not be read as it was encrypted nor could it be altered as the signature verification process would fail. 
 
 \section{Power Consumption!}
 
-So when the ethernet shield but no ethernet cable is plugged in, the platform starts with 4.96V, 0.123A, 613mW and stays that way when reading from the temp sensor as the sensor is in parasite moew, even if it wasn't it would not be noticeable compare to the idle power needs of the due. When the signing was ocurring it jumpred to .17A/970mW and for encrypt it was .20A/1000mW. Then during dchp when ethernet shield was in but not cable .199A and990W. With a tiny drop when it failed to connect and was in the busy wait at .198A and 980mW.
+As this is to be a low power system that might run on batteries for a good amount of time, it is important to analyse the power consumption of the device. Although saving power wasn't a top priority concern in the creation application, there is more that could be done to save power such as completely shut down modules on the Arduino Due that are never used. The temperature won't be taken every second so between bursts of activity the Due could be put into a sleep mode and be woken up on an interrupt rather than the busy wait implemented in this prototype.
 
-However with the ethernet cable plugged the power consumption shot up to 1.30w/0.265a and remained at that level even during the encryption process. Evidently the shield requires the lions share of the power and the cyrptograpphic library is good as to be unnoticable.
+To start the power was recorded as the temperature was being taken with the DS18S20 temperature sensor, in both parasite power mode and regular power mode. It was found that during both operations the power consumption was the exact same at .123A and .613W. This result was not surprising as the power consumption of the temperature sensor is so small compared to the Due that even though it doesn't consume power in parasite mode, the overall consumption of power is barely affected.
 
+To isolate the the power consumed when the Due was only signing and encrypting, the Ethernet shield was left unplugged. This way the effect of the encryption would be seen without the effects of powering an Ethernet shield throughout. 
+The readings upon start up were 0.123A and 0.613W, when the data was being given a signature the readings were .17A and .970W and when the message was encrypted it rose to .20A and 1W. 
 
-is flashed the normal way
-take temp reading every couple of seconds in parasite mode, 
-4.96V, 0.123A, 613mW
+In addition the power consumption when the Ethernet shield was attached but had no cable plugged was recorded. The power consumed during the signature and encryption process was the same as above but during DCHP the readings were .199A and 0.990W as it tried to gain an IP address from the router. Once the loop iteration was complete, the code went straight into a busy loop which was a tiny drop in power at .198A and 980mW. A busy wait is a waste of power and resources so at this point the Arduino Due should go into a sleep mode and be woken up by an interrupt when it was to record the temperature again. 
 
-flashed through device with empty code
-power reading stay same
+The next test was with the shield plugged into the router with the Ethernet cable. The power consumption shot up to 0.265a and 1.30W during DHCP at the start of the sketch and there it remained even during the encryption process. Evidently the shield requires such a significant of the power that by comparison the cryptographic library is as good as unnoticeable. There are versions of the Ethernet Shield with an extra module that allows power over Ethernet. This extra module doesn't add a significant increase to the overall cost to the shield but can alleviate battery problems and extend the life of batteries by extracting power from the Ethernet cable that is connected to the router
+%voltage changes??
 
-flashed normally with empty code
-same
-
-flashed normal and not
-take temp reading every couple of seconds in parasite mode
-same again
-
-When reading the data from the temperature and encrypting said data
-the current increases from .123A  .17 to .20 and
-					resting sign and encrypt
-the wattage increases from 613mW to 970 for signing to 1000 for encryption
-
-				and failing to connect		
-				
-During the dhcp and connecting to server .199A and 990mW with no ethernet plugged in
-
-During the busy wait at the end of loop delay() the current is .198A and 980mW
-a tiny drop in current
+The final test was to find out if there was a difference in power consumption depending on the length of message sent. Messages of size 20 and size 250 were sent with no appreciable difference in power consumption found.
 
 
-with ethernet plugged in, sending encrypted data
-1.30w /0.265a
+The voltage through the experiments was the exact same, a steady 4.96V which makes sense as this is round about what USB 2.0 can give out and is well within normal limits for the Arduino Due.
 
-tested on data of 19 length and 209, made no difference
 
-with ethernet plugged in but no encryption
-1.30w /0.265a
+%is flashed the normal way
+%take temp reading every couple of seconds in parasite mode, 
+%4.96V, 0.123A, 613mW
+%flashed through device with empty code
+%power reading stay same
+%flashed normally with empty code
+%same
+%flashed normal and not
+%take temp reading every couple of seconds in parasite mode
+%same again
+%During the dhcp and connecting to server .199A and 990mW with no ethernet plugged in
+%During the busy wait at the end of loop delay() the current is .198A and 980mW a tiny drop in current
+%with ethernet plugged in, sending encrypted data
+%1.30w /0.265a
+%tested on data of 19 length and 209, made no difference
+%with ethernet plugged in but no encryption
+%1.30w /0.265a
 
-\section{Web App}
 
-Users can access the temperature table anywhere 
+\section{Additional Objective}
 
-\section{Secure transmission of Public keys}
+\subsection{Secure transmission of public keys}
 
-Two arduino Dues in the same network can send their public keys securely and a person has checked that
+Expansion of the network was considered with multiple devices communicating directly. This objective was reached by adding an Arduino Uno with another Ethernet shield as a webserver and the Due could pass on data, such as new server public keys, to it. If more nodes where desired then more Uno webservers could be added and the Due would simply go through the list of servers and send a POST request to each to update their keys.
 
 show lots of pictures?
 
-\section{Machine to Machine}
-
-Two arduinos sent up in a client host relationship were able to pass data
-
-http://blog.skylable.com/2014/05/tweetnacl-carrybit-bug/
+\subsection{rekeying on arduino}
+%http://blog.skylable.com/2014/05/tweetnacl-carrybit-bug/

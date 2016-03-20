@@ -89,7 +89,7 @@ tnacl.crypto_box(signedCipher, signedMessage, signedMessageLength, nonce, server
 \label{snip:nacl}
 \end{figure}
 
-The C TweetNaCl has been converted into an Arduino library and therefore needs an instance created called \emph{tnacl}. With this instance the methods needed can be accessed. The keys are preinstalled to avoid the key distribution problem in lines 4-7. The next chunk sets up the messages that are two be passed between the methods. Message is initialised as a byte array of size \emph{messageLength} which can has to be \emph{crypto\_sign\_BYTES}, 32 bytes, plus the message. The first 32 bytes have to be zero for the signing to work. \emph{signedMessage} and \emph{signedMessageLength} are passed in by reference so after \emph{crypto\_sign()} is complete the message with the signature and the size of that array will be in those variables, respectively. The signed message has to have the leading 32 bytes(ummm) be zero but \emph{crypto\_sign()} takes care of that. Now that the plain text message has been signed it is to be encrypted. \emph{signedCipher} and \emph{signedMessage} are passed in by reference as well and the length of the cipher has the same size as the signature. The final product is the signed message cipher and that is the array sent.
+The C TweetNaCl has been converted into an Arduino library and therefore needs an instance created called \emph{tnacl}. With this instance the methods needed can be accessed. The keys are preinstalled to avoid the key distribution problem in lines 4-7. The next chunk sets up the messages that are two be passed between the methods. Message is initialised as a byte array of size \emph{messageLength} which can has to be \emph{crypto\_sign\_BYTES}, 32 bytes, plus the message. The first 32 bytes have to be zero for the signing to work. \emph{signedMessage} and \emph{signedMessageLength} are passed in by reference so after \emph{crypto\_sign()} is complete the message with the signature and the size of that array will be in those variables, respectively. The resulting signed message, normally would need the leading 32 bytes to be zero if it is to be encrypted properly but the Java implementation of TweetNaCl on the webserver takes care of that so it is not necessary here. However during testing the adding and removing encryption and signatures, it was implemented. Now that the plain text message has been signed it is to be encrypted. \emph{signedCipher} and \emph{signedMessage} are passed in by reference as well and the length of the cipher has the same size as the signature. The final product is the signed message cipher and that is the array sent.
 %explain what is happening?
 
 \section{Data transmission}
@@ -106,11 +106,13 @@ byte mac[] = {
 char server[] = "192.168.0.6"; //IP of apache web server
 EthernetClient client;
 
+IPAddress clientIP(192, 168, 0, 30);
+
  if(Ethernet.begin(mac)==0){
       Serial.println("Failed to assign IP");
+      Ethernet.begin(mac, clientIP);
   }else{
      Serial.println("Assigned IP");
-     assigned=1; //static IP?!
   }
 
 if(client.connect(server,80)){
@@ -134,7 +136,7 @@ if(client.connect(server,80)){
 \caption{Ethernet interfacing and transmission Code }
 \label{snip:ethernet}
 \end{figure}
- Just before the cipher is sent the byte array is converted into a String so that it can be passed around easily as one parameter. This is completed simply be cycling through the byte array and adding each entry together. Care has to be taken when there are hexadecimals that are 0x0F or lower. The leading zero is lost during the conversion to String which means the cipher is incorrect and cannot be decrypted. This is solved by explicitly adding an extra ``'0'' String if the byte is less than or equal to 0x0F. First the device needs an IP address which is complete through DHCP by the router, this is completed with the line \emph{Ethernet.begin(mac)} which returns a 1 on successful IP allocation or 0 on failure. If it fails then a static IP can be assigned manually. A connection to the server is attempted using the IP and the port number, 80 in this case. If it successful the information is sent as a POST request, a POST request is a request method in the HTTP protocol. When a server receives a POST request it knows to take the data and complete an action with it. The request makes it known that it wants add.php to be executed upon receiving the data. %extra params, the content size and urlencoding
+ Just before the cipher is sent the byte array is converted into a String so that it can be passed around easily as one parameter. This is completed simply be cycling through the byte array and adding each entry together. Care has to be taken when there are hexadecimals that are 0x0F or lower. The leading zero is lost during the conversion to String which means the cipher is incorrect and cannot be decrypted. This is solved by explicitly adding an extra ``'0'' String if the byte is less than or equal to 0x0F. First the device needs an IP address which is completed through Dynamic Host Configuration, DHCP by the router. The router running DHCP dynamically allocates network configuration parameters such as IP addresses to devices so that they automatically get one that isn't in use. This is completed with the line \emph{Ethernet.begin(mac)} which returns a 1 on successful IP allocation or 0 on failure. If it fails then a static IP can be assigned manually by \emph{Ethernet.Begin(mac, clientIP)}. A connection to the server is attempted using the IP and the port number, 80 in this case. If it successful the information is sent as a POST request, a POST request is a request method in the HTTP protocol. When a server receives a POST request it knows to take the data and complete an action with it. The request makes it known that it wants add.php to be executed upon receiving the data. %extra params, the content size and urlencoding
 Once the data is sent the connection can be closed and other actions performed on the Arduino.
  
 \section{Server Side}
@@ -237,11 +239,39 @@ The security needs to be taken open in the reverse order as to how it was put on
 The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
 
 
-\section{Machine to Machine}
+\section{Public Key Transmission}
 
 For the creation of other nodes on the network that are connected onto the Due, an Arduino Uno was set up as a host and example node. As two clients can't directly connect together with the Ethernet protocol and since the Arduino Due is a client to a web server, the Uno must be a host. The Uno will be a server similar to the XAMPP web server expect it isn't directly connected to the internet. 
 additional web server code to facilitate sending of keys to Due??
 The Due sends a POST request to the Uno, very similar to the one it sends to the XAMPP web server however the key is under the content header. The method that the Due uses, sending a POST request that executes a php file to extract the data from the POST cannot be used, without difficulty??, as PHP can't be run on an Arduino web server. Instead there is an extra header in the POST, \emph{``Content: key''}.
+
+\begin{figure}[H]
+\begin{lstlisting}[style=Arduino]
+String incomingWord = " ", key = "";
+int saveNextWord = 0, takeData = 0;
+ if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+        if(c == ' '){
+          key = incomingWord;
+          incomingWord=" ";
+        }else{
+          incomingWord = incomingWord + c;
+        }
+        if((incomingWord=="Content") && (takeData)){
+           saveNextWord = 1; 
+        }
+        if(incomingWord=="POST"){
+          takeData=1;
+        }
+}
+\end{lstlisting}
+\caption{Handling POST requests in Arduino}
+\label{snip:post}
+\end{figure}
+
+When setting up the Uno server, explicitly define what gateway and subnet the router being used has as the defaults \emph{Ethernet.begin(mac)} uses aren't always correct. The server sits open on a certain port, 8081 in this case, and waits for clients to make a connection. Once they have, the server sends an acknowledgement that it has received a connection and starts reading in the request. There it watches out for the word POST so that it knows to store the content and, of course, for the content so it knows what to store. The request from the client is read out a byte at a time so it is necessary for those bytes to be made into strings so specific keywords can be looked out for. If the byte is not a space then it is part of a word so it is added to the subsequent bytes until another space is reached then it is considered a word and compared against. Once the key is taken it is in String format and needs to be turn back into hex and store as the key to be used in further encryptions. DEmo?
+
 
 \section{TweetNaCl Library}
 

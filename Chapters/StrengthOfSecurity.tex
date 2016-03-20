@@ -15,26 +15,34 @@ can protect against the attacks mentioned earlier because...
 
 %http://world.std.com/~dtd/sign_encrypt/sign_encrypt7.html
 
+\section{Storing data in plaintext}
+
+Storing vital data such as passwords and usernames in plain text in a database is an absolutely horrendous idea. This provides one point of failure that if broken means that every password stored is now useless and the accounts are wide open. In some circumstances that initial break might not be so severe, say if that is for forum site where the worst action that could be taken was writing a mean message but users sometimes use the same password for many different sites. Although in this application the temperature data is being store and not passwords the security implications are still there. This application would have that single point of failure that is so deplorable. It is necessary to provide as many layers of security as possible rather than have one hard layer. That being the security of the database. As such this application stores all the temperature data as it arrives, in it's encrypted form. This way the keys will need to be known by the attacker in order to gain the data.
+%should be in hash or something better as we'd need to store all the keys and work out what key to use on what data if we ever wanted access.
+
 \section{Public Key Transmission}
 
-If they keys are preinstalled they can be used to sign and encrytp new public keys before they are sent. Or if they are not, the most secure and safe to make sure the keys are the same is to have a human user manually inspected the keys and carefully ascertain that the one sent is correct. Which has been demostrated in this prokect with the Arduino Due to Arduino UNo comms.
+If the keys are preinstalled they can be used to sign and encrypt new public keys before they are sent. So that the receiver can use the presinstalled keys to prove integrity and authenticity of the new keys. If there are no preinstalled keys then there is no way to prove that the public key being received is indeed the public key sent. At least for a computer. The most secure and safe method to make sure the keys are the same is to have a human user manually inspected the key before sending and after sending and carefully ascertain that the one sent is correct. If there has been a man in the middle, MITM, and either the key has been altered or replaced entirely then the human user can see the difference. 
 
+\section{Bit Flipping}
 
-
-changing the public key in transit then it's being sent for the first time, human operator notices the different (mitm)
-
-\section{Bit Banging}
-
-bit banging the encrypted message
+Bit flipping is the process of changing parts of the encrypted message so that it says something else. This is especially potent when the format of the message is know. As the format of the message is know to us, a test can be set that if it succeeds would change a number. If the message had 
 In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit.
 After a signed message was encrypted it was altered before being decrypted and the signature checked
 
 As the format of the message is known, key areas of the message were altered and the following output notice
 
-TABLE
+The format of the raw plaintext message is 32 leading zeros and 9 bytes of actual information. Where the first two are the temperature. 
+
+when we change the 9th and 8th last hex digits in the resulting cipher text....what happens, decrypts fine but signature fails
 
 
-\section{Whats the name for gleaning info based on the cipher text}
+Also, encrypt 1 and 9999 to see?
+
+
+\section{Length of cipher text}
+
+Is it possible to gain information about the message from looking at characteristics of the cipher text? In bad cipher text it can be possible to find out the types of message that are sent as the resulting ciphertext may have change in a certain, predictable. For example if the message is a large number in contrast to a low number, there may be noticeable differences. Unfortunately a vulnerability exists in the cryptography chosen but it is a common weakness and one that does not have much consequence. That is the length of the cipher text corresponds with the length of the message. This is offset somewhat by the additition of the signature so the cipher text is much larger than one would expect if it was know that 9 bytes of hexadecimal were sent. To fully get around this the message is padded out with zeros so that the whole message is always forty one bytes in length. Which does mean the message has a limit of forty one bytes unless the source code is altered. To test how the cipher text changes when sending different messages four encryptions took place. The messages were YES, NO, 1 and 9999. 
 
 sending encrypted the one and 9999
 yes and no
@@ -70,8 +78,6 @@ To encrypt a message of 99999
 ,0xC ,0xC ,0x29 ,0xE2 ,0x4E ,0x81 ,0x67 ,0x5
  ,0x78 ,0x49 ,0x8C ,0xA1 ,0x4F ,0x69 ,0x8 ,0xBB
  ,0x9 ,0xA7 ,0x5D ,0x63 ,0x4D
-
-and the other attacks
 
 \section{nonces}
 

@@ -34,26 +34,25 @@
 \contentsline {subsection}{\numberline {4.2.1}Temperature reading}{13}{subsection.32}
 \contentsline {section}{\numberline {4.3}Cryptographic}{14}{section.54}
 \contentsline {section}{\numberline {4.4}Data transmission}{15}{section.73}
-\contentsline {section}{\numberline {4.5}Server Side}{17}{section.109}
-\contentsline {section}{\numberline {4.6}Machine to Machine}{19}{section.167}
-\contentsline {section}{\numberline {4.7}TweetNaCl Library}{20}{section.168}
-\contentsline {chapter}{\numberline {5}Strength Of Security}{21}{chapter.169}
-\contentsline {section}{\numberline {5.1}Sign then Encrypt}{21}{section.170}
-\contentsline {section}{\numberline {5.2}Public Key Transmission}{21}{section.171}
-\contentsline {section}{\numberline {5.3}Bit Banging}{21}{section.172}
-\contentsline {section}{\numberline {5.4}Whats the name for gleaning info based on the cipher text}{22}{section.173}
-\contentsline {section}{\numberline {5.5}nonces}{22}{section.174}
-\contentsline {chapter}{\numberline {6}Results}{23}{chapter.175}
-\contentsline {section}{\numberline {6.1}Recording of temperature}{23}{section.176}
-\contentsline {section}{\numberline {6.2}Sending Data}{23}{section.177}
-\contentsline {section}{\numberline {6.3}Power Consumption!}{23}{section.178}
-\contentsline {section}{\numberline {6.4}Web App}{24}{section.179}
-\contentsline {section}{\numberline {6.5}Secure transmission of Public keys}{24}{section.180}
-\contentsline {section}{\numberline {6.6}Machine to Machine}{24}{section.181}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{25}{chapter.182}
-\contentsline {section}{\numberline {7.1}SubSection}{25}{section.183}
-\contentsline {section}{\numberline {7.2}Other SubSection}{25}{section.184}
-\contentsline {chapter}{\numberline {8}Conclusion}{26}{chapter.185}
-\contentsline {section}{\numberline {8.1}SubSection}{26}{section.186}
-\contentsline {section}{\numberline {8.2}Other SubSection}{26}{section.187}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{27}{appendix.188}
+\contentsline {section}{\numberline {4.5}Server Side}{17}{section.111}
+\contentsline {section}{\numberline {4.6}Public Key Transmission}{20}{section.169}
+\contentsline {section}{\numberline {4.7}TweetNaCl Library}{21}{section.190}
+\contentsline {chapter}{\numberline {5}Strength Of Security}{22}{chapter.191}
+\contentsline {section}{\numberline {5.1}Sign then Encrypt}{22}{section.192}
+\contentsline {section}{\numberline {5.2}Storing data in plaintext}{22}{section.193}
+\contentsline {section}{\numberline {5.3}Public Key Transmission}{23}{section.194}
+\contentsline {section}{\numberline {5.4}Bit Flipping}{23}{section.195}
+\contentsline {section}{\numberline {5.5}Length of cipher text}{23}{section.196}
+\contentsline {section}{\numberline {5.6}nonces}{24}{section.197}
+\contentsline {chapter}{\numberline {6}Results}{25}{chapter.198}
+\contentsline {section}{\numberline {6.1}Basic Objectives}{25}{section.199}
+\contentsline {section}{\numberline {6.2}Power Consumption!}{25}{section.200}
+\contentsline {section}{\numberline {6.3}Additional Objective}{26}{section.201}
+\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{26}{subsection.202}
+\contentsline {subsection}{\numberline {6.3.2}rekeying on arduino}{26}{subsection.203}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{27}{chapter.204}
+\contentsline {section}{\numberline {7.1}Security Concerns}{27}{section.205}
+\contentsline {section}{\numberline {7.2}Other SubSection}{27}{section.206}
+\contentsline {chapter}{\numberline {8}Conclusion}{29}{chapter.207}
+\contentsline {section}{\numberline {8.1}SubSection}{29}{section.208}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{30}{appendix.209}
