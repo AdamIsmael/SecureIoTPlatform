@@ -5,33 +5,31 @@
 \chapter{Background}
 \label{back}
 
-more detail description of IoT?
-
 \section{Cryptography}
 
-Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties or at least parties in possession of the keys can view them. There are two main ways of encryption Symmetric Key encryption and Public Key encryption. In Symmetric Key encryption both parties have the same key the which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. This this project Asymmetric Key encryption and Digital signatures.
+Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties, or at least parties in possession of the keys, can view them. There are two main ways of encryption Symmetric Key encryption and Asymmetric Key encryption. In Symmetric Key encryption both parties have the same key which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. This this project Asymmetric Key encryption and Digital signatures.
 
 \subsection{Asymmetric Key Encryption}
 
-To get round the problem of securing sending secret keys, one can use Asymmetric Key encryption has a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her private key and she can decrypt it with her secret key. This type of key encryption gets past the sharing key problem but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
+To get round the problem of secure sending of secret keys, one can use Asymmetric Key encryption which involves a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her public key and she can decrypt it with her secret key. This type of key encryption gets past the sharing secret key problem, as long as you can make sure the public key is indeed the correct one, but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
 
 \subsection{Digital Signature}
 
-This is a mathematical scheme for proving message authenticity, message integrity and message non-repudation. Similarly to asymmetric key encryption a random private key is created with a corresponding public key. Double check.''!! The algorithm takes in a message and a private key and using SHA-512 and? it produces a signature. If Alice signs a message in this way, Bob can use another algorithm to verify the message with the public key and signature.
+This is a mathematical scheme for proving message authenticity, message integrity and message non-repudiation. Similarly to asymmetric key encryption a random private key is created with a corresponding public key. The algorithm takes in a message and a private key and using SHA-512, it creates a hash using the private key and message. It then appends that signature to the message. If Alice signs a message in this way, Bob can use another algorithm to verify the message with the public key and signature. It is important to note that the data is not hidden at this point, it is still in plain text.
 
 \subsection{TweetNaCl}
 
-NaCl or ``Salt`` is a simple to use high-speed library for authenticated encryption. it provides both Asymmetric and Symmetric encryption, It provides authentication and message integrity with SHA-512. The authors are Daniel J. Bernstein, Tanja Lange and Peter Schwabe but at points it relys on third part implementations for parts. The API is simple, having only a handful of methods but uses high speed, high security primitives.
-/ref{https://labs.opendns.com/2013/03/06/announcing-sodium-a-new-cryptographic-library/}
+NaCl or ``Salt`` is a simple to use high-speed library for authenticated encryption. It provides both Asymmetric and Symmetric encryption, authentication and message integrity with SHA-512. The authors are Daniel J. Bernstein, Tanja Lange and Peter Schwabe but at points it does rely on third part implementations for parts. The API is simple, having only a handful of methods but uses high speed, high security primitives\cite{naclsmall}.
 
-Unfortunately the library wouldn't work completely on a Arduino, one problem is that there is no /dev/random and therefore no randombytes() which means that it can't create keypairs in the usual way.
-Also, as mentioned later Arduino can't use the C library as is, it needs to be converted into C++. 
-Another problem is that the library is relatively quite large, the Arduino Due has at it's disposal 512KB flash memory and the full library is 3MB. Fortunately the same creators along with Bernard van Gastel, Wesley Janssen and Sjaak Smetsers made TweetNaCl. Which is a tiny implementation of NaCl, still providing speed and security but with a significantly smaller code size 40KB. It retains the same protections against (from tweetNack-201409..) timing attacks, cache-timing attacks, has to branches depending on secret data and no array indices depending on secret data. In addition it is thread-safe and has no dynamic memory allocation. It is portable and easy to integrate, the library is easily added as it consists of two files, there is no complicated configuration to be set up or any dependencies on external libraries. Because of this compactness it is easier to read and understand it's operation. Although not as fast as NaCl it is still fast enough for most applications. ``Most applications can tolerate the 4.2 million cycles that OpenSSL uses
-on an Ivy Bridge CPU for RSA-2048 decryption, for example, so they can certainly tolerate
-the 2.5 million cycles that TweetNaCl uses for higher-security decryption (Curve25519).''
-TweetNaCl is still small after compilation at 11KB thus avoiding instruction cache misses. It is a full library and not a set of isolated functions for a simple NaCl application, only six functions are needed. crypto\_box for public-key authenticated encryption; crypto\_box\_open for verification and decryption; crypto\_box\_keypair to create a public key; and similarly for signatures crypto\_sign, crypto\_sign\_open, and crypto\_sign\_keypair. It is open source and the developers encourage it to be used as much as possible. 
+It provides everything needed for secure data transmission but unfortunately the library is relatively quite large, the Arduino Due has at it's disposal 512KB flash memory and the full library is 3MB. Fortunately the same creators along with Bernard van Gastel, Wesley Janssen and Sjaak Smetsers made TweetNaCl. Which is a tiny implementation of NaCl, still providing speed and security but with a significantly smaller code size 40KB. It retains the same protections against timing attacks, cache-timing attacks, has to branches depending on secret data and no array indices depending on secret data. In addition it is thread-safe and has no dynamic memory allocation\cite{tweetnacl}. It is portable and easy to integrate, the library is easily added as it consists of two files, there is no complicated configuration to be set up or any dependencies on external libraries. Because of this compactness it is easier to read and understand it's operation. Although not as fast as NaCl it is still fast enough for most applications. The authors of the library feel that the performance is acceptable as``Most applications can tolerate the 4.2 million cycles that OpenSSL uses on an Ivy Bridge CPU for RSA-2048 decryption, for example, so they can certainly tolerate the 2.5 million cycles that TweetNaCl uses for higher-security decryption (Curve25519).'' \cite{tweetnacl3}.
 
+TweetNaCl is still small after compilation at 11KB thus avoiding instruction cache misses. It is a full library and not a set of isolated functions, for a TweetNaCl application, only six functions are needed. crypto\_box for public-key authenticated encryption; crypto\_box\_open for ecryption; crypto\_box\_keypair to create a encryption key pair; and similarly for signature keypairs crypto\_sign\_keypair, to sign messages crypto\_sign and to verify signatures crypto\_sign\_open, and. It is open source and the developers encourage it to be used as much as possible. 
 
+Unfortunately the library won't compile as is on a Arduino, one problem is that there is no /dev/random and therefore no randombytes() which means that it can't create truly random secret keys and therefore good keypairs. The Arduinos can generate pseudorandom numbers by generating a seed from an analogue pin which will provide fairly random numbers but it is considered insecure for cryptographic applications to use pseudorandom numbers\cite{arduinopseudo}. It is possible to create true random numbers by utilising the truly random nature of atmospheric noise or background radiation but this requires extra components and is outside the scope of this project. 
+
+Also, as mentioned in the implementation the Arduino can't use the C library as is, it needs to be converted into C++ header file and cpp file relationship.
+
+For asymmetric 
 
 %explain how the encryption and signature's work. high level overview
 NaCl will move to Ed25519 signature system, what is that?
@@ -43,6 +41,9 @@ NaCl crypto\_stream uses Bernsteins X
 Again, TweetNaCl uses SHA-512 as it's hash function with the Ed25519 signature scheme and the code is simplified compared to the NaCl implementation
 
 For asymmetric cryptography TweetNaCl uses Bernsteins' Ed25519 elliptic curve Diffie-Hellman key exchange?? 
+
+% Curve25519 Diffie–Hellman key-exchange function public key
+% Ed25519 signature 
 
 
 \section{Types of attacks}

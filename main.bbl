@@ -110,6 +110,43 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{which}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Which}{W.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{W1}
+  \strng{fullhash}{W1}
+  \field{title}{Which? probe uncovers Hive heating app data risk}
+  \verb{url}
+  \verb http://www.which.co.uk/news/2015/08/which-probe-uncovers-hive-heating-a
+  \verb pp-data-risk-407275/
+  \endverb
+  \field{year}{2015}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{ian}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Preston}{P.}%
+     {Ian}{I.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{PI1}
+  \strng{fullhash}{PI1}
+  \field{title}{tweetnacl-java}
+  \verb{url}
+  \verb https://github.com/ianopolous/tweetnacl-java
+  \endverb
+  \field{year}{2016}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
 \lossort
 \endlossort
 

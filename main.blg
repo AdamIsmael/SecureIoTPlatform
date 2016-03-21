@@ -16,5 +16,10 @@ A level-1 auxiliary file: Chapters/Conclusion.aux
 A level-1 auxiliary file: Appendices/AppendixA.aux
 Database file #1: main-blx.bib
 Database file #2: example.bib
+I was expecting a `,' or a `}'---line 80 of file example.bib
+ :   
+ :   title = {A Search Engine Backed by {I}nternet-Wide Scanning},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Biblatex version: 3.0
-(There was 1 error message)
+(There were 2 error messages)

@@ -159,19 +159,19 @@ headsepline, % Uncomment to get a line under the header
 %	THESIS INFORMATION
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Thesis Title} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
-\supervisor{Dr. James \textsc{Smith}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
-\examiner{Dr Man Page} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
-\author{John \textsc{Smith}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\thesistitle{Secure Internet Of Things Sensor Platform} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. James Irvine} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{Dr Alex Coddington} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Computer and Electronic Systems} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Adam Kidd} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
-\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\subject{IoT} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
-\university{\href{http://www.university.com}{Strath Name}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
-\department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
-\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
-\faculty{\href{http://faculty.university.com}{Faculty Name}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\university{\href{http://www.strath.ac.uk}{University Of Strathclyde}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{http://www.strath.ac.uk/engineering/electronicelectricalengineering/}{Department of Electronic \& Electrical Engineering}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+%\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://www.strath.ac.uk/science/}{Faculty Of Science}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
@@ -191,7 +191,7 @@ headsepline, % Uncomment to get a line under the header
 \begin{center}
 
 \textsc{\LARGE \univname}\\[1.5cm] % University name
-\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+\textsc{\Large Technical Report}\\[0.5cm] % Thesis type
 
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
@@ -214,9 +214,9 @@ Greg
 \end{flushright}
 \end{minipage}\\[3cm]
  
-\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\large \textit{A technical report submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in the}\\[0.4cm]
-\groupname\\\deptname\\[1cm] % Research group name and department name
+\deptname\\[1cm] % Research group name and department name
 
 
 
@@ -235,16 +235,23 @@ Greg
 \begin{declaration}
 \addchaptertocentry{\authorshipname}
 
-\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+\bigskip
 
-\begin{itemize} 
-\item This work was done wholly or mainly while in candidature for a research degree at this University.
-\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\item Where I have consulted the published work of others, this is always clearly attributed.
-\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
-\item I have acknowledged all main sources of help.
-\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
-\end{itemize}
+\noindent I, \authorname, “I hereby declare that this work titled, \enquote{\ttitle} has not been submitted for any other degree/course
+at this University or any other institution and that, except where reference is made
+to the work of other authors, the material presented is original and entirely the
+result of my own work at the University of Strathclyde under the supervision of ..
+insert supervisor’s name.”
+\\
+
+%\begin{itemize} 
+%\item This work was done wholly or mainly while in candidature for a research degree at this University.
+%\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+%\item Where I have consulted the published work of others, this is always clearly attributed.
+%\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+%\item I have acknowledged all main sources of help.
+%\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+%\end{itemize}
  
 \noindent Signed:\\
 \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
@@ -272,7 +279,7 @@ Greg
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 
-The Thesis Abstract is written here (and usually kept to just this page). The page is kept centered vertically so can expand into the blank space above the title too\ldots
+This report aims to explain how to build a sensor platform that can transmit data across the internet securely and show that security on low powered microcontrollers is possible and easy. It introduces a light weight cryptographic library and demonstrates it's effectiveness on a low powered system and provides considerations on the level of security it provides.
 
 \end{abstract}
 
@@ -361,7 +368,7 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 
 %\include{Chapters/Chapter1}
 \include{Chapters/Introduction}
-\include{Chapters/ProjectToolsandPlanning}
+%\include{Chapters/ProjectToolsandPlanning}
 \include{Chapters/Background} 
 \include{Chapters/Design}
 \include{Chapters/Implementation} 
