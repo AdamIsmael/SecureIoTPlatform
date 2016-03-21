@@ -30,6 +30,8 @@ Bit flipping is the process of changing parts of the encrypted message so that i
 In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit.
 After a signed message was encrypted it was altered before being decrypted and the signature checked
 
+Why did we even bother signing it, the encryption will fail if the encrypted message is changed
+
 As the format of the message is known, key areas of the message were altered and the following output notice
 
 The format of the raw plaintext message is 32 leading zeros and 9 bytes of actual information. Where the first two are the temperature. 
@@ -39,6 +41,10 @@ when we change the 9th and 8th last hex digits in the resulting cipher text....w
 
 Also, encrypt 1 and 9999 to see?
 
+
+\section{Timing Attacks}
+
+TweetNaCl is an example of constant time software, which means that the time of execution does not depend on secret data and is therefore not vulnerable to timing attacks. To have this quality TweetNaCl avoids all loads from address and all branch conditions that depend on secret data and are thus inherently protected against cache timing attacks. 
 
 \section{Length of cipher text}
 
