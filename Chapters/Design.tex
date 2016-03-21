@@ -12,14 +12,33 @@ Following on, the needs of machine to machine communication will be considered a
 
 \section{Microcontroller}
 
-The first step in this application is the acquisition of data. For example data, a variable that is monitored for important applications in the real world was chosen, this being temperature. There are a range of temperature sensors out there but one that is compact, cheap, freely available, has a large temperature range, high precision and can derive power directly form the data line, parasite power, is the DS18S20. It returns a 9-BIT byte array so is ready to encrypt straight away. 
+The first step in this application is the acquisition of data. For example data, a variable that is monitored for important applications in the real world was chosen, this being temperature. There are a range of temperature sensors out there but one that is compact, cheap, freely available, has a large temperature range, high precision and can derive power directly form the data line, so called parasite power, is the DS18S20. It returns a 9-bit byte array so is ready to encrypt straight away. 
 
-pretty picture of course
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\linewidth]{Figures/ds.jpg}
+	\caption{DS18S20 Temperature Sensor}
+	\label{fig:ds}
+\end{figure}
 
 The Arduino Due is a large Arduino, it is the first one with a 32-bit ARM core micrcontroller, has 54 digital I/O pins, 512KB flash memory, 96KB SRAM and a 84MHz. 
 A lot of microcontrollers are 8-bit which means that they are limited in their cryptographic options. With a 32-BIT architecture and a large amount of flash memory it is possible to have a light weight cryptographic library for our application but the Due is still low cost enough that it can be used for an IoT sensor application. Because it is an Arduino it benefits from the large community, wide range of compatible components and large set of open source libraries.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\linewidth]{Figures/due.jpg}
+	\caption{DS18S20 Temperature Sensor}
+	\label{fig:ds}
+\end{figure}
+
 Once the temperature data is on the board there needs to be a way to transmit the data, as the data is being sent over the internet the natural choice is an Ethernet or WiFi shield. Unfortunately although the WiFi shield would be better, as wireless improves and becomes more the norm, the more IoT applications will use it, it is much more expensive than the Ethernet Shield. The first revision of the shield is no longer made so the second revision, R2 will be utilised. IT allows for easy connection for the Arduino to the Internet, it uses the Wiznet W5500 Ethernet chip, supports up to 8 different socket connections at a speed of 10/100Mb and has a MicroSD card slot to store network settings. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\linewidth]{Figures/ethernet.jpg}
+	\caption{DS18S20 Temperature Sensor}
+	\label{fig:ds}
+\end{figure}
 
 \section{Security}
 

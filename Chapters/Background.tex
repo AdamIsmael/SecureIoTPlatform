@@ -9,9 +9,18 @@
 
 Cryptography is the practise and study of techniques for secure communication in the presence of attackers. To do so, one can use encryption where by messages are encoded in such a way that only authorised parties, or at least parties in possession of the keys, can view them. There are two main ways of encryption Symmetric Key encryption and Asymmetric Key encryption. In Symmetric Key encryption both parties have the same key which can encrypt and decrypt messages that are sent between them. The problem is that if Bob wants to send an encrypted message to Alice, he must get the secret key to her. Currently the most secure way for the transmission of secret keys is to hand them over in person, in private. This this project Asymmetric Key encryption and Digital signatures.
 
+
 \subsection{Asymmetric Key Encryption}
 
 To get round the problem of secure sending of secret keys, one can use Asymmetric Key encryption which involves a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her public key and she can decrypt it with her secret key. This type of key encryption gets past the sharing secret key problem, as long as you can make sure the public key is indeed the correct one, but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{Figures/publickeyex.png}
+	\caption{DS18S20 Temperature Sensor}
+	\label{fig:ds}
+\end{figure}
+
 
 \subsection{Stream Cipher}
 
