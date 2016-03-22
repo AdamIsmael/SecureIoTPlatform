@@ -246,6 +246,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \def\authorname{}
 \def\ttitle{}
 \newcommand*{\supervisor}[1]{\def\supname{#1}}
+\newcommand*{\phdstudent}[1]{\def\phdname{#1}}
 \newcommand*{\thesistitle}[1]{\def\@title{#1}\def\ttitle{#1}}
 \newcommand*{\examiner}[1]{\def\examname{#1}}
 \newcommand*{\degree}[1]{\def\degreename{#1}}

@@ -51,6 +51,24 @@ headsepline, % Uncomment to get a line under the header
 
 %\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
+\usepackage[dvipsnames]{xcolor} 
+% Have to load this before tikz as tikz wants a normal version of xcolor without the dvipsnames option but if the package with special options
+% is loaded first then that seems to be okay
+
+%----------------------------------------------------------------------------------------
+%	TIKZ BLOCK DIAGRAM SETTINGS
+%----------------------------------------------------------------------------------------
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, 
+    minimum height=3em, minimum width=6em]
+\tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
 %----------------------------------------------------------------------------------------
 %    CODE LISTING SETTINGS
 %----------------------------------------------------------------------------------------
@@ -58,7 +76,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{float}
 \usepackage{listings}
 \usepackage{color}
-\usepackage[dvipsnames]{xcolor}
+
 
 \usepackage{typearea}
 \usepackage[utf8]{inputenc}
@@ -165,6 +183,7 @@ headsepline, % Uncomment to get a line under the header
 \degree{Computer and Electronic Systems} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Adam Kidd} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+\phdstudent{Grieg Paul}
 
 \subject{IoT} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
@@ -210,7 +229,7 @@ headsepline, % Uncomment to get a line under the header
 \emph{Supervisor:} \\
 \href{http://www.jamessmith.com}{\supname}\\ % Supervisor name - remove the \href bracket to remove the link  
 \emph{Phd Student:}\\
-Greg 
+\phdname
 \end{flushright}
 \end{minipage}\\[3cm]
  
@@ -300,7 +319,7 @@ This report aims to explain how to build a sensor platform that can transmit dat
 
 \tableofcontents % Prints the main table of contents
 
-%\listoffigures % Prints the list of figures
+\listoffigures % Prints the list of figures
 
 %\listoftables % Prints the list of tables
 

@@ -3,59 +3,58 @@
 \select@language {english}
 \contentsline {chapter}{Declaration of Authorship}{ii}{section*.1}
 \contentsline {chapter}{Abstract}{iii}{section*.2}
-\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.4}
-\contentsline {chapter}{\numberline {2}Background}{4}{chapter.5}
-\contentsline {section}{\numberline {2.1}Cryptography}{4}{section.6}
-\contentsline {subsection}{\numberline {2.1.1}Asymmetric Key Encryption}{4}{subsection.7}
-\contentsline {subsection}{\numberline {2.1.2}Stream Cipher}{4}{subsection.9}
-\contentsline {subsection}{\numberline {2.1.3}Digital Signature}{4}{subsection.10}
-\contentsline {subsection}{\numberline {2.1.4}Message Authentication Code}{5}{subsection.11}
-\contentsline {section}{\numberline {2.2}TweetNaCl}{5}{section.12}
-\contentsline {section}{\numberline {2.3}Types of attacks}{7}{section.13}
-\contentsline {subsection}{\numberline {2.3.1}Replay Attack}{7}{subsection.14}
-\contentsline {subsection}{\numberline {2.3.2}Man in the Middle Attack}{7}{subsection.15}
-\contentsline {subsection}{\numberline {2.3.3}Bit-Flipping Attack}{7}{subsection.16}
-\contentsline {subsection}{\numberline {2.3.4}Stream Cipher Attack}{7}{subsection.17}
-\contentsline {section}{\numberline {2.4}Timing Attack}{7}{section.18}
-\contentsline {section}{\numberline {2.5}Machine to Machine}{8}{section.19}
-\contentsline {section}{\numberline {2.6}Technologies used}{8}{section.20}
-\contentsline {subsection}{\numberline {2.6.1}PHP}{8}{subsection.21}
-\contentsline {subsection}{\numberline {2.6.2}XAMPP Server}{8}{subsection.22}
-\contentsline {subsection}{\numberline {2.6.3}SQL}{9}{subsection.23}
-\contentsline {subsection}{\numberline {2.6.4}Apache Tomcat}{9}{subsection.24}
-\contentsline {section}{\numberline {2.7}Secure Transmission of Keys}{9}{section.25}
-\contentsline {chapter}{\numberline {3}Design}{10}{chapter.26}
-\contentsline {section}{\numberline {3.1}Aims}{10}{section.27}
-\contentsline {section}{\numberline {3.2}Microcontroller}{10}{section.28}
-\contentsline {section}{\numberline {3.3}Security}{11}{section.32}
-\contentsline {section}{\numberline {3.4}Server}{12}{section.33}
-\contentsline {subsection}{\numberline {3.4.1}Web Server}{12}{subsection.34}
-\contentsline {subsection}{\numberline {3.4.2}Arduino Server}{12}{subsection.35}
-\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.36}
-\contentsline {section}{\numberline {4.1}Overview}{13}{section.37}
-\contentsline {section}{\numberline {4.2}IoT Platform}{13}{section.38}
-\contentsline {subsection}{\numberline {4.2.1}Temperature reading}{14}{subsection.39}
-\contentsline {section}{\numberline {4.3}Cryptographic}{15}{section.61}
-\contentsline {section}{\numberline {4.4}Data transmission}{16}{section.80}
-\contentsline {section}{\numberline {4.5}Server Side}{18}{section.118}
-\contentsline {section}{\numberline {4.6}Public Key Transmission}{21}{section.176}
-\contentsline {section}{\numberline {4.7}TweetNaCl Library}{22}{section.197}
-\contentsline {chapter}{\numberline {5}Strength Of Security}{23}{chapter.198}
-\contentsline {section}{\numberline {5.1}Sign then Encrypt}{23}{section.199}
-\contentsline {section}{\numberline {5.2}Storing data in plaintext}{23}{section.200}
-\contentsline {section}{\numberline {5.3}Public Key Transmission}{24}{section.201}
-\contentsline {section}{\numberline {5.4}Bit Flipping}{24}{section.202}
-\contentsline {section}{\numberline {5.5}Timing Attacks}{24}{section.203}
-\contentsline {section}{\numberline {5.6}Length of cipher text}{24}{section.204}
-\contentsline {section}{\numberline {5.7}nonces}{25}{section.205}
-\contentsline {chapter}{\numberline {6}Results}{26}{chapter.206}
-\contentsline {section}{\numberline {6.1}Basic Objectives}{26}{section.207}
-\contentsline {section}{\numberline {6.2}Power Consumption!}{26}{section.208}
-\contentsline {section}{\numberline {6.3}Additional Objective}{27}{section.209}
-\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{27}{subsection.210}
-\contentsline {subsection}{\numberline {6.3.2}rekeying on arduino}{27}{subsection.211}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{28}{chapter.212}
-\contentsline {section}{\numberline {7.1}Security Concerns}{28}{section.213}
-\contentsline {section}{\numberline {7.2}Other SubSection}{28}{section.214}
-\contentsline {chapter}{\numberline {8}Conclusion}{30}{chapter.215}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{32}{appendix.216}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.5}
+\contentsline {chapter}{\numberline {2}Background}{3}{chapter.6}
+\contentsline {section}{\numberline {2.1}Cryptography}{3}{section.7}
+\contentsline {subsection}{\numberline {2.1.1}Asymmetric Key Encryption}{3}{subsection.8}
+\contentsline {subsection}{\numberline {2.1.2}Stream Cipher}{4}{subsection.10}
+\contentsline {subsection}{\numberline {2.1.3}Digital Signature}{4}{subsection.11}
+\contentsline {subsection}{\numberline {2.1.4}Message Authentication Code}{4}{subsection.12}
+\contentsline {section}{\numberline {2.2}TweetNaCl}{4}{section.13}
+\contentsline {section}{\numberline {2.3}Types of attacks}{6}{section.14}
+\contentsline {subsection}{\numberline {2.3.1}Replay Attack}{6}{subsection.15}
+\contentsline {subsection}{\numberline {2.3.2}Man in the Middle Attack}{6}{subsection.16}
+\contentsline {subsection}{\numberline {2.3.3}Bit-Flipping Attack}{6}{subsection.17}
+\contentsline {subsection}{\numberline {2.3.4}Stream Cipher Attack}{7}{subsection.18}
+\contentsline {section}{\numberline {2.4}Timing Attack}{7}{section.19}
+\contentsline {section}{\numberline {2.5}Machine to Machine}{7}{section.20}
+\contentsline {section}{\numberline {2.6}Technologies used}{7}{section.21}
+\contentsline {subsection}{\numberline {2.6.1}XAMPP Server}{7}{subsection.22}
+\contentsline {subsection}{\numberline {2.6.2}PHP}{8}{subsection.23}
+\contentsline {subsection}{\numberline {2.6.3}SQL}{8}{subsection.24}
+\contentsline {subsection}{\numberline {2.6.4}Apache Tomcat}{8}{subsection.25}
+\contentsline {section}{\numberline {2.7}Secure Transmission of Keys}{8}{section.26}
+\contentsline {chapter}{\numberline {3}Design}{9}{chapter.27}
+\contentsline {section}{\numberline {3.1}Aims}{9}{section.28}
+\contentsline {section}{\numberline {3.2}Microcontroller}{9}{section.30}
+\contentsline {section}{\numberline {3.3}Security}{11}{section.34}
+\contentsline {section}{\numberline {3.4}Server}{11}{section.35}
+\contentsline {subsection}{\numberline {3.4.1}Web Server}{11}{subsection.36}
+\contentsline {subsection}{\numberline {3.4.2}Arduino Server}{12}{subsection.37}
+\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.38}
+\contentsline {section}{\numberline {4.1}Overview}{13}{section.39}
+\contentsline {subsection}{\numberline {4.1.1}Temperature reading}{13}{subsection.40}
+\contentsline {section}{\numberline {4.2}Cryptographic}{15}{section.63}
+\contentsline {section}{\numberline {4.3}Data transmission}{17}{section.82}
+\contentsline {section}{\numberline {4.4}Server Side}{18}{section.120}
+\contentsline {section}{\numberline {4.5}Public Key Transmission}{21}{section.178}
+\contentsline {section}{\numberline {4.6}TweetNaCl Library}{22}{section.199}
+\contentsline {chapter}{\numberline {5}Strength Of Security}{24}{chapter.200}
+\contentsline {section}{\numberline {5.1}Sign then Encrypt}{24}{section.201}
+\contentsline {section}{\numberline {5.2}Storing data in plaintext}{24}{section.202}
+\contentsline {section}{\numberline {5.3}Public Key Transmission}{25}{section.203}
+\contentsline {section}{\numberline {5.4}Bit Flipping}{25}{section.204}
+\contentsline {section}{\numberline {5.5}Timing Attacks}{25}{section.205}
+\contentsline {section}{\numberline {5.6}Length of cipher text}{25}{section.206}
+\contentsline {section}{\numberline {5.7}nonces}{26}{section.207}
+\contentsline {chapter}{\numberline {6}Results}{27}{chapter.208}
+\contentsline {section}{\numberline {6.1}Basic Objectives}{27}{section.209}
+\contentsline {section}{\numberline {6.2}Power Consumption!}{27}{section.210}
+\contentsline {section}{\numberline {6.3}Additional Objective}{28}{section.211}
+\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{28}{subsection.212}
+\contentsline {subsection}{\numberline {6.3.2}rekeying on arduino}{28}{subsection.213}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{29}{chapter.214}
+\contentsline {section}{\numberline {7.1}Security Concerns}{29}{section.215}
+\contentsline {section}{\numberline {7.2}Other SubSection}{29}{section.216}
+\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.217}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{33}{appendix.218}

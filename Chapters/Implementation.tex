@@ -6,30 +6,16 @@
 
 \section{Overview}
 
-There are two files in the server, connect.php and add.php. The Arduino makes a post request to the add.php which effectively just calls it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that there is a SQL query that inserts the values sent in the post request into the appropriate table entries then close the connection. cooodee snippets
-
-The Java Web app details what the server is do when it gets various types of request, be it get or post...(more on requests?). In this type of application you can dynamically printout all the HTML that will be used to make up the page. The usual  HTML, head, body tags are printed at the top and the titles in the table are printed as well. (How it gets the keys?!). The web app uses JDBC to create a driver(idk man) to get the connection to the SQL database. Then using Java language it builds up a SQL query to take out all the values from the database and executes that. This puts all the table entries into a result set and the app cycles through that results set getting the relevant information out. The signed and encrypted hex is encoded as string and some leading zeros are lost in the conversion from byte array to string in the Arduino so these are added now before the string is converted back into a byte array. There is a try catch around the crypto\_box\_open and crypto\_sign\_open method so the server doesn't crash if one result set has been broken. Following this is the conversion from hex into integer for the user to read (how does it do it?) and finally the values are written to the browser along with the ending html tags.
-
-
-The Due is used in two separate ways in this project; first is the client to the java web app and second is a demonstration of secure public key transmission with another Arduino Uno and Ethernet shield. 
-
-\section{IoT Platform}
-
-The basic concept of this platform is an Arduino Due that takes the current temperature of the room from a DS1820 temperature sensor. Then that data is signed and encrypted with TweetNaCL before being transmitted, using an Ethernet Shield, across to an SQL server. A web application takes the SQL data decrypts, checks the signature is valid then displays on a website. 
-
-graphic here pls
-
-
-DS1820 is a lost cost temperature sensor that is very accurate, 9 bits of precision and is also low power. It can scavenge power from the data with the arduino and thus does not need it's own power source. 
-
-For the prototype, an Ethernet Shield was used as it is much cheaper than a WiFi shield but ultimately completes the same job. The shield is a simple way to connect arduinos to the internet. The shield used was the second revision, R2 and has a w500 ethernet controller which means it needs an different library to the first revision. Fortunately the two libraries share the same API so the the codes are compatible. Simply swap put the older shield and library and replace with the newer one.
+The Arduino Due is connected to the DS18S20 temperature sensor and it received the temperature data over the OneWire protocol. This data is signed using the Arduino's secret key and then encrypted using the Arduino's secret key and Server's public key. The encrypted data is sent as a POST request to the add.php file on the apache server this executives it and the first thing the add file does is call connect which has the server details and makes creates a connection. Following that a SQL query is built up that inserts the values sent in the post request into the appropriate table entries and then the connection is closed.
+When a user want to view the files, they use a browser to send a GET request to the Java web app. The app builds up a SQL query to take out all the values from the database, decrypts them and verifies the signature before printing out in a table.
+When it comes to public key transmission the Due sends a POST request to the Arduino Uno that is set up as a web server. The Uno recognises that it is receiving a POST request and stores the key.
 
 
 \subsection{Temperature reading}
 
-The DS18S20 temperature sensor is wired up with a pull up 4.7$\Omega$ resistor, between the orange wires, on the bread board shown in figure \ref{fig:tempcircuit}. A pull up resistor is a resistor between the sensor and the positive power supply so that the signal will be a valid logic level if external devices are disconnected or a high impedance is introduced. It is connected to digital pin 9, yellow wire, because it can't be on pins 10, 11, 12, 13 as they will be used by the Ethernet Shield. When looking at the temperature sensor the furtherest left pin is V$_{dd}$ and normally this would be connected to the Arduinos 3.5v or 5v output but the DS18S20 is in parasite power mode which scavenge power off the middle data line, DQ. When the DQ pin is high some of the charge is stored in capacitor DS18S20 to power the device. In parasite power mode both the GND and V$_{dd}$ are connected together, by the blue wire, and then to ground.
+The DS18S20 temperature sensor is wired up with a pull up 4.7$\Omega$ resistor, between the orange wires, on the bread board shown in figure \ref{fig:tempcircuit}. A pull up resistor is a resistor between the sensor and the positive power supply so that the signal will be a valid logic level if external devices are disconnected or a high impedance is introduced. It is connected to digital pin 9, yellow wire, because it can't be on pins 10, 11, 12, 13 as they will be used by the Ethernet Shield. When looking at the temperature sensor the furtherest left pin is V$_{dd}$ and normally this would be connected to the Arduino's 3.5v or 5v output but the DS18S20 is in parasite power mode which scavenges power off the middle data line, DQ. When the DQ pin is high some of the charge is stored in a capacitor that will be used to power the device when the data is being read. In parasite power mode both the GND and V$_{dd}$ are connected together, by the bluewire, and then to ground.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\linewidth]{Figures/TempSensor_bb.pdf}
 	\caption{DS18S20 in parasitic power mode connected to Arduino}
@@ -37,7 +23,16 @@ The DS18S20 temperature sensor is wired up with a pull up 4.7$\Omega$ resistor, 
 \end{figure}
 
 %can explain full scratchpad memory, CRC, or hex to int conversion
-The library used to read the DS18S20 is OneWire, which is a proprietary library from Maxim. The command \emph{ds.write(0x44, 1)} starts the internal A-D conversion operation. Once this process is finished the data is copied to the Scratchpad registers. A delay is need to charge the capacitor and to ensure conversion is complete before reading the data. Which is done with \emph{ds.write(0xBE)} and then the data is read out using \emph{ds.read()} then put into an array.
+The DS18S20's scratchpad memory is divided up into 9 bytes as shown in figure \ref{fig:dsmem}. The first two bytes are the ones of most interest as they store the actual temperature value. Bytes 2 and 3 are the high and low trigger registers, these can be used to trigger some action when the temperature goes above or below a certain threshold. Bytes 4 and 5 are only for internal use and cannot be overwritten. Bytes 6 and 7 can be used to calculate the extended resolution. Byte 8 holds the cyclic redundancy check which is an error detecting technique. The bytes with asterisks are values which stored in non volatile EEPROM, the rest are stored on volatile SRAM\cite{dsdatasheet}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{Figures/dsmem.png}
+	\caption{DS18S20's memory organisation}
+	\label{fig:dsmem}
+\end{figure}
+
+The library used to read the DS18S20 is OneWire, which is a proprietary library from Maxim that performs half-duplex bidirectional communications between a host/master controller and one or more slaves. As seen in the following code snippet, figure \ref{snip:tempcode}. The command \emph{ds.write(0x44, 1)} starts the internal A-D conversion operation. Once this process is finished the data is copied to the Scratchpad registers. A delay is need to charge the capacitor and to ensure conversion is complete before reading the data. Which is done with \emph{ds.write(0xBE)} and then the data is read out using \emph{ds.read()} and put into an array.
 
 \begin{figure}[H]
 \begin{lstlisting}[style=Arduino]
@@ -66,6 +61,9 @@ The library used to read the DS18S20 is OneWire, which is a proprietary library 
 
 
 \section{Cryptographic}
+
+Next the data is needs to be padded out with 32 bytes of leading zeros specified in the NaCl website. Start special care that exactly 32 bytes are placed in front because if there isn't the correct number the encryption process will still complete without errors. However the decryption will fail and it isn't apparent that that error occurred when data was encrypted. The code used to sign and encrypt the data is shown in figure \ref{snip:nacl}.
+
 \begin{figure}[H]
 \begin{lstlisting}[style=Arduino]
 #include <TweetNaCl2.h>
@@ -89,8 +87,9 @@ tnacl.crypto_box(signedCipher, signedMessage, signedMessageLength, nonce, server
 \label{snip:nacl}
 \end{figure}
 
-The C TweetNaCl has been converted into an Arduino library and therefore needs an instance created called \emph{tnacl}. With this instance the methods needed can be accessed. The keys are preinstalled to avoid the key distribution problem in lines 4-7. The next chunk sets up the messages that are two be passed between the methods. Message is initialised as a byte array of size \emph{messageLength} which can has to be \emph{crypto\_sign\_BYTES}, 32 bytes, plus the message. The first 32 bytes have to be zero for the signing to work. \emph{signedMessage} and \emph{signedMessageLength} are passed in by reference so after \emph{crypto\_sign()} is complete the message with the signature and the size of that array will be in those variables, respectively. The resulting signed message, normally would need the leading 32 bytes to be zero if it is to be encrypted properly but the Java implementation of TweetNaCl on the webserver takes care of that so it is not necessary here. However during testing the adding and removing encryption and signatures, it was implemented. Now that the plain text message has been signed it is to be encrypted. \emph{signedCipher} and \emph{signedMessage} are passed in by reference as well and the length of the cipher has the same size as the signature. The final product is the signed message cipher and that is the array sent.
-%explain what is happening?
+The C TweetNaCl library has been converted into an Arduino library. The Arduino lanugage is based on C and C++. It therefore needs an instance of TweetNaCl created which in the sketch is called \emph{tnacl}. With this instance the methods needed can be accessed. In this prototype the keys are preinstalled to avoid the key distribution problem in lines 4-7. The next chunk sets up the message byte arrays that are to be passed between the methods. \emph{message} is initialised as a byte array of size \emph{messageLength} which can has to be \emph{crypto\_sign\_BYTES}, 32 bytes, plus the length of the message. \emph{signedMessage} and \emph{signedMessageLength} are passed in by reference so after \emph{crypto\_sign()} is complete the message with the signature and the size of that array will be in those variables, respectively. The resulting signed message, normally would need the leading 32 bytes to be zero if it is to be encrypted properly but the Java implementation of TweetNaCl on the webserver takes care of that so it is not necessary here. However during testing the adding and removing of encryption and signatures, it was implemented this way. Now that the plain text message has been signed it is to be encrypted. \emph{signedCipher} is passed in by reference as well and the length of the cipher has the same size as the signature. The final product is the signed message cipher and that is the array sent.
+
+\clearpage
 
 \section{Data transmission}
 Once the data has been encrypted it is to be packaged up and sent across the network.
@@ -136,12 +135,12 @@ if(client.connect(server,80)){
 \caption{Ethernet interfacing and transmission Code }
 \label{snip:ethernet}
 \end{figure}
- Just before the cipher is sent the byte array is converted into a String so that it can be passed around easily as one parameter. This is completed simply be cycling through the byte array and adding each entry together. Care has to be taken when there are hexadecimals that are 0x0F or lower. The leading zero is lost during the conversion to String which means the cipher is incorrect and cannot be decrypted. This is solved by explicitly adding an extra ``'0'' String if the byte is less than or equal to 0x0F. First the device needs an IP address which is completed through Dynamic Host Configuration, DHCP by the router. The router running DHCP dynamically allocates network configuration parameters such as IP addresses to devices so that they automatically get one that isn't in use. This is completed with the line \emph{Ethernet.begin(mac)} which returns a 1 on successful IP allocation or 0 on failure. If it fails then a static IP can be assigned manually by \emph{Ethernet.Begin(mac, clientIP)}. A connection to the server is attempted using the IP and the port number, 80 in this case. If it successful the information is sent as a POST request, a POST request is a request method in the HTTP protocol. When a server receives a POST request it knows to take the data and complete an action with it. The request makes it known that it wants add.php to be executed upon receiving the data. %extra params, the content size and urlencoding
+ Just before the cipher is sent the byte array is converted into a String so that it can be passed around easily as one parameter. This is completed simply by cycling through the byte array and adding each entry together. Care has to be taken when there are hexadecimals that are 0x0F or lower. The leading zero is lost during the conversion to String which means that when the cipher reconverted into a byte array, it is incorrect and cannot be decrypted. This is solved by explicitly adding an extra ``'0'' String if the byte is less than or equal to 0x0F.  The device needs an IP address which is completed through Dynamic Host Configuration, DHCP by the router. The router running DHCP dynamically allocates network configuration parameters such as IP addresses to devices so that they automatically get one that isn't in use. This is completed with the line \emph{Ethernet.begin(mac)} which returns a 1 on successful IP allocation or 0 on failure. If it fails then a static IP can be assigned manually by \emph{Ethernet.Begin(mac, clientIP)}. A connection to the server is attempted using the IP and the port number, 80 in this case. If it successful the information is transmitted as a POST request, a POST request is a request method in the HTTP protocol. When a server receives a POST request it knows to take the data and complete an action with it. The request makes it known that it wants add.php to be executed upon receiving the data. %extra params, the content size and urlencoding
 Once the data is sent the connection can be closed and other actions performed on the Arduino.
  
 \section{Server Side}
-						%needs an intro
-For the prototype, an Apache server, SQL server and Tomcat server were set up using XAMPP on a desktop. The Arduino causes the add.php to be run and the first thing that does is make a connection to the SQL server using SQl server address, username, password and the name of the database. If it can't connect it abandons the task and returns an error message. On successful connect it returns the connection variable.
+
+For the prototype, an Apache and Tomcat server with SQL was set up using XAMPP on a desktop. The Arduino causes the add.php to be run and the first thing that it does is make a connection to the SQL server using SQL IP address, username, password and the name of the database. If it can't connect it abandons the task and returns an error message. On successful connect it returns the connection variable.
 
 \begin{figure}[H]
 %\begin{lstlisting}[language=PHP]
@@ -166,7 +165,7 @@ For the prototype, an Apache server, SQL server and Tomcat server were set up us
 \label{snip:php}
 \end{figure}
 
-The data to be stored is extracted out of the POST request and place in a variable. Then an SQL query is built up before being sent to the SQL server and the connection terminated. The SQL table contains an ID, the time at which the temperature data was received and the data and is created using the command shown in figure \ref{snip:sql} Notice the corresponding variables, tempLog, the table and tempHex, the data.
+The data to be stored is extracted out of the POST request and placed in a variable. Then an SQL query is built up before being sent to the SQL server and the connection terminated. The SQL table contains an ID, the time at which the temperature data was received and the data and is created using the command shown in figure \ref{snip:sql}. Notice between the database creation code and the PHP file the corresponding variables, tempLog, the table name and tempHex, the data.
 
 \begin{figure}[H]
 \begin{lstlisting}[style=SQL]
@@ -176,7 +175,8 @@ CREATE TABLE `iotplatform`.`tempLog` ( `id` INT(255) NOT NULL AUTO_INCREMENT , `
 \label{snip:sql}
 \end{figure}
 %InnoDB?
-The data stored in the database is still encrypted, now a way is needed to decrypt it and display it to the user. A Java web app, using Java server pages, JSP, was created as there are Java implementations of the TweetNaCl library, among other variations, available \cite{ian}. Eclipse JEE Mars was used to create a dynamic web project which extends HttpServlet for the creation of dynamic web pages. In this you override at least one of the following methods, doGet, doPost, doPut and doDelete so the depending on the type of request received a different action will occur. This application has the code in the doGet as server will receive a get request when it is accessed by a user.
+
+The data stored in the database is still encrypted, now a way is needed to decrypt it and display it to the user. A Java web app, using Java server pages, JSP, was created as there are Java implementations of the TweetNaCl library, among other variations, available\cite{ian}. Eclipse JEE Mars was used to create a dynamic web project which extends HttpServlet for the creation of dynamic web pages. In this you override at least one of the following methods, doGet, doPost, doPut and doDelete so depending on the type of request received a different action will occur. This application has the code in the doGet as the server will receive a get request when it is accessed by a user.
 
 \begin{figure}[H]
 \begin{lstlisting}[style=Java]
@@ -190,7 +190,7 @@ printWriter.println("<html>");
 \label{snip:clientprinterjsp}
 \end{figure}
 
-The headers and tags you would need and expect in a HTML page can now be print dynamically much like printing to a console. The keys are defined similarly  to the code on the Arduino expect the server has it's own secret key and the Arduino's public key.
+Using the code shown in figure \ref{snip:clientprinterjsp} the headers and tags you would need and expect in a HTML page can now be printed dynamically much like printing to a console. The keys are defined similarly to the code on the Arduino except the server has it's own secret key and the Arduino's public key.
 
 \begin{figure}[H]
 \begin{lstlisting}[style=Java]
@@ -220,10 +220,10 @@ The headers and tags you would need and expect in a HTML page can now be print d
 }
 \end{lstlisting}
 \caption{Accessing the SQL database in JSP}
-\label{snip:sqlaccessjsp}
+\label{snip:jspcode}
 \end{figure}
 
-The app is given the server details and access to it before entering a try catch that prints whatever the error message is to the client. Java database connectivity, JDBC, is an API for client access to a database. The app gets a new instance of JDBC and then opens a connection to the server before building up a query to pull out the contents of the table. The variables are put into a result set which much be accessed for each individually variable with the string name as a parameter. The encrypted message is still in it's String format and needs to be converted back into a byte array. During the conversion to a String on the Arduino half of the leading zeros are lost and they are added before the conversion to byte array. The API in the Java implementation of TweetNaCl is the exact same as the C.
+In figure \ref{snip:jspcode} is a section of code running in tomcat. The app is given the SQL details before entering a try catch that prints whatever the error message is to the client. Java database connectivity, JDBC, is an API for client access to a database. The app gets a new instance of JDBC and then opens a connection to the server before building up a query to pull out the contents of the table. The variables are put into a result set which can be used to access each individual variable with the string name as a parameter. The encrypted message is still in it's String format and needs to be converted back into a byte array. During the conversion to a String on the Arduino half of the leading zeros are lost but they are added again before the conversion to byte array. The API in the Java implementation of is compatible with the TweetNaCl C API but provides another level of abstraction on top. 
 
 \begin{figure}[H]
 \begin{lstlisting}[style=Java]
@@ -234,10 +234,9 @@ byte[] javaPlainTextMessage = TweetNaCl.crypto_sign_open(signedCipherArray, Ardu
 \label{snip:decryptjsp}
 \end{figure}
 
-The security needs to be taken open in the reverse order as to how it was put on. \emph{TweetNaCl.crypto\_box\_open} passes the decrypted message out by ref but for \emph{TweetNaCl.crypto\_sign\_open} the message without the signature is returned. The variable \emph{javaPlainTextMessage} is the temperature in plain hexadecimal but it still needs conversion to integer so it can be read by the average user. The code is taken from the DS18S20 example.
+The security needs to be taken open in the reverse order as to how it was put on. \emph{TweetNaCl.crypto\_box\_open} passes the decrypted message out by ref but for \emph{TweetNaCl.crypto\_sign\_open} the message without the signature is returned. This is an example of the top layer of abstraction in Ian Preston's implementation of TweetNaCl. The  \emph{TweetNaCl.crypto\_box\_open} method is the exact same as the the C library but \emph{TweetNaCl.crypto\_sign\_open} is a slightly built upon method that has fewer parameters, completes more work behind the scenes and returns the byte message. The variable \emph{javaPlainTextMessage} is the temperature in plain hexadecimal but it still needs conversion to integer so it can be read by the average user. The code is taken from the DS18S20 example from Arduino.
 
-The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server. (security flaw!)
-
+The web app upon being accessed decrypts and checks the signature of each entry, using the keys that it has stored, in the table before converting the raw hex temperature data into more readable integers and displaying in a simple HTML table that can be accessed by the user. When the Arduino has data to send it will make a POST request to a PHP file on the Apache server which takes the data given to it and places it in the SQL server.
 
 \section{Public Key Transmission}
 
@@ -270,13 +269,12 @@ int saveNextWord = 0, takeData = 0;
 \label{snip:post}
 \end{figure}
 
-When setting up the Uno server, explicitly define what gateway and subnet the router being used has as the defaults \emph{Ethernet.begin(mac)} uses aren't always correct. The server sits open on a certain port, 8081 in this case, and waits for clients to make a connection. Once they have, the server sends an acknowledgement that it has received a connection and starts reading in the request. There it watches out for the word POST so that it knows to store the content and, of course, for the content so it knows what to store. The request from the client is read out a byte at a time so it is necessary for those bytes to be made into strings so specific keywords can be looked out for. If the byte is not a space then it is part of a word so it is added to the subsequent bytes until another space is reached then it is considered a word and compared against. Once the key is taken it is in String format and needs to be turn back into hex and store as the key to be used in further encryptions. DEmo?
+When setting up the Uno server, explicitly define what gateway and subnet the router being used has as the defaults \emph{Ethernet.begin(mac)} uses aren't always correct. The server sits open on a certain port, 8081 in this case, and waits for clients to make a connection. Once they have, the server sends an acknowledgement that it has received a connection and starts reading in the request. There it watches out for the word POST so that it knows to store the content and, of course, for the content so it knows what to store. The request from the client is read out a byte at a time so it is necessary for those bytes to be made into strings so specific keywords can be looked out for. If the byte is not a space then it is part of a word so it is added to the subsequent bytes until another space is reached then it is considered a word and compared against. Once the key is taken it is in String format and needs to be turn back into hex and store as the key to be used in further encryptions.
 
 
 \section{TweetNaCl Library}
 
-The TweetNaCl library as it stands in it's original form is not compatible with Arduinos. The C library compiles without errors but the compiler warns that the TweetNaCl method names are undefined and as a result do not perform their tasks. The method simply returns random numbers, it is possibly that it is trying to access some area of memory and simply returns whatever it finds.(ask greg/james). It is not understand why this is the case but it is a simple case of converting the library into C++ syntax. With a header file that has the main methods used in the project and the \#defines and a cpp file with the TweetNaCl code. This is added in the same way to the Arduino IDE and in the code an instance of the class is created and methods are accessed with the dot operator.
+The TweetNaCl library as it stands in it's original form is not compatible with Arduinos. The C library compiles without errors but the compiler warns that the TweetNaCl method names are undefined and as a result do not perform their tasks. The Arduino language is a mix of C++ and C so it doesn't support every aspect of each language. When the methods are accessed they simply returns random numbers, it is possible that it is trying to access some area of memory, not finding the correct function and simply returning whatever it finds. It is not understand why this is the case but to get the libraries to work it is a simple case of converting the library into C++ syntax. With a header file that has the main methods used in the project and the \#defines and a cpp file with the TweetNaCl code. This is added in the same way to the Arduino IDE and in the code an instance of the class is created and methods are accessed with the dot operator. In this application not every function in the TweetNaCl library will be used so any methods that weren't going to be utilised were not copied over into the converted library.
 
-The keypair, crypto\_sign, crypto\_box and equivalent opens were used. These are simple to use, abstracted methods that make this library easy to use. For the encryption the method needs the message to be encrypted which needs to have the first 32 bytes be zero, an empty array that needs to be at least the size of the message with the leading zeros, the length of the message, the nonce, arduino public key and the servers private key. This will reveal the temperature data with the signature. To remove the signature, the crypto\_sign\_open method needs the server secret signature key and the signed cipher array.
 
 

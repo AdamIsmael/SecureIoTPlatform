@@ -14,11 +14,11 @@ Cryptography is the practise and study of techniques for secure communication in
 
 To get round the problem of secure sending of secret keys, one can use Asymmetric Key encryption which involves a secret key and a public key, the public key is generated out of the secret key and are therefore mathematically linked but it is computationally infeasible to calculate the secret key from the public key. This public key can be given out freely and is not a secret. So if Bob sends a message to Alice he encrypts the message with her public key and she can decrypt it with her secret key. This type of key encryption gets past the sharing secret key problem, as long as you can make sure the public key is indeed the correct one, but it only stops attackers from reading the message. It does not prove the message was sent by a certain person or that the message has not been altered in transit.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{Figures/publickeyex.png}
-	\caption{DS18S20 Temperature Sensor}
-	\label{fig:ds}
+	\caption{Asymmetric Key Encryption}
+	\label{fig:asy}
 \end{figure}
 
 
@@ -54,7 +54,7 @@ For message encryption the Salsa20 stream cipher encrypts a message using the sh
 
 The library uses Poly1305 as it's MAC function. In TweetNaCl, Poly1305 as it uses the Salsa20 stream cipher to compute the code\cite{poly}.
 
-For key signature, TweetNaCl has a fourth component, Ed25519 public key signature system. Edwards curve digital signature algorithm is a variant of Schnorr signature based on Twisted Edward curves. It is faster than existing schemes but does not reduce strength of security\cite{ed25}. 
+For key signature, TweetNaCl has a fourth component, Ed25519 public key signature system. Edwards curve digital signature algorithm is a variant of Schnorr signature based on Twisted Edward curves. It is faster than existing schemes but does not reduce strength of security\cite{ed25}. TweetNaCl gets it's name because the developers tweeted all of the source code in a 100 tweets to prove how small it was.
 
 %explain how the encryption and signature's work. high level overview
 % Curve25519 Diffie–Hellman key-exchange function public key
@@ -85,12 +85,12 @@ M2M refers to the direct communication between two devices using any sort of cha
 
 In this project the Arduino was programmed using C++. The C++ was developed in the Arduino IDE. An Arduino Due, Arduino Uno, DS1820S temperature sensor, resistor and two Ethernet Shield R2 boards were used. On the server side there is an SQL server, PHP scripts that accept that Arduino data and put it in the SQL server. And a Java web application that uses Java Database Connectivity, JBCD, to access the SQL server and outputs dynamic HTML when accessed. The Java code was developed using Eclipse Jee Mars. Bitbucket, in conjunction with Git, was used to remotely store all the software.
 
-\subsection{PHP}
-PHP is a server-side scripting language used in web development. It is especially suited server-side applications as it is very portable. PHP code in a file that is requested is executed by the PHP runtime. It can be used with many OS's, web serves and relational database management systems. It is very common for web hosting providers to support PHP use by their clients.
-
 \subsection{XAMPP Server}
 
 XAMPP, Apache, MySQL, PHP and Perl come together to form XAMPP which is free, open source, cross platform, web server stack package for the creation and testing of local server systems that can then be moved as they are onto live systems. This XAMPP used in this project also contains Tomcat.
+
+\subsection{PHP}
+PHP is a server-side scripting language used in web development. It is especially suited server-side applications as it is very portable. PHP code in a file that is requested is executed by the PHP runtime. It can be used with many OS's, web serves and relational database management systems. It is very common for web hosting providers to support PHP use by their clients.
 
 \subsection{SQL}
 
