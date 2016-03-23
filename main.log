@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  23 MAR 2016 10:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  23 MAR 2016 22:47
 entering extended mode
 **main.tex
-(E:\UNINotes\4th\Project\Report1\main.tex
+(E:\UNINotes\4th\Project\IoTPlatform\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(E:\UNINotes\4th\Project\Report1\MastersDoctoralThesis.cls
+(E:\UNINotes\4th\Project\IoTPlatform\MastersDoctoralThesis.cls
 Document Class: MastersDoctoralThesis 2015/11/08 v1.2 LaTeXTemplates.com
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
@@ -1694,15 +1694,15 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count398
 \@quotereset=\count399
-(E:\UNINotes\4th\Project\Report1\main.aux
-(E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Design.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Implementation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Results.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux))
+(E:\UNINotes\4th\Project\IoTPlatform\main.aux
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
 LaTeX Font Info:    ... okay on input line 199.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
@@ -1872,7 +1872,7 @@ Package biblatex Warning: Data encoding is 'utf8'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
-(E:\UNINotes\4th\Project\Report1\main.bbl
+(E:\UNINotes\4th\Project\IoTPlatform\main.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with '50milby2020':
@@ -1940,8 +1940,8 @@ LaTeX Info: Redefining \ref on input line 199.
 LaTeX Info: Redefining \pageref on input line 199.
 LaTeX Info: Redefining \nameref on input line 199.
 
-(E:\UNINotes\4th\Project\Report1\main.out)
-(E:\UNINotes\4th\Project\Report1\main.out)
+(E:\UNINotes\4th\Project\IoTPlatform\main.out)
+(E:\UNINotes\4th\Project\IoTPlatform\main.out)
 \@outlinefile=\write5
 
 ABD: EveryShipout initializing macros
@@ -1970,7 +1970,7 @@ Package pdftex.def Info: img/uni_logo_eng.jpg used on input line 244.
 
 
 {C:/Users/Turkleton's/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <E:/UN
-INotes/4th/Project/Report1/img/uni_logo_eng.jpg>]
+INotes/4th/Project/IoTPlatform/img/uni_logo_eng.jpg>]
 --------------------
  Declaration of Authorship
 --------------------
@@ -1995,13 +1995,13 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 320.
- (E:\UNINotes\4th\Project\Report1\main.toc
+ (E:\UNINotes\4th\Project\IoTPlatform\main.toc
 1: section
 [4
 
 ])
 \tf@toc=\write6
- [5] (E:\UNINotes\4th\Project\Report1\main.lof)
+ [5] (E:\UNINotes\4th\Project\IoTPlatform\main.lof)
 \tf@lof=\write7
 
 1: section
@@ -2009,14 +2009,14 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 
 ]
 1: section
-(E:\UNINotes\4th\Project\Report1\Chapters/Introduction.tex
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.tex
 Chapter 1.
 1: section
 [1
 
 
 
-]) [2] (E:\UNINotes\4th\Project\Report1\Chapters/Background.tex
+]) [2] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.tex
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 8.
@@ -2034,14 +2034,14 @@ Package pdftex.def Info: Figures/publickeyex.png used on input line 19.
 
 
 
-] [4 <E:/UNINotes/4th/Project/Report1/Figures/publickeyex.png>] [5] [6]
-[7]
+] [4 <E:/UNINotes/4th/Project/IoTPlatform/Figures/publickeyex.png>] [5]
+[6] [7]
 Overfull \hbox (13.81454pt too wide) in paragraph at lines 97--98
 \T1/ppl/m/n/10.95 man-ag-ing data store in re-la-tional databases. SQL or-gan-i
 ses data into databases
  []
 
-) [8] (E:\UNINotes\4th\Project\Report1\Chapters/Design.tex
+) [8] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
 Chapter 3.
 <Figures/ds.jpg, id=406, 803.0pt x 602.25pt>
 File: Figures/ds.jpg Graphic file (type jpg)
@@ -2066,10 +2066,10 @@ File: Figures/ethernet.jpg Graphic file (type jpg)
 <use Figures/ethernet.jpg>
 Package pdftex.def Info: Figures/ethernet.jpg used on input line 60.
 (pdftex.def)             Requested size: 144.53777pt x 102.78119pt.
- [10 <E:/UNINotes/4th/Project/Report1/Figures/ds.jpg> <E:/UNINotes/4th/Project/
-Report1/Figures/due.jpg>] [11 <E:/UNINotes/4th/Project/Report1/Figures/ethernet
-.jpg>]) [12]
-(E:\UNINotes\4th\Project\Report1\Chapters/Implementation.tex
+ [10 <E:/UNINotes/4th/Project/IoTPlatform/Figures/ds.jpg> <E:/UNINotes/4th/Proj
+ect/IoTPlatform/Figures/due.jpg>] [11 <E:/UNINotes/4th/Project/IoTPlatform/Figu
+res/ethernet.jpg>]) [12]
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.tex
 Chapter 4.
 <Figures/TempSensor_bb.pdf, id=430, 314.17375pt x 356.33125pt>
 File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
@@ -2089,8 +2089,8 @@ File: Figures/dsmem.png Graphic file (type png)
 <use Figures/dsmem.png>
 Package pdftex.def Info: Figures/dsmem.png used on input line 30.
 (pdftex.def)             Requested size: 216.81216pt x 189.16469pt.
- [14 <E:/UNINotes/4th/Project/Report1/Figures/TempSensor_bb.pdf> <E:/UNINotes/4
-th/Project/Report1/Figures/dsmem.png>]
+ [14 <E:/UNINotes/4th/Project/IoTPlatform/Figures/TempSensor_bb.pdf> <E:/UNINot
+es/4th/Project/IoTPlatform/Figures/dsmem.png>]
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 38.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
@@ -2114,7 +2114,7 @@ ari-able \T1/ppl/m/it/10.95 javaPlain-
  []
 
 [21] [22]) [23]
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.tex
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.tex
 Chapter 5.
 
 Overfull \hbox (9.1064pt too wide) in paragraph at lines 17--19
@@ -2127,14 +2127,24 @@ n text in a database
 
 
 
-] [25]) [26] (E:\UNINotes\4th\Project\Report1\Chapters/Results.tex
+] [25]
+Underfull \hbox (badness 1603) in paragraph at lines 42--42
+[]|\T1/ppl/m/n/10.95 0xAE, 0x43, 0xCD, 0xA5, 0x8E, 0x54,
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 43--43
+[]|\T1/ppl/m/n/10.95 0x2E, 0xBC, 0xCC, 0x6B, 0x9E, 0xDB,
+ []
+
+) [26] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.tex
 Chapter 6.
 1: section
 [27
 
 
 
-]) [28] (E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.tex
+]) [28] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.tex
 Chapter 7.
 )
 1: section
@@ -2142,7 +2152,7 @@ Chapter 7.
 
 
 
-] [30] (E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.tex
+] [30] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.tex
 Chapter 8.
 1: section
 [31
@@ -2176,26 +2186,30 @@ l/m/n/10.95 :
 [34]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
- (E:\UNINotes\4th\Project\Report1\main.aux
-(E:\UNINotes\4th\Project\Report1\Chapters/Introduction.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Background.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Design.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Implementation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/StrengthOfSecurity.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Results.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/CriticalEvaluation.aux)
-(E:\UNINotes\4th\Project\Report1\Chapters/Conclusion.aux))
+ (E:\UNINotes\4th\Project\IoTPlatform\main.aux
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
+(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 41CB6508E11EBDBB88D0050FB190EF26;7014.
+(rerunfilecheck)             Checksum: 981B169A2C62A3C6500313E4C9AFC1A8;7014.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 43507 strings out of 493921
- 907027 string characters out of 3144858
- 1139180 words of memory out of 3000000
- 45844 multiletter control sequences out of 15000+200000
+ 43513 strings out of 493921
+ 907380 string characters out of 3144858
+ 1139331 words of memory out of 3000000
+ 45848 multiletter control sequences out of 15000+200000
  43568 words of font info for 75 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  64i,19n,76p,10402b,2188s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2210,9 +2224,9 @@ es (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 rw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on main.pdf (40 pages, 1891745 bytes).
+Output written on main.pdf (40 pages, 1892254 bytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 274 named destinations out of 1000 (max. 500000)
+ 861 PDF objects out of 1000 (max. 8388607)
+ 276 named destinations out of 1000 (max. 500000)
  464 words of extra memory for PDF output out of 10000 (max. 10000000)
 

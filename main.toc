@@ -46,10 +46,10 @@
 \contentsline {section}{\numberline {5.4}Bit Flipping}{25}{section.204}
 \contentsline {section}{\numberline {5.5}Timing Attacks}{25}{section.205}
 \contentsline {section}{\numberline {5.6}Length of cipher text}{25}{section.206}
-\contentsline {chapter}{\numberline {6}Results}{27}{chapter.207}
-\contentsline {section}{\numberline {6.1}Basic Objectives}{27}{section.208}
-\contentsline {section}{\numberline {6.2}Power Consumption}{27}{section.209}
-\contentsline {section}{\numberline {6.3}Additional Objective}{28}{section.210}
-\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{28}{subsection.211}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{29}{chapter.212}
-\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.213}
+\contentsline {chapter}{\numberline {6}Results}{27}{chapter.209}
+\contentsline {section}{\numberline {6.1}Basic Objectives}{27}{section.210}
+\contentsline {section}{\numberline {6.2}Power Consumption}{27}{section.211}
+\contentsline {section}{\numberline {6.3}Additional Objective}{28}{section.212}
+\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{28}{subsection.213}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{29}{chapter.214}
+\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.215}

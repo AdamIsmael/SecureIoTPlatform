@@ -24,20 +24,7 @@ If the keys are preinstalled they can be used to sign and encrypt new public key
 \section{Bit Flipping}
 
 Bit flipping is the process of changing parts of the encrypted message so that it says something else. This is especially potent when the format of the message is know. As the format of the message is know to us, a test can be set that if it succeeds would change a number. If the message had 
-In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit.
-After a signed message was encrypted it was altered before being decrypted and the signature checked
-
-Why did we even bother signing it, the encryption will fail if the encrypted message is changed
-
-As the format of the message is known, key areas of the message were altered and the following output notice
-
-The format of the raw plaintext message is 32 leading zeros and 9 bytes of actual information. Where the first two are the temperature. 
-
-when we change the 9th and 8th last hex digits in the resulting cipher text....what happens, decrypts fine but signature fails
-
-
-Also, encrypt 1 and 9999 to see?
-
+In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit. After a signed message was encrypted it was altered with random hexadecimal numbers and it each time the decryption process would fail. The encryption process adds a hash of the message and the decryption process would find a different hash and would fail each time.
 
 \section{Timing Attacks}
 
@@ -47,40 +34,34 @@ TweetNaCl is an example of constant time software, which means that the time of 
 
 Is it possible to gain information about the message from looking at characteristics of the cipher text? In bad cipher text it can be possible to find out the types of message that are sent as the resulting ciphertext may have change in a certain, predictable. For example if the message is a large number in contrast to a low number, there may be noticeable differences. Unfortunately a vulnerability exists in the cryptography chosen but it is a common weakness and one that does not have much consequence. That is the length of the cipher text corresponds with the length of the message. This is offset somewhat by the additition of the signature so the cipher text is much larger than one would expect if it was know that 9 bytes of hexadecimal were sent. To fully get around this the message is padded out with zeros so that the whole message is always forty one bytes in length. Which does mean the message has a limit of forty one bytes unless the source code is altered. To test how the cipher text changes when sending different messages four encryptions took place. The messages were YES, NO, 1 and 9999. 
 
-sending encrypted the one and 9999
-yes and no
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ | l | p{7cm} | }
+	\hline
+	Plaintext Message & Encrypted Message \\ \hline
+	YES & 0xAE, 0x43, 0xCD, 0xA5, 0x8E, 0x54, 0xE9,  0x30, 0x59, 0xB1, 0xD5, 0xA5, 0xBF, 0x24, 0x9D, 0xEE, 0x69, 0xDB, 0x37  \\ \hline
+	NO &  0x2E, 0xBC, 0xCC, 0x6B, 0x9E, 0xDB, 0x29, 0x64, 0xF6, 0x26, 0x49, 0xEF, 0xE9, 0xFA, 0xBD, 0x9C, 0x7E, 0xD1 \\ \hline
+	\end{tabular}
+	\caption{Resulting ciphers for encrypting words}
+	\label{tab:yesno}
+\end{table}
 
-To encrypt the hex of the word YES, produces 
+From theses message it is possible to tell the number of bytes sent if you know that the encryption method adds 16 extra bytes but other than that this test shows there isn't a discernible difference between encrypting YES and NO.
 
-,0xAE ,0x43 ,0xCD ,0xA5 ,0x8E ,0x54 ,0xE9 ,0x30
- ,0x59 ,0xB1 ,0xD5 ,0xA5 ,0xBF ,0x24 ,0x9D ,0xEE
- ,0x69 ,0xDB ,0x37
- 105, 219, 55
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ | l | p{7cm} | }
+	\hline
+	Plaintext Message & Encrypted Message \\ \hline
+	00 & 0x5B, 0x74, 0x76, 0x4C, 0xF4, 0x19, 0x65, 0x37, 0xC4, 0x53, 0xAF, 0xB0, 0xCE, 0x18, 0x1, 0x1, 0x30, 0x9E \\ \hline
+	1 & 0x49, 0x1B, 0x1E, 0x52, 0x10, 0x38, 0xD7, 0x38, 0x30, 0x65, 0x71, 0xBC, 0xEE, 0x65, 0x3D, 0x6, 0x31, 0x9E\\ \hline
+	99999 & 0xC, 0xC, 0x29, 0xE2, 0x4E, 0x81, 0x67, 0x5, 0x78, 0x49, 0x8C, 0xA1, 0x4F, 0x69, 0x8, 0xBB, 0x9, 0xA7, 0x5D, 0x63, 0x4D \\ \hline
+	\end{tabular}
+	\caption{Resulting ciphers for encrypting numbers}
+	\label{tab:9999}
+\end{table}
 
-To encrypt the hex of the word NO, produces 
-
- ,0x2E ,0xBC ,0xCC ,0x6B ,0x9E ,0xDB ,0x29 ,0x64
- ,0xF6 ,0x26 ,0x49 ,0xEF ,0xE9 ,0xFA ,0xBD ,0x9C
- ,0x7E ,0xD1
-126, 209
-
-From this message it is possible to tell the number of bytes sent if you know that the encryption method adds 16 extra bytes but other than that this test shows there isn't a discernable difference
-
-
-To encrypt a message of all zeros
-,0x5B ,0x74 ,0x76 ,0x4C ,0xF4 ,0x19 ,0x65 ,0x37
- ,0xC4 ,0x53 ,0xAF ,0xB0 ,0xCE ,0x18 ,0x1 ,0x1
- ,0x30 ,0x9E
-
-To encrypt a message of a 1
-,0x49 ,0x1B ,0x1E ,0x52 ,0x10 ,0x38 ,0xD7 ,0x38
- ,0x30 ,0x65 ,0x71 ,0xBC ,0xEE ,0x65 ,0x3D ,0x6
- ,0x31 ,0x9E
-
-To encrypt a message of 99999
-,0xC ,0xC ,0x29 ,0xE2 ,0x4E ,0x81 ,0x67 ,0x5
- ,0x78 ,0x49 ,0x8C ,0xA1 ,0x4F ,0x69 ,0x8 ,0xBB
- ,0x9 ,0xA7 ,0x5D ,0x63 ,0x4D
+Again, the bytes return from encrypting the test case of numbers don't indicate that the integer contained in the message is increasing but it does show the length of the number.
 
 %\section{nonces}
 
