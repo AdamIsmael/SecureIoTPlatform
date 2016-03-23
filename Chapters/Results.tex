@@ -3,22 +3,22 @@
 \chapter{Results}
 \label{res}
 
-The basic objectives were to sign and encrypt a message in order to stop an attacker from reading he messages and to protect against them being altered in transit. To send that message to a web server and have that data be accessible by a user.
+The basic objectives were to sign and encrypt a message in order to stop an attacker from reading the messages, to protect against them being altered in transit, to authenticate them, to send that message to a web server and have that data be accessible by a user.
 
 \section{Basic Objectives}
 
-It can be seen that the DS18S20 temperature successfully found the temperature of the room. That that data was given a signature and then encrypted. It was then packaged up and sent as a POST request across the network to a web server that stored the data in a database. Then the user could access that database and view the temperature data. The message could not be read as it was encrypted nor could it be altered as the signature verification process would fail. 
+It can be seen that the DS18S20 temperature successfully found the temperature of the room. That that data was given a signature and then encrypted. It was then packaged up and sent as a POST request across the network to a web server that stored the data in a database. Then the user could access that database and view the temperature data. The message could not be read or altered as it was encrypted nor would any message that wasn't signed by an authorised user be displayed in the web app.
 
-\section{Power Consumption!}
+\section{Power Consumption}
 
-As this is to be a low power system that might run on batteries for a good amount of time, it is important to analyse the power consumption of the device. Although saving power wasn't a top priority concern in the creation application, there is more that could be done to save power such as completely shut down modules on the Arduino Due that are never used. The temperature won't be taken every second so between bursts of activity the Due could be put into a sleep mode and be woken up on an interrupt rather than the busy wait implemented in this prototype.
+As this is to be a low power system that might run on batteries for a good amount of time, it is important to analyse the power consumption of the device. Although saving power wasn't a top priority concern in the creation of the application, there is more that could be done to save power such as completely shut down modules on the Arduino Due that are never used. The temperature won't be taken every second so between bursts of activity the Due could be put into a sleep mode and be woken up on an interrupt rather than the busy wait implemented in this prototype.
 
-To start the power was recorded as the temperature was being taken with the DS18S20 temperature sensor, in both parasite power mode and regular power mode. It was found that during both operations the power consumption was the exact same at .123A and .613W. This result was not surprising as the power consumption of the temperature sensor is so small compared to the Due that even though it doesn't consume power in parasite mode, the overall consumption of power is barely affected.
+To start the power was recorded as the temperature was being taken with the DS18S20 temperature sensor, in both parasite power mode and regular power mode. It was found that during both operations the power consumption was the exact same at 0.123A and 0.613W. This result was not surprising as the power consumption of the temperature sensor is so small compared to the Due that even though it doesn't consume power in parasite mode, the overall consumption of power is barely affected.
 
 To isolate the the power consumed when the Due was only signing and encrypting, the Ethernet shield was left unplugged. This way the effect of the encryption would be seen without the effects of powering an Ethernet shield throughout. 
-The readings upon start up were 0.123A and 0.613W, when the data was being given a signature the readings were .17A and .970W and when the message was encrypted it rose to .20A and 1W. 
+The readings upon start up were 0.123A and 0.613W, when the data was being given a signature the readings were 0.17A and 0.970W and when the message was encrypted it rose to 0.20A and 1W. 
 
-In addition the power consumption when the Ethernet shield was attached but had no cable plugged was recorded. The power consumed during the signature and encryption process was the same as above but during DCHP the readings were .199A and 0.990W as it tried to gain an IP address from the router. Once the loop iteration was complete, the code went straight into a busy loop which was a tiny drop in power at .198A and 980mW. A busy wait is a waste of power and resources so at this point the Arduino Due should go into a sleep mode and be woken up by an interrupt when it was to record the temperature again. 
+In addition the power consumption when the Ethernet shield was attached but had no cable plugged was recorded. The power consumed during the signature and encryption process was the same as above but during DCHP the readings were .199A and 0.990W as it tried to gain an IP address from the router. Once the loop iteration was complete, the code went straight into a busy loop which was a tiny drop in power at 0.198A and 980mW. A busy wait is a waste of power and resources so at this point the Arduino Due should go into a sleep mode and be woken up by an interrupt when it was to record the temperature again. 
 
 The next test was with the shield plugged into the router with the Ethernet cable. The power consumption shot up to 0.265a and 1.30W during DHCP at the start of the sketch and there it remained even during the encryption process. Evidently the shield requires such a significant of the power that by comparison the cryptographic library is as good as unnoticeable. There are versions of the Ethernet Shield with an extra module that allows power over Ethernet. This extra module doesn't add a significant increase to the overall cost to the shield but can alleviate battery problems and extend the life of batteries by extracting power from the Ethernet cable that is connected to the router
 %voltage changes??
@@ -54,7 +54,6 @@ The voltage through the experiments was the exact same, a steady 4.96V which mak
 
 Expansion of the network was considered with multiple devices communicating directly. This objective was reached by adding an Arduino Uno with another Ethernet shield as a webserver and the Due could pass on data, such as new server public keys, to it. If more nodes where desired then more Uno webservers could be added and the Due would simply go through the list of servers and send a POST request to each to update their keys.
 
-show lots of pictures?
 
-\subsection{rekeying on arduino}
+%\subsection{rekeying on arduino}
 %http://blog.skylable.com/2014/05/tweetnacl-carrybit-bug/

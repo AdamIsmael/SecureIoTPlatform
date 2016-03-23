@@ -9,15 +9,12 @@
 
 \section{Sign then Encrypt}
 
-Encryption stops unauthorised parties from accessing information, assuming authorised parties are the only party with access to a secret key. Signatures prove the message was not altered in transit, integrity, that the message came from a known sender and that sender cannot deny sending the message. These are two distinct operations and the order of these operations matters. If a user was to encrypt a message then sign and send it, as the signature is added to the message it can be stripped off by an attacker and replaced with their own. If the attacker managed to intercept the transmission of public keys in the first place then they can now impersonated the real recipient. Or they could change the message content through a bit banging attack and because there is no hash of the message to be compared to the receiver can't know if the message integrity has failed. In addition the attack can add any signature to the message, encrypting then signing does not prove that the owner of the signature was aware what was in the message as it was encrypted. In this application the message is signed first so the hash is taken of the plaintext message and it can be proved that the signer was aware as to the contents of the message and then it is encrypted.
+Generally encryption stops unauthorised parties from accessing information, assuming authorised parties are the only party with access to a secret key, prove message integrity. Signatures prove that the message came from a known sender and the sender cannot deny sending the message. These are two distinct operations and the order of these operations matters. If a user was to encrypt a message then sign and send it, as the signature is added to the message, it can be stripped off by an attacker and replaced. If the attacker managed to intercept the transmission of public keys in the first place then they can now impersonated the real recipient. Signing after encryption defeats the purpose of signing, which is to prove that the owner of the signature saw the data and cannot disprove that if their signature is attached to it. If an encrypted message is signed then it is entirely possible that the owner of the signature was not aware what was in the message. In this application the message is signed first so the hash is taken of the plaintext message and it can be proved that the signer was aware as to the contents of the message and then it is encrypted\cite{signencrypt}.
 
-can protect against the attacks mentioned earlier because...
-
-%http://world.std.com/~dtd/sign_encrypt/sign_encrypt7.html
 
 \section{Storing data in plaintext}
 
-Storing vital data such as passwords and usernames in plain text in a database is an absolutely horrendous idea. This provides one point of failure that if broken means that every password stored is now useless and the accounts are wide open. In some circumstances that initial break might not be so severe, say if that is for forum site where the worst action that could be taken was writing a mean message but users sometimes use the same password for many different sites. Although in this application the temperature data is being store and not passwords the security implications are still there. This application would have that single point of failure that is so deplorable. It is necessary to provide as many layers of security as possible rather than have one hard layer. That being the security of the database. As such this application stores all the temperature data as it arrives, in it's encrypted form. This way the keys will need to be known by the attacker in order to gain the data.
+Storing vital data such as passwords and usernames in plain text in a database is generally considered quite a bad idea. This provides one point of failure that if broken means that every password stored is now useless and the accounts are wide open. In some circumstances that initial break might not seem so severe, say if that is for a forum site where the worst action that could be taken was writing an inappropriate message but users sometimes use the same password for many different sites. Although in this application the information being stored in temperature data and not passwords but the security implications are still there. This application would have that single point of failure that is so deplorable. It is necessary to provide as many layers of security as possible rather than have one hard layer. That being the security of the database. As such this application stores all the temperature data as it arrives, in it's encrypted form. This way the keys will need to be known by the attacker in order to gain the data.
 %should be in hash or something better as we'd need to store all the keys and work out what key to use on what data if we ever wanted access.
 
 \section{Public Key Transmission}
@@ -44,7 +41,7 @@ Also, encrypt 1 and 9999 to see?
 
 \section{Timing Attacks}
 
-TweetNaCl is an example of constant time software, which means that the time of execution does not depend on secret data and is therefore not vulnerable to timing attacks. To have this quality TweetNaCl avoids all loads from address and all branch conditions that depend on secret data and are thus inherently protected against cache timing attacks. 
+TweetNaCl is an example of constant time software, which means that the time of execution does not depend on secret data and is therefore not vulnerable to timing attacks. To have this quality TweetNaCl avoids all loads from address and all branch conditions that depend on secret data and it is thus inherently protected against cache timing attacks. 
 
 \section{Length of cipher text}
 
@@ -85,9 +82,6 @@ To encrypt a message of 99999
  ,0x78 ,0x49 ,0x8C ,0xA1 ,0x4F ,0x69 ,0x8 ,0xBB
  ,0x9 ,0xA7 ,0x5D ,0x63 ,0x4D
 
-\section{nonces}
+%\section{nonces}
 
-getting the encryption and decryption to have the same nonce
-
-
-573
+%getting the encryption and decryption to have the same nonce

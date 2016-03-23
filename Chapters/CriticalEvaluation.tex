@@ -5,25 +5,18 @@
 
 
 
+With the way it is set up at the moment the XAMPP server pages, add.php and connect php, and the JSP application that displays the temperature data are accessible through a browser by anyone on the network. Realms could be set up or IP filtering. A realm is a database of usernames and passwords that identify valid users of a web app and can be used to provided levels of access.
 
-\section{Security Concerns}
+%The way the arduino accesses the new server public key at the moment is simply by sending a GET request to the server for it. But an attacker could easily send the same get request and get a public key. Then this key could be used to send mesages to the arduino causing damage at worst or at least the server and arduino might be out of sync and each are using a different set of keys and be unable to read communications from each other.
 
-With the way it is set up at the moment the XAMPP server pages, add.php and connect php, and the JSP application that displays the temperature data are accessible through a browser by anyone on the network. Relems could be set up, IP filtering and a an account system set up. To provide a certain level of access to certain users. 
-% take about realms 
-The way the arduino accesses the new server public key at the moment is simply by sending a get request to the server for it. But an attacker could easily send the same get request and get a public key. Then this key could be used to send mesages to the arduino causing damage at worst or at least the server and arduino might be out of sync and each are using a different set of keys and be unable to read communications from each other.
+The public and private key of the server and the public key of the arduino are stored as plaintext in the web application and it might be possible to read them from the WAR files. This is not as much a problem for the public keys, if caught quickly, as it means we can no longer trust that new messages are from an authorised source but if the secret key is leak then all messages sent from the Arduino using that key pair are compromised. 
 
-The public and private key of the server and the public key of the arduino are stored as plaintext in the web application and it might be possible to read them from the WAR files. This is not as much a problem for the public keys, if caught quickly, as it means we can no longer trust that new messages are from an authorised source but if the secret key is leak then all messages sent from the arduino using that key pair are compromised. 
+The messages are padded with zeros to avoid leaking out the message length. Perhaps it would be better to include random data rather than a set of never changing zeros. Thus the rare case that an attacker notices that the first 32 bytes don't change or worse that they are all the same would be avoided.
 
-The messages are padded with zeros to avoid leaking out the message length. Perphaps it would be better to include random data rather than a set of never changing zeros. Thus the rare case that an attacker notices that the first 32 bytes don't change or worse that they are all the same would be avoided.
+The Arduino doesn't have access to /dev/random and can't provide good enough random data to make good key pairs. Which means that it can't update it's own secret key, for example if the key has been compromised or it is part of a regular renewal service to key security tight.
 
-The arduino doesn't have access to u random and can't provide good enough random data and therefore can't make good key pairs. Which means that it can't update it's own secret key, for example if the key has been compromised or it is part of a regular renewal service to key security tight.
+When the public keys are transmitted for the first time, a human user is required to manually inspect the keys, in private, and ensure they are the same before they can be used for data transmission. This is, unfortunately, unavoidable as there is no way to prove that this key that arrived is the one that was sent. The internet is an unsecure platform and it cannot be trusted. There are many things that could happen as it transits the web. 
 
-\section{Other SubSection}
+The PHP files that the Arduino Due sends a POST request to do not authenticate the requests and as such anyone who knew the ip address of the server could send data into the SQL database. However when the Java web app retrieves the data out of the database if it is not encrypted with the keys then the decryption will fail and the data won't be displayed to the user.
 
-When the public keys are transmitted for the first time, a human user is required to manually inspect the keys, in private, and ensure they are the same before they can be used for data transmission. This is, unfortunately, unavoidable as there is no way to prove that this key that arrived is the one that was sent. The internet is an unsecure platform and it cannot be trusted. There are many things that could happen as it transit the web. 
-
-This prototype has used the Ethernet Shield as it was much cheaper than a WiFi shield. If an implementation similiar to the one described in this report was to be implemented then it would be convient to provide connection over WiFi. The product also risks not being adopted as more and more products have wireless capabilities and  users see it as the norm and resent cables. This will be especially important if the device uses batteries to power itself.
-Ethernet shield? Wifi is better but not cheap.
-
-
-add.php doesnt check that the data it is receiving is legit or not and will still store it. But when the java comes to take the data out of the database if it is not genuine then the information won't be displayed to the user
+This prototype has used the Ethernet Shield as it was much cheaper than a WiFi shield. If an implementation similar to the one described in this report was to be implemented then it would be convenient to provide connection over WiFi. The product also risks not being adopted as more and more products have wireless capabilities and  users see it as the norm and resent cables. This will be especially important if the device uses batteries to power itself.

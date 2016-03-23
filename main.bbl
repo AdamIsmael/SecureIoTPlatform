@@ -129,6 +129,247 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
+\entry{naclsmall}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Denis}{D.}%
+     {Frank}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DF1}
+  \strng{fullhash}{DF1}
+  \field{title}{Introducing Sodium, a new cryptographic library}
+  \verb{url}
+  \verb https://labs.opendns.com/2013/03/06/announcing-sodium-a-new-cryptograph
+  \verb ic-library/
+  \endverb
+  \field{year}{2013}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{tweetnacl}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gastel}{G.}%
+     {Bernard}{B.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Janssen}{J.}%
+     {Wesley}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lange}{L.}%
+     {Tanja}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schwabe}{S.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smetsers}{S.}%
+     {Sjaak}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ+1}
+  \strng{fullhash}{BDJGBvJWLTSPSS1}
+  \field{pages}{3}
+  \field{title}{TweetNaCl: A crypto library in 100 tweets}
+  \field{year}{2014}
+\endentry
+
+\entry{tweetnacl3}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gastel}{G.}%
+     {Bernard}{B.}%
+     {van}{v.}%
+     {}{}}%
+    {{}%
+     {Janssen}{J.}%
+     {Wesley}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lange}{L.}%
+     {Tanja}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schwabe}{S.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Smetsers}{S.}%
+     {Sjaak}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ+1}
+  \strng{fullhash}{BDJGBvJWLTSPSS1}
+  \field{title}{TweetNaCl: A crypto library in 100 tweets}
+  \field{year}{2014}
+\endentry
+
+\entry{arduinopseudo}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Arduino}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \verb{url}
+  \verb https://www.arduino.cc/en/Reference/Random
+  \endverb
+\endentry
+
+\entry{curve}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ1}
+  \strng{fullhash}{BDJ1}
+  \field{title}{A state-of-the-art Diffie-Hellman function}
+  \verb{url}
+  \verb https://cr.yp.to/ecdh.html
+  \endverb
+\endentry
+
+\entry{salsa}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ1}
+  \strng{fullhash}{BDJ1}
+  \field{title}{Snuffle 2005: the Salsa20 encryption function}
+  \verb{url}
+  \verb https://cr.yp.to/snuffle.html
+  \endverb
+\endentry
+
+\entry{poly}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ1}
+  \strng{fullhash}{BDJ1}
+  \field{title}{A state-of-the-art message-authentication code}
+  \verb{url}
+  \verb http://cr.yp.to/mac.html
+  \endverb
+\endentry
+
+\entry{ed25}{misc}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Bernstein}{B.}%
+     {Daniel~J.}{D.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Duif}{D.}%
+     {Niels}{N.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lange}{L.}%
+     {Tanja}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peter~Schwabe}{P.~S.}%
+     {Bo-Yin~Yan}{B.-Y.~Y.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BDJ+1}
+  \strng{fullhash}{BDJDNLTPSBYY1}
+  \field{title}{A state-of-the-art message-authentication code}
+  \verb{url}
+  \verb http://ed25519.cr.yp.to/index.html
+  \endverb
+\endentry
+
+\entry{dipbag}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Boczek}{B.}%
+     {Boleslaw~A.}{B.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Scarecrow Press INC}%
+  }
+  \strng{namehash}{BBA1}
+  \strng{fullhash}{BBA1}
+  \field{title}{Internation Law: A Dictionary}
+  \field{year}{2005}
+\endentry
+
+\entry{eth2}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Arduino}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \verb{url}
+  \verb http://labs.arduino.org/Ethernet+2+Library
+  \endverb
+\endentry
+
+\entry{dsdatasheet}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Integrated}{I.}%
+     {Maxim}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{IM1}
+  \strng{fullhash}{IM1}
+  \field{title}{High-Precision 1-Wire Digital Thermometer}
+  \verb{url}
+  \verb datasheets.maximintegrated.com/en/ds/DS18S20.pdf
+  \endverb
+  \field{year}{2015}
+\endentry
+
 \entry{ian}{misc}{}
   \name{author}{1}{}{%
     {{}%
@@ -144,6 +385,65 @@
   \verb https://github.com/ianopolous/tweetnacl-java
   \endverb
   \field{year}{2016}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{signencrypt}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Davis}{D.}%
+     {Don}{D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DD1}
+  \strng{fullhash}{DD1}
+  \field{title}{Defective Sign \& Encrypt in S/MIME, PKCS\#7, MOSS, PEM, PGP,
+  and XML}
+  \verb{url}
+  \verb http://world.std.com/\~dtd/sign\_encrypt/sign\_encrypt7.html
+  \endverb
+  \field{year}{2001}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{censys}{misc}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Durumeric}{D.}%
+     {Zakir}{Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Adrian}{A.}%
+     {David}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mirian}{M.}%
+     {Ariana}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bailey}{B.}%
+     {Michael}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Halderman}{H.}%
+     {J.~Alex}{J.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{DZ+1}
+  \strng{fullhash}{DZADMABMHJA1}
+  \field{booktitle}{Proceedings of the 22nd ACM Conference on Computer and
+  Communications Security}
+  \field{title}{A Search Engine Backed by {I}nternet-Wide Scanning}
+  \verb{url}
+  \verb https://censys.io
+  \endverb
+  \field{year}{2015}
   \warn{\item Invalid format of field 'month'}
 \endentry
 

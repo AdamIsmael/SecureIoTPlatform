@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.3.1}Replay Attack}{6}{subsection.15}
 \contentsline {subsection}{\numberline {2.3.2}Man in the Middle Attack}{6}{subsection.16}
 \contentsline {subsection}{\numberline {2.3.3}Bit-Flipping Attack}{6}{subsection.17}
-\contentsline {subsection}{\numberline {2.3.4}Stream Cipher Attack}{7}{subsection.18}
+\contentsline {subsection}{\numberline {2.3.4}Stream Cipher Attack}{6}{subsection.18}
 \contentsline {section}{\numberline {2.4}Timing Attack}{7}{section.19}
 \contentsline {section}{\numberline {2.5}Machine to Machine}{7}{section.20}
 \contentsline {section}{\numberline {2.6}Technologies used}{7}{section.21}
@@ -46,15 +46,10 @@
 \contentsline {section}{\numberline {5.4}Bit Flipping}{25}{section.204}
 \contentsline {section}{\numberline {5.5}Timing Attacks}{25}{section.205}
 \contentsline {section}{\numberline {5.6}Length of cipher text}{25}{section.206}
-\contentsline {section}{\numberline {5.7}nonces}{26}{section.207}
-\contentsline {chapter}{\numberline {6}Results}{27}{chapter.208}
-\contentsline {section}{\numberline {6.1}Basic Objectives}{27}{section.209}
-\contentsline {section}{\numberline {6.2}Power Consumption!}{27}{section.210}
-\contentsline {section}{\numberline {6.3}Additional Objective}{28}{section.211}
-\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{28}{subsection.212}
-\contentsline {subsection}{\numberline {6.3.2}rekeying on arduino}{28}{subsection.213}
-\contentsline {chapter}{\numberline {7}Critical Evaluation}{29}{chapter.214}
-\contentsline {section}{\numberline {7.1}Security Concerns}{29}{section.215}
-\contentsline {section}{\numberline {7.2}Other SubSection}{29}{section.216}
-\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.217}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{33}{appendix.218}
+\contentsline {chapter}{\numberline {6}Results}{27}{chapter.207}
+\contentsline {section}{\numberline {6.1}Basic Objectives}{27}{section.208}
+\contentsline {section}{\numberline {6.2}Power Consumption}{27}{section.209}
+\contentsline {section}{\numberline {6.3}Additional Objective}{28}{section.210}
+\contentsline {subsection}{\numberline {6.3.1}Secure transmission of public keys}{28}{subsection.211}
+\contentsline {chapter}{\numberline {7}Critical Evaluation}{29}{chapter.212}
+\contentsline {chapter}{\numberline {8}Conclusion}{31}{chapter.213}

@@ -241,7 +241,6 @@ The web app upon being accessed decrypts and checks the signature of each entry,
 \section{Public Key Transmission}
 
 For the creation of other nodes on the network that are connected onto the Due, an Arduino Uno was set up as a host and example node. As two clients can't directly connect together with the Ethernet protocol and since the Arduino Due is a client to a web server, the Uno must be a host. The Uno will be a server similar to the XAMPP web server expect it isn't directly connected to the internet. 
-additional web server code to facilitate sending of keys to Due??
 The Due sends a POST request to the Uno, very similar to the one it sends to the XAMPP web server however the key is under the content header. The method that the Due uses, sending a POST request that executes a php file to extract the data from the POST cannot be used, without difficulty??, as PHP can't be run on an Arduino web server. Instead there is an extra header in the POST, \emph{``Content: key''}.
 
 \begin{figure}[H]
