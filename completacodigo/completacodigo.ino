@@ -8,22 +8,23 @@ OneWire  ds(9);  // on pin 10 (a 4.7K resistor is necessary)
 TweetNaCl2 tuit;
 
 byte mac[] = {
-0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6
+//0x90, 0xA2, 0xDA, 0x10, 0x2D, 0xD6 Uno
+0x90, 0xA2, 0xDA, 0x10, 0x04, 0xB5
 };
-char server[] = "192.168.0.6";
+char server[] = "192.168.0.9";// do not do {192,168,0,3};
 EthernetClient client;
 int assigned = 0;
 
 
 
 //byte = unsigned char
- const byte alicesk[crypto_box_SECRETKEYBYTES]
+ const byte arduinosk[crypto_box_SECRETKEYBYTES]
     = { 0x77, 0x07, 0x6d, 0x0a, 0x73, 0x18, 0xa5, 0x7d, 
         0x3c, 0x16, 0xc1, 0x72, 0x51, 0xb2, 0x66, 0x45, 
         0xdf, 0x4c, 0x2f, 0x87, 0xeb, 0xc0, 0x99, 0x2a, 
         0xb1, 0x77, 0xfb, 0xa5, 0x1d, 0xb9, 0x2c, 0x2a };
 
-  byte alicesksign[crypto_sign_SECRETKEYBYTES]
+  byte arduinosksign[crypto_sign_SECRETKEYBYTES]
     = { 0x74,0xc5,0x5a,0xcc,0x8b,0xa0,0x8f,0x01,
         0xec,0x2b,0xed,0x47,0x4f,0x64,0x15,0x5a,
         0x4c,0xb3,0x7a,0x61,0x71,0x66,0xf5,0x58,
@@ -51,10 +52,8 @@ int assigned = 0;
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,    
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
         
-  
- 
-  
-  unsigned char sm[mlen+crypto_sign_BYTES];
+  unsigned char smtemp[mlen+crypto_sign_BYTES]; //the message after the signature has been added but before the preceding zeros are added
+  unsigned char sm[mlen+crypto_sign_BYTES+32]; //signed message with 32 zeros
   
   unsigned long long smlen=0;
  
@@ -62,6 +61,7 @@ int assigned = 0;
  int Suc_Sign=20;
  
 void setup() {
+  //send data to say that we are using key numero uno
   Serial.begin(9600);
   delay(1000);
 }
@@ -70,17 +70,48 @@ void loop() {
   Serial.println("loop");
   byte i;
   byte present = 0;
+  byte type_s;
   byte data[12]; //12?? not 9?
   byte addr[8];
+  float celsius, fahrenheit;
   
-  if ( !ds.search(addr)) {
+   if ( !ds.search(addr)) {
+    Serial.println("No more addresses.");
+    Serial.println();
     ds.reset_search();
     delay(250);
+    return;
+  }
+  
+  Serial.print("ROM =");
+  for( i = 0; i < 8; i++) {
+    Serial.write(' ');
+    Serial.print(addr[i], HEX);
   }
   
   if (OneWire::crc8(addr, 7) != addr[7]) {
       Serial.println("CRC is not valid!");
   } 
+  Serial.println();
+  
+  // the first ROM byte indicates which chip
+  switch (addr[0]) {
+    case 0x10:
+      Serial.println("  Chip = DS18S20");  // or old DS1820
+      type_s = 1;
+      break;
+    case 0x28:
+      Serial.println("  Chip = DS18B20");
+      type_s = 0;
+      break;
+    case 0x22:
+      Serial.println("  Chip = DS1822");
+      type_s = 0;
+      break;
+    default:
+      Serial.println("Device is not a DS18x20 family device.");
+      return;
+  }
   
   ds.reset();
   ds.select(addr);
@@ -92,32 +123,40 @@ void loop() {
   ds.write(0xBE);         // Read Scratchpad
 
   Serial.print("  Data = ");
-  //Serial.print(present, HEX);
+  Serial.print(present, HEX);
   Serial.print(" ");
   Serial.print("message ");
-  for ( i = 32; i < 41; i++) {           // we need 9 bytes
-    m[i] = ds.read();
-    Serial.print(m[i], HEX);
+  for ( i = 0; i < 9; i++) {           // we need 9 bytes
+    data[i] = ds.read();
+    m[i+32] = data[i];
+    Serial.print(data[i], HEX);
     Serial.print(" ");
   }
-    for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    data[i] = ds.read();
-    //Serial.print(data[i], HEX);
-    //Serial.print(" ");
-  }
-  byte type_s=1;
-  int16_t raw = (data[1] << 8) | data[0];
+  Serial.print(" CRC=");
+  Serial.print(OneWire::crc8(data, 8), HEX);
+  Serial.println();
+
+ int16_t raw = (data[1] << 8) | data[0];
   if (type_s) {
     raw = raw << 3; // 9 bit resolution default
     if (data[7] == 0x10) {
       // "count remain" gives full 12 bit resolution
       raw = (raw & 0xFFF0) + 12 - data[6];
     }
+  } else {
+    byte cfg = (data[4] & 0x60);
+    // at lower res, the low bits are undefined, so let's zero them
+    if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
+    else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
+    else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
+    //// default is 12 bit resolution, 750 ms conversion time
   }
-  float celsius = (float)raw / 16.0;
-  Serial.println(" ");
-  Serial.print("Temp (C) ");
+  celsius = (float)raw / 16.0;
+  fahrenheit = celsius * 1.8 + 32.0;
+  Serial.print("  Temperature = ");
   Serial.print(celsius);
+  Serial.print(" Celsius, ");
+  
   
    Serial.println(" ");
   for ( i = 0; i < 41; i++) {
@@ -130,12 +169,42 @@ void loop() {
   }
 
 
-  Suc_Sign = tuit.crypto_sign(sm, &smlen, m, mlen, alicesksign);
+  Suc_Sign = tuit.crypto_sign(smtemp, &smlen, m, mlen, arduinosksign);
+  
   Serial.println(" Successful Signing: ");
   Serial.print(Suc_Sign);
-   byte sc[smlen];
-  //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, alicesk);
-  Suc_Crypt = tuit.crypto_box(sc, sm, smlen, nonce, bobpk, alicesk);
+   
+   for(i=0;i<smlen;i++){
+     Serial.print(" ,0x");
+     Serial.print(smtemp[i], HEX);
+     if(i%8==7){
+         Serial.println();
+       }
+   }
+   Serial.println();
+   byte sc[smlen+32];
+   
+   for(i=0;i<32;i++){
+    sm[i]=0;
+  }
+  for(i=0;i<137;i++){
+     sm[32+i]=smtemp[i]; 
+  } 
+  
+  Serial.println(" ");
+  Serial.print(" messagewithzeros");
+  Serial.println(" ");
+  
+   for(i=0;i<137;i++){
+       Serial.print(" ,0x");
+       Serial.print(sm[i],HEX);
+       if(i%8==7){
+         Serial.println();
+       }
+     } 
+  
+  //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, arduinosk);
+  Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, bobpk, arduinosk);
   Serial.print(" Successful encrypt: ");
   Serial.println(Suc_Crypt);
   
@@ -144,7 +213,7 @@ void loop() {
   String final;
   byte j;
   Serial.print("datatobesent ");
-  for (j=0;j<smlen;j++){
+  for (j=0;j<137;j++){
     Serial.print(" ,0x");
     Serial.print(sc[j],HEX);
     sprintf(temp, "%x",sc[j]);
@@ -177,21 +246,25 @@ void loop() {
   Serial.print("DNS Server IP     : ");
   Serial.println(Ethernet.dnsServerIP());
    
+  //int connectionStatus = client.connect(server,80);
+  //Serial.println(connectionStatus);
    //48 individual chars + 15
   if(client.connect(server,80)){ //server address port:21
-     String data = "temperatureHex=";
-     int contentLength = data.length()+final.length();
+     String title = "temperatureHex=";
+     String testData = "0005e6448";
+     int contentLength = title.length()+final.length();
+     int testContentLength = title.length()+testData.length();
      Serial.println("Connected");   
-     client.println("POST /tempLog/add.php HTTP/1.1"); 
-     client.println("HOST: 192.168.0.6"); //server address
+     client.println("POST /tempLog1/add.php HTTP/1.1"); 
+     client.println("HOST: 192.168.0.9"); //server address
      client.println("Content-Type: application/x-www-form-urlencoded");
      client.print("Content-Length: ");
-     client.println(contentLength);
-     Serial.println(contentLength);
-     client.println();
-     //client.print("temperatureInt=");
-     //client.print("22");
-     client.print("temperatureHex=");
+     //client.println(19);//need a client.println("Content: somnedata")
+     client.println(testContentLength);
+     Serial.println(testContentLength);
+     client.println(); //should the data be after this space, does the server stop listening after this?
+     client.print(title);
+     //client.print(testData);
      client.print(final);
      Serial.println("Data sent");
    }else{
