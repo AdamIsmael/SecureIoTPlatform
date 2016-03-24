@@ -37,10 +37,14 @@ public class DecryptTemp extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
+    //Does this work when not connnect to the internet?
+    
    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    		
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -65,7 +69,7 @@ public class DecryptTemp extends HttpServlet {
         /*straight up box2.c test*/
          
          
-         printWriter.println(sk.getServerPublicKey());
+         //printWriter.println(sk.getServerPublicKey());
         
         
         // API requires first 16 bytes to be 0
@@ -117,7 +121,7 @@ public class DecryptTemp extends HttpServlet {
 //         }
          
          /*message signing*/
-         printWriter.println("nerw tysadssa");
+         //printWriter.println("nerw tysadssa");
 //         byte[] publicSigningKey = {(byte) 0xb6,(byte) 0xa6,(byte) 0x83,(byte) 0x9a,0x41,0x03,0x25,(byte) 0xb1
 //        		 ,(byte) 0xc8,0x04,0x33,(byte) 0xc1,0x19,0x50,(byte) 0xdd,0x26
 //        		 ,(byte) 0x96,0x62,(byte) 0xb1,0x67,(byte) 0xe9,0x0b,(byte) 0xa5,0x46
@@ -168,17 +172,19 @@ public class DecryptTemp extends HttpServlet {
 //        	 printWriter.println(String.format(",0x%02x ", javaMessage[i]));
 //         }
          
-         String signedCipher = "000000000000000034aec97a965682e72e7a9246d99e67a3cf1a58917b8412a8cf07623798751c9e910479d92019f96134e05c887df54d9225337bd3ab619d615760d8c5b224a85b1d0efe0eb8a7ee163abb0376529fcc0990b54d80e71e32f7f3";
-         signedCipher="0000000000000000"+signedCipher;
-         byte[] signedCipherArray = hexStringToByteArray(signedCipher);
-         
-         
-         byte[] javaMessage = TweetNaCl.crypto_sign_open(signedCipherArray, SecretKey.publicFirstSigningKey);
-         
-         printWriter.println("javaMessage   "+javaMessage.length);
-         for(int i=0;i<javaMessage.length;i++){
-        	 printWriter.println(String.format(",0x%02x ", javaMessage[i]));
-         }
+//         String signedCipher = "000000000000000034aec97a965682e72e7a9246d99e67a3cf1a58917b8412a8cf07623798751c9e910479d92019f96134e05c887df54d9225337bd3ab619d615760d8c5b224a85b1d0efe0eb8a7ee163abb0376529fcc0990b54d80e71e32f7f3";
+//         signedCipher="0000000000000000"+signedCipher;
+//         byte[] signedCipherArray = hexStringToByteArray(signedCipher);
+//         byte[] javaMessage={};
+//         try{
+//        	 javaMessage = TweetNaCl.crypto_sign_open(signedCipherArray, SecretKey.publicFirstSigningKey);
+//         }catch(Exception e){
+//        	 e.printStackTrace(printWriter);
+//         }
+//         printWriter.println("javaMessage   "+javaMessage.length);
+//         for(int i=0;i<javaMessage.length;i++){
+//        	 printWriter.println(String.format(",0x%02x ", javaMessage[i]));
+//         }
          
           //JDBC driver name and database URL
 	      //final String JDBCDRIVER="com.mysql.jdbc.Driver";  
@@ -210,7 +216,7 @@ public class DecryptTemp extends HttpServlet {
 	           "<head><title>" + title + "</title></head>\n" +
 	           "<body bgcolor=\"#f0f0f0\">\n" +
 	           "<h1 align=\"center\">" + title + "</h1>\n");*/
-	        printWriter.println("before try catch     ");
+	        //printWriter.println("before try catch     ");
 	        try
 	        {
 	         // Register JDBC driver
@@ -224,7 +230,7 @@ public class DecryptTemp extends HttpServlet {
 	            String sql;
 	            sql = "SELECT id, timeStamp, tempHex FROM tempLog";
 	            ResultSet rs = stmt.executeQuery(sql);
-	            printWriter.println("Starting to get data from SQL      ");
+	            //printWriter.println("Starting to get data from SQL      ");
 	            // Extract data from result set
 	            while(rs.next()){
 	               //Retrieve by column name
@@ -252,15 +258,47 @@ public class DecryptTemp extends HttpServlet {
 	               //printWriter.println("tempHexLength "+ tempHex.length());
 	               
 	               
-	               byte[] cipher = hexStringToByteArray(tempHex);
-	               long messageLength = cipher.length;
-	               byte[] message = new byte[(int) messageLength];
-	               int ret=20;
+	               byte[] signedcipher = hexStringToByteArray(tempHex);
+	               long signedMessageLength = signedcipher.length;
+	               byte[] signedMessage = new byte[(int) signedMessageLength];
+	               
+	               int Suc_decrypt = 20;
+	               
 	               try{
-	              	  ret = TweetNaCl.crypto_box_open(message, cipher, messageLength, SecretKey.nonceFirstArray, SecretKey.arduinoFirstpkArray, SecretKey.serverFirstskArray);
+	            	   Suc_decrypt = TweetNaCl.crypto_box_open(signedMessage, signedcipher, signedMessageLength, SecretKey.nonceFirstArray, SecretKey.arduinoFirstpkArray, SecretKey.serverFirstskArray);
 	               }catch(Exception e){
 	              	 e.printStackTrace(printWriter);
 	               }
+	               
+	               //printWriter.println("   ");
+	               
+	               //printWriter.println("Success decrypt "+Suc_decrypt);
+	               
+//	               printWriter.println("javaSignedMessage   "+signedMessage.length);
+//	               for(int i=0;i<signedMessage.length;i++){
+//	              	 printWriter.println(String.format(",0x%02x ", signedMessage[i]));
+//	               }
+	               
+	               //the decrypted signed cipher has all the zeros attached to the front now that need gone
+	               //137-32 = 105
+	               byte[] signedMessageWithoutZeros = new byte[105];
+	               for(int i=0;i<105;i++){
+	            	   signedMessageWithoutZeros[i] = signedMessage[i+32];
+	               }
+	               
+	               //printWriter.println("   ");
+	               byte[] message = new byte[41];
+	           
+	               try{
+	            	   message = TweetNaCl.crypto_sign_open(signedMessageWithoutZeros, SecretKey.publicFirstSigningKey);
+	               }catch(Exception e){
+	              	 e.printStackTrace(printWriter);
+	               }
+	               
+	               
+
+
+	              
 	               
 	            // Convert the data to actual temperature
 	               // because the result is a 16 bit signed integer, it should
@@ -269,10 +307,10 @@ public class DecryptTemp extends HttpServlet {
 	               float celsius=0;
 	               try{
 	               byte[] data = new byte[9];
-	               printWriter.println("temp hex ");
+	               //printWriter.println("temp hex ");
 	               for(int i=32;i<message.length;i++){
 	              	 data[i-32]=message[i];
-	              	 printWriter.println(String.format(",0x%02x ", data[i-32]));
+	              	 //printWriter.println(String.format(",0x%02x ", data[i-32]));
 	               }
 	               boolean type_s = true; //for DS18S20
 	               int raw = (data[1] << 8) | data[0];
@@ -292,7 +330,7 @@ public class DecryptTemp extends HttpServlet {
 	               }
 	               celsius =  (float) (raw / 16.0);
 	               
-	              	 printWriter.println("temp: "+(int)celsius);
+	              	 //printWriter.println("temp: "+(int)celsius);
 	               }catch(Exception e){
 	              	 e.printStackTrace(printWriter);
 	               }
@@ -300,8 +338,8 @@ public class DecryptTemp extends HttpServlet {
 	               //Display values
 	               printWriter.println("<tr><td>"+id+"</td>");
 	               printWriter.println("<td>"+timeStamp+"</td>");
-	               printWriter.println("<td>"+tempHex+"</td>");
-	               printWriter.println("<td>"+celsius+"</td></tr>");
+	               printWriter.println("<td>"+celsius+"</td>");
+	               printWriter.println("<td>"+tempHex+"</td></tr>");
 	               
 	              
 	            }
