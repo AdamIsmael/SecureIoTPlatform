@@ -24,7 +24,7 @@ byte mac[] = {0x90, 0xA2, 0xDA, 0x10, 0x2D,0xD6 };
 // use the numeric IP instead of the name for the server:
 //IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
 //char server[] = "www.google.com";    // name address for Google (using DNS)
-char server[] = "192.168.0.50";
+char server[] = "192.168.0.2";
 //char server[] = "216.58.213.142";
 // Set the static IP address to use if the DHCP fails to assign
 IPAddress ip(192, 168, 0, 22);
@@ -66,19 +66,20 @@ void setup() {
   // if you get a connection, report back via serial:
   String PostData = "f9fg8d7a3jn53jkx87as83nj34kajshdasd834j34fd67f";
   
-  if (client.connect(server,8081)) {
+  if (client.connect(server,8080)) {
     Serial.println("connected");
     // Make a HTTP request:
-    client.println("POST arduino HTTP/1.1 ");
+    //client.println("POST arduino HTTP/1.1 ");
+    client.println("GET /IoTPlatform/SecretKey HTTP/1.1 ");
     client.println("Host: 192.168.0.50 ");
-    client.println("User-Agent: Arduino/1.0 ");
-    client.println("Content-Type: application/x-www-form-urlencoded ");
-    client.print("Content-Length: ");
-    client.println(PostData.length());
-    client.print(" ");
-    client.print("Content: ");
-    client.print(PostData);
-    client.println(" ");
+    //client.println("User-Agent: Arduino/1.0 ");
+    //client.println("Content-Type: application/x-www-form-urlencoded ");
+    //client.print("Content-Length: ");
+    //client.println(PostData.length());
+    //client.print(" ");
+    //client.print("Content: ");
+    //client.print(PostData);
+    //client.println(" ");
     client.println();
     //client.print("data=");
     //client.print(PostData);
