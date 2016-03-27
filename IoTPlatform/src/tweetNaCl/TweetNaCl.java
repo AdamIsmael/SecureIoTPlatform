@@ -2960,7 +2960,7 @@ public class TweetNaCl {
         return crypto_secretbox_open(m, c, d, n, k);
     }
 
-    private static int crypto_box(byte[] c,byte[] m,long d,byte[] nonce, byte[] theirPublicBoxingKey, byte[] ourSecretBoxingKey)
+    public static int crypto_box(byte[] c,byte[] m,long d,byte[] nonce, byte[] theirPublicBoxingKey, byte[] ourSecretBoxingKey)
     {
         byte[] k = new byte[32];
         crypto_box_beforenm(k, theirPublicBoxingKey, ourSecretBoxingKey);
