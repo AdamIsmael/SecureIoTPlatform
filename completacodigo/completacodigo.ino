@@ -12,7 +12,7 @@ byte mac[] = { 0x90, 0xA2, 0xDA, 0x10, 0x04, 0xB5 };
 //0x90, 0xA2, 0xDA, 0x10, 0x2D, 0xD6 Uno
 
 //};
-char server[] = "192.168.0.2";// do not do {192,168,0,3};
+char server[] = "192.168.0.3";// do not do {192,168,0,3};
 IPAddress ip(192, 168, 0, 177);
 EthernetClient client;
 EthernetClient client1;
@@ -36,7 +36,13 @@ int assigned = 0;
         0xc8,0x04,0x33,0xc1,0x19,0x50,0xdd,0x26,
         0x96,0x62,0xb1,0x67,0xe9,0x0b,0xa5,0x46,
         0xe7,0x48,0x5f,0xa9,0x15,0x10,0x2e,0x51 };
-
+  
+  byte serverpksign[crypto_sign_PUBLICKEYBYTES] 
+    = { 0xf2,0xaf,0xdb,0x38,0x2a,0xcc,0x24,0x57
+       ,0x90,0x4e,0xb8,0x77,0xcb,0x24,0x72,0x1a
+       ,0xd2,0xb2,0x2e,0x8b,0xe9,0x72,0x7c,0xfb
+       ,0x10,0x93,0x81,0x7e,0x5b,0x83,0x35,0xe0};  
+ 
  const byte serverpk[crypto_box_PUBLICKEYBYTES] 
     = { 0xde, 0x9e, 0xdb, 0x7d, 0x7b, 0x7d, 0xc1, 0xb4, 
         0xd3, 0x5b, 0x61, 0xc2, 0xec, 0xe4, 0x35, 0x37, 
@@ -59,6 +65,9 @@ int assigned = 0;
   unsigned char sm[mlen+crypto_sign_BYTES+32]; //signed message with 32 zeros
   
   unsigned long long smlen=0;
+ 
+ byte serverpkold[32] = {NULL};
+ byte nonceold[24];
  
  int connectionAttempts=0;
  int clientConnected=0;
@@ -89,8 +98,8 @@ int assigned = 0;
      client1.println("Content-Type: application/x-www-form-urlencoded");
      client1.print("Content-Length: ");
      //client.println(19);//need a client.println("Content: somnedata")
-     client1.println(testContentLength);
-     Serial.println(testContentLength);
+     client1.println(contentLength);
+     Serial.println(contentLength);
      client1.println(); //should the data be after this space, does the server stop listening after this?
      client1.print(title);
      //client.print(testData);
@@ -161,14 +170,17 @@ void loop() {
   connectionAttempts=0;
   
   boolean nextWordIsKey = false;
+  boolean nextWordIsNonce = false;
   String key = "";
   int keyNumber=0;
-  char key1[64]={0};
+  int nonceNumber=0;
+  char keynew[64]={0};
+  char noncenew[64] = {0};
   //char key2[64]={0};
   int counter=0;
   
   while(!client.available()){
-   //wait for client ro be ready 
+   //wait for client to be ready 
   }
   
   if (client.available()) {
@@ -178,13 +190,26 @@ void loop() {
       
       if(c=='>'){
         nextWordIsKey = false; 
+        counter=0;
         keyNumber++;
+      }
+      if(c==')'){
+         nextWordIsNonce = false;
+         nonceNumber++;
+         counter=0;
       }
       if(nextWordIsKey){
          //Serial.print(c,HEX);
          key = key+c;
-         key1[counter] = c;
+         keynew[counter] = c;
          counter++;
+      }
+      if(nextWordIsNonce){
+          noncenew[counter] = c;
+          counter++;
+      }
+      if(c == '('){
+         nextWordIsNonce = true; 
       }
       if(c =='<'){
         nextWordIsKey = true;
@@ -193,27 +218,48 @@ void loop() {
     } 
   }
 
-  Serial.println("");
-  Serial.print(F("Key Recieved is "));
-  Serial.print(key);
-  Serial.println("");
+  //Serial.println("");
+  //Serial.print(F("Key Recieved is "));
+  //Serial.print(key);
+  //Serial.println("");
 
   
   size_t count=0;
-  char *pos = key1;
-  //char *pos = key;
-  byte val[32];
-  
-  for(count=0;count<sizeof(val)/sizeof(val[0]);count++){
-      sscanf(pos,"%2hhx",&val[count]);
+  char *pos = keynew;
+  byte serverpknew[32];
+  for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      sscanf(pos,"%2hhx",&serverpknew[count]);
       pos +=2 ;  
     }
-    
-    Serial.println("");
-    Serial.print(F("0x"));
-     for(count = 0;count<sizeof(val)/sizeof(val[0]);count++){
-       Serial.print(val[count],HEX); 
+  char *posNonce = noncenew;
+  byte scnoncenew[24];
+  for(count=0;count<sizeof(scnoncenew)/sizeof(scnoncenew[0]);count++){
+      sscanf(posNonce,"%2hhx",&scnoncenew[count]);
+      posNonce +=2 ;  
     }
+    
+    
+    Serial.println("Nonce");
+    Serial.print(F("0x"));
+     for(count = 0;count<sizeof(scnoncenew)/sizeof(scnoncenew[0]);count++){
+       Serial.print(scnoncenew[count],HEX); 
+    }
+    
+   int Suc_Decrypt = 20; 
+   int scnlen = 24+64+32;
+   byte snoncewz[scnlen];
+   
+   if(serverpkold[0]==NULL){
+     Serial.println("");
+     Serial.print("serverskold is empty"); //which  means it is the first iteration and we need to use the preinstalled keys to get the next set
+    Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenew, scnlen, nonce,serverpk, arduinosk); 
+   }else{
+     Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenew, scnlen, nonceold, serverpkold, arduinosk); 
+   }
+   
+   int Suc_unsign=20;//m, mlen. sm, n, pk
+   Suc_unsign = tuit.crypto_sign_open()
+    
     
 //  Serial.println("");
 //  Serial.print(F("encryptKey"));
@@ -362,17 +408,17 @@ void loop() {
      sm[32+i]=smtemp[i]; 
   } 
   
-//  Serial.println(" ");
-//  Serial.print(F(" messagewithzeros"));
-//  Serial.println(" ");
-//  
-//   for(i=0;i<137;i++){
-//       Serial.print(F(" ,0x"));
-//       Serial.print(sm[i],HEX);
-//       if(i%8==7){
-//         Serial.println();
-//       }
-//     } 
+  Serial.println(" ");
+  Serial.print(F(" messagewithzeros"));
+  Serial.println(" ");
+  
+   for(i=0;i<137;i++){
+       Serial.print(F(" ,0x"));
+       Serial.print(sm[i],HEX);
+       if(i%8==7){
+         Serial.println();
+       }
+     } 
   
   //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, arduinosk);
   Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, serverpk, arduinosk);
