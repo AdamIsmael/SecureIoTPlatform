@@ -49,7 +49,7 @@ int assigned = 0;
         0x3f, 0x83, 0x43, 0xc8, 0x5b, 0x78, 0x67, 0x4d, 
         0xad, 0xfc, 0x7e, 0x14, 0x6f, 0x88, 0x2b, 0x4f };
         
- const byte nonce[crypto_box_NONCEBYTES]
+ const byte preinstallnonce[crypto_box_NONCEBYTES]
     = { 0x69, 0x69, 0x6e, 0xe9, 0x55, 0xb6, 0x2b, 0x73,
         0xcd, 0x62, 0xbd, 0xa8, 0x75, 0xfc, 0x73, 0xd6,
         0x82, 0x19, 0xe0, 0x03, 0x6b, 0x7a, 0x0b, 0x37 };
@@ -67,7 +67,7 @@ int assigned = 0;
   unsigned long long smlen=0;
  
  byte serverpkold[32] = {NULL};
- byte nonceold[24];
+  byte nonceold[24];
  
  int connectionAttempts=0;
  int clientConnected=0;
@@ -77,6 +77,7 @@ int assigned = 0;
  
  void postRequest(String final){
   
+   client.stop();
     if(Ethernet.begin(mac)==0){
       Serial.println(F("Failed to configure Ethernet using DHCP"));
       Ethernet.begin(mac, ip);
@@ -86,25 +87,25 @@ int assigned = 0;
      //Ethernet.begin(mac, ip);
   }
     Serial.println(F("connecting..."));
-  client.stop();
-  if(client1.connect(server,80)){ //server address port:21
+  
+  if(client.connect(server,80)){ //server address port:21
      String title = "temperatureHex=";
      String testData = "0005e6448";
      int contentLength = title.length()+final.length();
      int testContentLength = title.length()+testData.length();
      Serial.println(F("Connected"));   
-     client1.println("POST /tempLog1/add.php HTTP/1.1"); 
-     client1.println("HOST: 192.168.0.9"); //server address
-     client1.println("Content-Type: application/x-www-form-urlencoded");
-     client1.print("Content-Length: ");
+     client.println("POST /tempLog1/add.php HTTP/1.1"); 
+     client.println("HOST: 192.168.0.9"); //server address
+     client.println("Content-Type: application/x-www-form-urlencoded");
+     client.print("Content-Length: ");
      //client.println(19);//need a client.println("Content: somnedata")
-     client1.println(contentLength);
+     client.println(contentLength);
      Serial.println(contentLength);
-     client1.println(); //should the data be after this space, does the server stop listening after this?
-     client1.print(title);
+     client.println(); //should the data be after this space, does the server stop listening after this?
+     client.print(title);
      //client.print(testData);
-     client1.print(final);
-     client1.println();
+     client.print(final);
+     client.println();
      Serial.println(F("Data sent"));
    }else{
        Serial.println(F("Failed to Connect"));
@@ -114,6 +115,8 @@ int assigned = 0;
   
   
 void setup() {
+  delay(7000);
+  
   //send data to say that we are using key numero uno
   Serial.begin(9600);
   Serial.println("start");
@@ -143,12 +146,13 @@ void setup() {
 void loop() {
   //Serial.println("loop");
 //  
-  Serial.println(F("connecting..."));
-  
+  Serial.print(F("connecting"));
+  byte i=0;
   client.stop();
   while((clientConnected!=1) && (connectionAttempts<4)){
     clientConnected = client.connect(server, 8080);
     connectionAttempts++;
+    Serial.print(".");
   }
   
   if(clientConnected){
@@ -175,7 +179,7 @@ void loop() {
   int keyNumber=0;
   int nonceNumber=0;
   char keynew[64]={0};
-  char noncenew[64] = {0};
+  char noncenewtemp[240] = {0};//+16 as the hextostring chops off 16 zeros so
   //char key2[64]={0};
   int counter=0;
   
@@ -205,8 +209,10 @@ void loop() {
          counter++;
       }
       if(nextWordIsNonce){
-          noncenew[counter] = c;
+          noncenewtemp[counter] = c;
           counter++;
+          //Serial.println(" ");
+          //Serial.print(counter);
       }
       if(c == '('){
          nextWordIsNonce = true; 
@@ -222,7 +228,15 @@ void loop() {
   //Serial.print(F("Key Recieved is "));
   //Serial.print(key);
   //Serial.println("");
-
+//  int len = 24+64+16;
+//    for ( i = 0; i < len; i++) {
+//    Serial.print(F(" ,0x")); 
+//    Serial.print(noncenewtemp[i], HEX);
+//    Serial.print(" ");
+//    if(i%8==7){
+//         Serial.println("");
+//       }
+//  }
   
   size_t count=0;
   char *pos = keynew;
@@ -231,35 +245,97 @@ void loop() {
       sscanf(pos,"%2hhx",&serverpknew[count]);
       pos +=2 ;  
     }
-  char *posNonce = noncenew;
-  byte scnoncenew[24];
-  for(count=0;count<sizeof(scnoncenew)/sizeof(scnoncenew[0]);count++){
-      sscanf(posNonce,"%2hhx",&scnoncenew[count]);
+  char *posNonce = noncenewtemp;
+  byte scnoncenewtemp[120];
+  for(count=0;count<sizeof(scnoncenewtemp)/sizeof(scnoncenewtemp[0]);count++){
+      sscanf(posNonce,"%2hhx",&scnoncenewtemp[count]);
       posNonce +=2 ;  
     }
     
     
     Serial.println("Nonce");
     Serial.print(F("0x"));
-     for(count = 0;count<sizeof(scnoncenew)/sizeof(scnoncenew[0]);count++){
-       Serial.print(scnoncenew[count],HEX); 
+     for(count = 0;count<sizeof(scnoncenewtemp)/sizeof(scnoncenewtemp[0]);count++){
+       Serial.print(scnoncenewtemp[count],HEX); 
     }
+//    
+//    int templen = 24+64+32; //adding the 16 the hex to string chopped off
+//    byte scnoncenew[templen];
+//    for(i=0;i<16;i++){
+//      scnoncenew[i]=0;
+//    }
+//    for(i=16;i<templen;i++){
+//     scnoncenew[16+i]=scnoncenewtemp[i];  
+//    }
     
    int Suc_Decrypt = 20; 
-   int scnlen = 24+64+32;
-   byte snoncewz[scnlen];
+   int scnlenwz = 24+64+32;
+   byte snoncewz[scnlenwz];
    
    if(serverpkold[0]==NULL){
      Serial.println("");
      Serial.print("serverskold is empty"); //which  means it is the first iteration and we need to use the preinstalled keys to get the next set
-    Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenew, scnlen, nonce,serverpk, arduinosk); 
+    Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenewtemp, scnlenwz, preinstallnonce, serverpk, arduinosk); 
+    Serial.println("");
+    Serial.print("ServerPublicKey used to decrypt next none : ");
+     for(i = 0;i<sizeof(serverpk)/sizeof(serverpk[0]);i++){
+       Serial.print(serverpk[i],HEX); 
+    }
+    Serial.println("");
+    Serial.print("Nonce used to decrypt next none : ");
+     for(i = 0;i<sizeof(preinstallnonce)/sizeof(preinstallnonce[0]);i++){
+       Serial.print(preinstallnonce[i],HEX); 
+    }
    }else{
-     Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenew, scnlen, nonceold, serverpkold, arduinosk); 
+     Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenewtemp, scnlenwz, nonceold, serverpkold, arduinosk);
+    Serial.println("");
+    Serial.print("ServerPublicKey used to decrypt next none : ");
+     for(i = 0;i<sizeof(serverpk)/sizeof(serverpk[0]);i++){
+       Serial.print(serverpk[i],HEX); 
+    }
+    Serial.println("");
+    Serial.print("Nonce used to decrypt next none : ");
+     for(i = 0;i<sizeof(nonceold)/sizeof(nonceold[0]);i++){
+       Serial.print(nonceold[i],HEX); 
+    } 
    }
+   //take zeros off
+   
+   Serial.println("");
+   Serial.print("Successful decrypt");
+   Serial.print(Suc_Decrypt);
+   Serial.println("");
    
    int Suc_unsign=20;//m, mlen. sm, n, pk
-   Suc_unsign = tuit.crypto_sign_open()
+   unsigned long long nlen;
+   int snlenwoz=24+64;
+   byte nonce[crypto_box_NONCEBYTES];
+   byte snoncewoz[snlenwoz];
+   
+   
+   for(i=0;i<snlenwoz;i++){
+       snoncewoz[i] = snoncewz[i+32];
+   }
+   
+   Suc_unsign = tuit.crypto_sign_open(nonce,&nlen,snoncewoz,snlenwoz,serverpksign);
     
+    //new nonce is encrypted. Nonce is not
+    //now we have nonce and plublic to use in the sending of the temp data
+    Serial.println("");
+   Serial.print("Successful unsign");
+   Serial.print(Suc_unsign);
+   Serial.println("");
+    
+    //copy new into old
+    for(i = 0;i<sizeof(serverpkold)/sizeof(serverpkold[0]);i++){
+       serverpkold[i] = serverpknew[i];
+       }
+   for(i = 0;i<sizeof(nonceold)/sizeof(nonceold[0]);i++){
+       nonceold[i] = nonce[i];
+       }
+    
+    //strncpy(serverpkold,serverpknew,33);
+    //strncpy(nonceold,nonce,25);
     
 //  Serial.println("");
 //  Serial.print(F("encryptKey"));
@@ -285,7 +361,7 @@ void loop() {
 //  }
   
   
-  byte i;
+  //byte i;
   byte present = 0;
   byte type_s;
   byte data[12]; 
@@ -297,7 +373,7 @@ void loop() {
     Serial.println();
     ds.reset_search();
     delay(250);
-    return;
+    //return;
   }
   
 //  Serial.print(F("ROM ="));
@@ -421,7 +497,7 @@ void loop() {
      } 
   
   //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, arduinosk);
-  Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, serverpk, arduinosk);
+  Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, serverpknew, arduinosk);
   Serial.flush();
   Serial.print(F(" Successful encrypt: "));
   Serial.println(Suc_Crypt);
@@ -485,7 +561,7 @@ void loop() {
 //  
 //  client.stop(); // Temp sensor fails if Ethernet Shield is connected
   Serial.println(F("endofloop"));
-  delay(30000);
+  delay(300000);
   
 }
 
