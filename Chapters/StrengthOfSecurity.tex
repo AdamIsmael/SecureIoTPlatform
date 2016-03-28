@@ -23,12 +23,15 @@ If the keys are preinstalled they can be used to sign and encrypt new public key
 
 \section{Bit Flipping}
 
-Bit flipping is the process of changing parts of the encrypted message so that it says something else. This is especially potent when the format of the message is know. As the format of the message is know to us, a test can be set that if it succeeds would change a number. If the message had 
-In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit. After a signed message was encrypted it was altered with random hexadecimal numbers and it each time the decryption process would fail. The encryption process adds a hash of the message and the decryption process would find a different hash and would fail each time.
+Bit flipping is the process of changing parts of the encrypted message so that it says something else. This is especially potent when the format of the message is know. As the format of the message is know to us, a test can be set that if it succeeds would change a number. In this project a test was set up to demonstrate the cryptography caused detected that the message had been altered in transit. After a signed message was encrypted it was altered with random hexadecimal numbers and it each time the decryption process would fail. The encryption process adds a hash of the message and the decryption process would find a different hash and would fail each time.
 
 \section{Timing Attacks}
 
 TweetNaCl is an example of constant time software, which means that the time of execution does not depend on secret data and is therefore not vulnerable to timing attacks. To have this quality TweetNaCl avoids all loads from address and all branch conditions that depend on secret data and it is thus inherently protected against cache timing attacks. 
+
+\section{Replay Attacks}
+
+This attack is the act of resending of captured valid messages to repeat a valid action, like sending money or authentication. The potential for serious damage by a replay attack here is limited as this application. If an attacker resends some data to the server, say a malicious set of temperature data, when the server would go to decrypt that message it would try to use the incorrect nonce and public key and the message would be ignore, thus protecting the application from replay attacks.
 
 \section{Length of cipher text}
 
@@ -63,6 +66,6 @@ From theses message it is possible to tell the number of bytes sent if you know 
 
 Again, the bytes return from encrypting the test case of numbers don't indicate that the integer contained in the message is increasing but it does show the length of the number.
 
-%\section{nonces}
+
 
 %getting the encryption and decryption to have the same nonce

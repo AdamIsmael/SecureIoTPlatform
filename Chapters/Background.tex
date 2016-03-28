@@ -34,6 +34,10 @@ This is a mathematical scheme for proving message authenticity, message integrit
 
 A MAC is a small piece of information that is used to authenticate a message and prove it's integrity. The MAC algorithm takes in a message and a key and produces a MAC, then it is sent with the message and the receiver runs the algorithm like the sender and if the resulting MAC is the same as the received MAC then the message has not been altered. MACs differs to digital signatures in that it does not provide message repudiation.
 
+\subsection{Nonce}
+
+A cryptographic nonce is some arbitrary data that can only be used once. It will most likely be random or psuedo random data and it is incorporated into cryptographic systems in some way such that old communications that an attacker may have captured can't be sent again and accepted as normal. So the synchronisation of nonces is very important. Some systems use counters as nonces or the nonces on each side are dependent on the same calculation or some systems send the next nonce to be used encrypted.
+
 \section{TweetNaCl}
 
 NaCl or ``Salt`` is a simple to use high-speed library for authenticated encryption. It provides both Asymmetric and Symmetric encryption, authentication and message integrity with SHA-512. The authors are Daniel J. Bernstein, Tanja Lange and Peter Schwabe but at points it does rely on third part implementations for parts. The API is simple, having only a handful of methods but uses high speed, high security primitives\cite{naclsmall}.
@@ -63,7 +67,8 @@ For key signature, TweetNaCl has a fourth component, Ed25519 public key signatur
 \section{Types of attacks}
 
 \subsection{Replay Attack}
-When this attack occurs when the attacker replays a valid message. If Bob wants Alice to prove who she and she duly provides some encrypted signature to prove so. Eve can capture that signature, She does not know what the signature is but she knows that it is a signature. She can then connect to Bob and use this message to pretend she is Alice. To prevent this attack Alice might use an identifier that is only valid for one use, this could be session tokens or a one-time passwords. 
+
+When this attack occurs when the attacker replays a valid message. If Bob wants Alice to prove who she and she duly provides some encrypted signature to prove so. Eve can capture that signature, She does not know what the signature is but she knows that it is a signature. She can then connect to Bob and use this message to pretend she is Alice. To prevent this attack Alice might use an identifier that is only valid for one use, this could be session tokens or a one-time passwords. These attacks are also known as playback attacks.
 
 \subsection{Man in the Middle Attack}
 In this attack there is an attacker between two parties, Bob and Alice, who wish to communicate. The man in the middle, Eve, changes messages as they are in transit and manages to pretend that she is the person that the other thinks they are talking to. An example is if Alice asks for Bob's public key, Eve can capture that public key, replace it with her own and send that and because Alice has no way to prove that it is Bob's key or not she accepts it. So when Alice sends a message that has been encrypted with what she thinks is Bob's key, Eve can take it, decrypt it with her key, change the message then encrypt it with Bob's real public key. Which Bob receives and believes the message is from Alice.

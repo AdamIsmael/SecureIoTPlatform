@@ -48,12 +48,15 @@ The voltage through the experiments was the exact same, a steady 4.96V which mak
 %1.30w /0.265a
 
 
-\section{Additional Objective}
+\section{Additional Objectives}
 
-\subsection{Secure transmission of public keys}
+\subsection{Transmission of public keys}
 
-Expansion of the network was considered with multiple devices communicating directly. This objective was reached by adding an Arduino Uno with another Ethernet shield as a webserver and the Due could pass on data, such as new server public keys, to it. If more nodes where desired then more Uno webservers could be added and the Due would simply go through the list of servers and send a POST request to each to update their keys.
+Expansion of the network was considered with multiple devices communicating directly. This objective was reached by adding an Arduino Uno with another Ethernet shield as a webserver and the Due could pass on data, such as new server public keys, to it. If more nodes where desired then more Uno webservers could be added and the Due would simply go through the list of servers and send a POST request to each to update their keys. At present the Due passes on the server's public key that it receives when it receives it.  jkhasdassadjkhsadjkhdsajkhasd
 
+\subsection{Secure transmission of nonces}
+
+Instead of using nonces that can be predicted, say counters, or worse reusing the same nonce this application encrypts the nonce to be used in the next temperature data transmission using the nonce from the previous nonce or in the initial case a set of preinstalled keys, that are never used again, are utilised. The nonces are created randomly on the server and then sent securely, this ensuring that the nonces for the secure temperature data transmission can never be guessed and protecting against replay attacks.
 
 %\subsection{rekeying on arduino}
 %http://blog.skylable.com/2014/05/tweetnacl-carrybit-bug/
