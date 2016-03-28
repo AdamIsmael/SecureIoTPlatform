@@ -203,7 +203,7 @@ void loop() {
          counter=0;
       }
       if(nextWordIsKey){
-         //Serial.print(c,HEX);
+         Serial.print(c,HEX);
          key = key+c;
          keynew[counter] = c;
          counter++;
@@ -244,6 +244,15 @@ void loop() {
   for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
       sscanf(pos,"%2hhx",&serverpknew[count]);
       pos +=2 ;  
+      //Serial.println();
+      //Serial.print("pos :");
+      //Serial.print(pos);
+      //Serial.print(serverpknew[count],HEX);
+    }
+    Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
     }
   char *posNonce = noncenewtemp;
   byte scnoncenewtemp[120];
@@ -258,6 +267,13 @@ void loop() {
      for(count = 0;count<sizeof(scnoncenewtemp)/sizeof(scnoncenewtemp[0]);count++){
        Serial.print(scnoncenewtemp[count],HEX); 
     }
+    
+     Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
+    
 //    
 //    int templen = 24+64+32; //adding the 16 the hex to string chopped off
 //    byte scnoncenew[templen];
@@ -271,6 +287,12 @@ void loop() {
    int Suc_Decrypt = 20; 
    int scnlenwz = 24+64+32;
    byte snoncewz[scnlenwz];
+   
+    Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
    
    if(serverpkold[0]==NULL){
      Serial.println("");
@@ -290,8 +312,8 @@ void loop() {
      Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenewtemp, scnlenwz, nonceold, serverpkold, arduinosk);
     Serial.println("");
     Serial.print("ServerPublicKey used to decrypt next none : ");
-     for(i = 0;i<sizeof(serverpk)/sizeof(serverpk[0]);i++){
-       Serial.print(serverpk[i],HEX); 
+     for(i = 0;i<sizeof(serverpkold)/sizeof(serverpkold[0]);i++){
+       Serial.print(serverpkold[i],HEX); 
     }
     Serial.println("");
     Serial.print("Nonce used to decrypt next none : ");
@@ -300,6 +322,18 @@ void loop() {
     } 
    }
    //take zeros off
+   
+    Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
+   
+   //copy new into old
+    for(i = 0;i<sizeof(serverpkold)/sizeof(serverpkold[0]);i++){
+       serverpkold[i] = serverpknew[i];
+       }
+  
    
    Serial.println("");
    Serial.print("Successful decrypt");
@@ -313,11 +347,27 @@ void loop() {
    byte snoncewoz[snlenwoz];
    
    
+    Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
+   
    for(i=0;i<snlenwoz;i++){
        snoncewoz[i] = snoncewz[i+32];
    }
    
    Suc_unsign = tuit.crypto_sign_open(nonce,&nlen,snoncewoz,snlenwoz,serverpksign);
+    
+     Serial.println(" ");
+    Serial.println(" Server Public Keyold recieved ");
+    for(count=0;count<sizeof(serverpkold)/sizeof(serverpkold[0]);count++){
+      Serial.print(serverpkold[count],HEX); 
+    }
+    
+     for(i = 0;i<sizeof(nonceold)/sizeof(nonceold[0]);i++){
+       nonceold[i] = nonce[i];
+       }
     
     //new nonce is encrypted. Nonce is not
     //now we have nonce and plublic to use in the sending of the temp data
@@ -326,13 +376,43 @@ void loop() {
    Serial.print(Suc_unsign);
    Serial.println("");
     
-    //copy new into old
-    for(i = 0;i<sizeof(serverpkold)/sizeof(serverpkold[0]);i++){
-       serverpkold[i] = serverpknew[i];
+     
+ Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
+    
+    
+    
+    
+     Serial.println(" ");
+    Serial.println(" Server Public Key recieved ");
+    for(count=0;count<sizeof(serverpknew)/sizeof(serverpknew[0]);count++){
+      Serial.print(serverpknew[count],HEX); 
+    }
+    
+    Serial.println("");
+     Serial.print("Nonce recieved "); Serial.print(" for use in temp data encrypt");
+    for ( i = 0; i < sizeof(nonce)/sizeof(nonce[0]); i++) {
+    Serial.print(F(" ,0x")); 
+    Serial.print(nonce[i], HEX);
+    Serial.print(" ");
+    if(i%8==7){
+         Serial.println("");
        }
-   for(i = 0;i<sizeof(nonceold)/sizeof(nonceold[0]);i++){
-       nonceold[i] = nonce[i];
+    }
+    
+    Serial.println("");
+     Serial.print("Server PK recieved "); Serial.print(" for use in temp data encrypt");
+    for ( i = 0; i < sizeof(serverpkold)/sizeof(serverpkold[0]); i++) {
+    Serial.print(F(" ,0x")); 
+    Serial.print(serverpkold[i], HEX);
+    Serial.print(" ");
+    if(i%8==7){
+         Serial.println("");
        }
+    }
     
     //strncpy(serverpkold,serverpknew,33);
     //strncpy(nonceold,nonce,25);
@@ -497,7 +577,7 @@ void loop() {
      } 
   
   //Suc_Crypt = tuit.crypto_box(c, m, clen, nonce, bobpk, arduinosk);
-  Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, serverpknew, arduinosk);
+  Suc_Crypt = tuit.crypto_box(sc, sm, 137, nonce, serverpkold, arduinosk);
   Serial.flush();
   Serial.print(F(" Successful encrypt: "));
   Serial.println(Suc_Crypt);
@@ -561,7 +641,7 @@ void loop() {
 //  
 //  client.stop(); // Temp sensor fails if Ethernet Shield is connected
   Serial.println(F("endofloop"));
-  delay(300000);
+  delay(60000);
   
 }
 
