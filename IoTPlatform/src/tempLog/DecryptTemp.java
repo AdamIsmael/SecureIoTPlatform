@@ -28,9 +28,7 @@ public class DecryptTemp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 											//number of key arrays, size of those key arrays
-	public static byte[][] keyCollection = new byte[50][];{
-		keyCollection[0] = null;
-	}
+	public static byte[][] keyCollection = new byte[50][];
 	public static byte[][] nonceCollection = new byte[50][];
 	SecretKey sk = new SecretKey();
     private int sqlentry;
@@ -68,6 +66,17 @@ public class DecryptTemp extends HttpServlet {
         printWriter.println("<td>&nbsp;Temperature (Hexadecimal)&nbsp;</td>");
         printWriter.println("<td>&nbsp;Temperature (Integer)&nbsp;</td>");
         printWriter.println("</tr>");
+               
+        byte[]	server= {(byte) 0xc9 ,(byte) 0x89 ,0x31 ,(byte) 0xc5 ,0x4d ,(byte) 0xbe ,(byte) 0xa8 ,(byte) 0xf9 
+        				,0x34 ,0x43 ,(byte) 0xa2 ,0x19 ,0x61 ,0x34 ,(byte) 0xb2 ,(byte) 0xae 
+        				,0x76 ,0x28 ,0x3b ,(byte) 0xee ,(byte) 0xc9 ,0x61 ,(byte) 0xd1 ,(byte) 0xf9 
+        				,(byte) 0xda ,(byte) 0x8f ,(byte) 0xb5 ,(byte) 0xd4 ,0x2a ,(byte) 0x8c ,(byte) 0x8f ,0x24 
+
+        	};
+        byte[] noncee = {0x60 ,(byte) 0xb4 ,0x20 ,(byte) 0xbb ,0x38 ,0x51 ,(byte) 0xd9 ,(byte) 0xd4 
+        				,0x7a ,(byte) 0xcb ,(byte) 0x93 ,0x3d ,(byte) 0xbe ,0x70 ,0x39 ,(byte) 0x9b
+        				,(byte) 0xf6 ,(byte) 0xc9 ,0x2d ,(byte) 0xa3 ,0x3a ,(byte) 0xf0 ,0x1d ,0x4f
+};
 //        
 //        //First stored temp and an  
 //        printWriter.println("Start");
@@ -139,7 +148,7 @@ public class DecryptTemp extends HttpServlet {
 	            sqlentry=0;
 	            while(rs.next()){
 	               //Retrieve by column name
-	               sqlentry++;
+	              
 	               int id  = rs.getInt("id");
 	               String tempHex = rs.getString("tempHex");
 	               Timestamp timeStamp = rs.getTimestamp("timeStamp");
@@ -170,18 +179,25 @@ public class DecryptTemp extends HttpServlet {
 //		               }
 //	               }else 
 	               //if(DecryptTempsKeySetNumber>0){
+	               
+	               byte[]  ServerSecretKey = keyCollection[sqlentry];
+        		   byte[]  nonce = nonceCollection[sqlentry];
+        		   printWriter.println("Secret Key used ");
+        		   printWriter.println(" ");
+        		   for(int i=0;i<ServerSecretKey.length;i++){
+	            	   printWriter.println(String.format(",0x%02x ", ServerSecretKey[i]));
+	               } 
+        		   printWriter.println(" ");
+	               printWriter.println("Nonce Used:   ");
+	               for(int i=0;i<nonce.length;i++){
+	            	   printWriter.println(String.format(",0x%02x ", nonce[i]));
+	               } 
+        		   
 	            	   try{			
-	            		   byte[]  ServerSecretKey = keyCollection[sqlentry];
-	            		   byte[]  nonce = nonceCollection[sqlentry];
-		            	   Suc_decrypt = TweetNaCl.crypto_box_open(signedMessage, signedcipher, signedMessageLength, nonce, SecretKey.arduinoFirstpkArray, ServerSecretKey);
+	            		   
+		            	   Suc_decrypt = TweetNaCl.crypto_box_open(signedMessage, signedcipher, signedMessageLength, nonce, SecretKey.arduinoFirstpkArray,ServerSecretKey);
 		            	   printWriter.println("ServerSecretKey Used:   ");
-			               for(int i=0;i<ServerSecretKey.length;i++){
-			            	   printWriter.println(String.format(",0x%02x ", ServerSecretKey[i]));
-			               } 
-			               printWriter.println("Nonce Used:   ");
-			               for(int i=0;i<nonce.length;i++){
-			            	   printWriter.println(String.format(",0x%02x ", nonce[i]));
-			               } 
+			             
 	            	   }catch(Exception e){
 		              	 e.printStackTrace(printWriter);
 		               }
@@ -232,7 +248,7 @@ public class DecryptTemp extends HttpServlet {
 	               printWriter.println("<td>"+celcius+"</td>");
 	               printWriter.println("<td>"+tempHex+"</td></tr>");
 	               
-	              
+	               sqlentry++;
 	            }
 	            printWriter.println("</body></html>");
 
@@ -294,6 +310,13 @@ public class DecryptTemp extends HttpServlet {
 	    }
 	    return data;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 	public static String bytesToHex(byte[] bytes) {

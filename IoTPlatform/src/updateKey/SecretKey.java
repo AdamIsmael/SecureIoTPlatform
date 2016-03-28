@@ -106,16 +106,17 @@ public class SecretKey extends HttpServlet {
      	ServerSecretKey = new byte[TweetNaCl.BOX_SECRET_KEY_BYTES];
     	TweetNaCl.crypto_box_keypair(ServerPublicKey, ServerSecretKey, false);
     	
+    	pw.println("ServerSecretKey put in keycollection entry "+keySetNumber);
     	DecryptTemp.keyCollection[keySetNumber] = ServerSecretKey; //only storing the secret keys as we are only decrypting messages.   
     	keySetNumber++;
     	
     	pw.println();
-    	pw.print("Java, ServerSecretKey used to decrypt");
+    	pw.print("Java, coresponding ServerSecretKey ");
 	    for(int i=0;i<ServerSecretKey.length;i++){
 	    	pw.print(String.format(",0x%02x ", ServerSecretKey[i]));
 	    }
 	    pw.println();
-    	pw.print("Java, ServerPublicKey used to encrypt");
+    	pw.print("Java, ServerPublicKey sent");
 	    for(int i=0;i<ServerPublicKey.length;i++){
 	    	pw.print(String.format(",0x%02x ", ServerPublicKey[i]));
 	    }
@@ -145,12 +146,13 @@ public class SecretKey extends HttpServlet {
 		byte[] randomNonce = new byte[24];
 	    prng.nextBytes(randomNonce);
 	    DecryptTemp.nonceCollection[nonceSetNumber] = randomNonce;
+    	pw.println("Nonce put in noncecollection entry "+nonceSetNumber);
 	    nonceSetNumber++;
 	    pw.println();
-	    pw.print("Java, Nonce used");
+	    pw.print("Java, Nonce sent");
 	    System.out.println("hello");
 	    for(int i=0;i<randomNonce.length;i++){
-	    	pw.print(String.format(",0x%02x ", randomNonce[i]));
+	    	pw.print(String.format(",0x%02x ",randomNonce[i]));
 	    }
 	    //String nonce = DecryptTemp.bytesToHex(randomNonce);
         return randomNonce;
@@ -183,10 +185,13 @@ public class SecretKey extends HttpServlet {
  		int suc_encrypt = 20;
  		byte[] sc = new byte[24+TweetNaCl.SIGNATURE_SIZE_BYTES+32];
  		
+ 		pw.println("SecretKeySetNumber "+keySetNumber);
+ 		
 		if(keySetNumber==1){ // new public key has just been sent but we need to use preinstalled keys to encrypt nonce
 			suc_encrypt = TweetNaCl.crypto_box(sc, sn, 24+TweetNaCl.SIGNATURE_SIZE_BYTES+32 , nonceFirstArray, arduinoFirstpkArray, serverFirstskArray);
 			pw.println();
-		    pw.print("Java, Nonce used to encrypt the next nonce  ");
+			pw.println("Using preset keys");
+		    pw.print("Java, Nonce used to encrypt the nonce  ");
 		    for(int i=0;i<nonceFirstArray.length;i++){
 		    	pw.print(String.format(",0x%02x ", nonceFirstArray[i]));
 		    }
@@ -196,16 +201,19 @@ public class SecretKey extends HttpServlet {
 		    	pw.print(String.format(",0x%02x ", serverFirstskArray[i]));
 		    }
 		}else{
-			suc_encrypt = TweetNaCl.crypto_box(sc, sn, 24+TweetNaCl.SIGNATURE_SIZE_BYTES+32 , DecryptTemp.nonceCollection[keySetNumber-1], arduinoFirstpkArray, DecryptTemp.keyCollection[keySetNumber-1]);
+			
+			byte[] nonce = DecryptTemp.nonceCollection[keySetNumber-2];
+			byte[] secretKey = DecryptTemp.keyCollection[keySetNumber-2];
+			suc_encrypt = TweetNaCl.crypto_box(sc, sn, 24+TweetNaCl.SIGNATURE_SIZE_BYTES+32 , nonce , arduinoFirstpkArray, secretKey);
 			pw.println();
 		    pw.print("Java, Nonce used to encrypt the next nonce  ");
-		    for(int i=0;i< DecryptTemp.nonceCollection[keySetNumber-1].length;i++){
-		    	pw.print(String.format(",0x%02x ",  DecryptTemp.nonceCollection[keySetNumber-1][i]));
+		    for(int i=0;i< nonce.length;i++){
+		    	pw.print(String.format(",0x%02x ",  nonce[i]));
 		    }
 		    pw.println();
 		    pw.print("Java, Server secret key used to encrypt the next nonce  ");
-		    for(int i=0;i<DecryptTemp.keyCollection[keySetNumber-1].length;i++){
-		    	pw.print(String.format(",0x%02x ", DecryptTemp.keyCollection[keySetNumber-1][i]));
+		    for(int i=0;i<secretKey.length;i++){
+		    	pw.print(String.format(",0x%02x ", secretKey[i]));
 		    }
 		}
  		
@@ -232,8 +240,13 @@ public class SecretKey extends HttpServlet {
         	pw.println("<"+getServerPublicKey()+">");
         	pw.println("KeySetNumber:"+keySetNumber);
         	pw.println("("+getEncryptedNonce(getSignedNonce(getRandomNonce()))+")");
-        
-        }catch(Exception e){
+//        	pw.println("(");
+//        	
+//        	for(int i=0;i<nonceFirstArray.length;i++){
+//        		pw.println(nonceFirstArray[i]);
+//        	}	
+//        	pw.println(")");
+        	}catch(Exception e){
         	e.printStackTrace(pw);
         }
 //        byte[] temp = null;
