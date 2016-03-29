@@ -129,25 +129,6 @@
   \warn{\item Invalid format of field 'month'}
 \endentry
 
-\entry{naclsmall}{misc}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Denis}{D.}%
-     {Frank}{F.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{DF1}
-  \strng{fullhash}{DF1}
-  \field{title}{Introducing Sodium, a new cryptographic library}
-  \verb{url}
-  \verb https://labs.opendns.com/2013/03/06/announcing-sodium-a-new-cryptograph
-  \verb ic-library/
-  \endverb
-  \field{year}{2013}
-  \warn{\item Invalid format of field 'month'}
-\endentry
-
 \entry{tweetnacl}{article}{}
   \name{author}{6}{}{%
     {{}%
@@ -386,6 +367,22 @@
   \endverb
   \field{year}{2016}
   \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{jdbc}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {MySQL}{M.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{M1}
+  \strng{fullhash}{M1}
+  \field{title}{Download Connector/J}
+  \verb{url}
+  \verb https://dev.mysql.com/downloads/connector/j/
+  \endverb
 \endentry
 
 \entry{signencrypt}{misc}{}
