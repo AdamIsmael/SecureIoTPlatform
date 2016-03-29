@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  29 MAR 2016 15:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  29 MAR 2016 18:22
 entering extended mode
 **main.tex
 (E:\UNINotes\4th\Project\IoTPlatform\main.tex
@@ -1959,7 +1959,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 216.
-<img/uni_logo_eng.jpg, id=234, 188.20313pt x 134.75343pt>
+<img/uni_logo_eng.jpg, id=238, 188.20313pt x 134.75343pt>
 File: img/uni_logo_eng.jpg Graphic file (type jpg)
 
 <use img/uni_logo_eng.jpg>
@@ -2022,7 +2022,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 13.
-<Figures/publickeyex.png, id=381, 468.5505pt x 198.14024pt>
+<Figures/publickeyex.png, id=386, 468.5505pt x 198.14024pt>
 File: Figures/publickeyex.png Graphic file (type png)
 
 <use Figures/publickeyex.png>
@@ -2043,7 +2043,7 @@ ses data into databases
 
 ) [8] [9] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
 Chapter 3.
-<Figures/ds.jpg, id=431, 803.0pt x 602.25pt>
+<Figures/ds.jpg, id=436, 803.0pt x 602.25pt>
 File: Figures/ds.jpg Graphic file (type jpg)
  <use Figures/ds.jpg>
 Package pdftex.def Info: Figures/ds.jpg used on input line 42.
@@ -2054,13 +2054,13 @@ Package pdftex.def Info: Figures/ds.jpg used on input line 42.
 
 
 
-] <Figures/due.jpg, id=437, 1284.8pt x 722.7pt>
+] <Figures/due.jpg, id=442, 1284.8pt x 722.7pt>
 File: Figures/due.jpg Graphic file (type jpg)
  <use Figures/due.jpg>
 Package pdftex.def Info: Figures/due.jpg used on input line 51.
 (pdftex.def)             Requested size: 144.53777pt x 81.29472pt.
 
-<Figures/ethernet.jpg, id=439, 451.6875pt x 321.2pt>
+<Figures/ethernet.jpg, id=444, 451.6875pt x 321.2pt>
 File: Figures/ethernet.jpg Graphic file (type jpg)
 
 <use Figures/ethernet.jpg>
@@ -2071,7 +2071,7 @@ ect/IoTPlatform/Figures/due.jpg>] [12 <E:/UNINotes/4th/Project/IoTPlatform/Figu
 res/ethernet.jpg>]) [13]
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.tex
 Chapter 4.
-<Figures/TempSensor_bb.pdf, id=456, 314.17375pt x 356.33125pt>
+<Figures/TempSensor_bb.pdf, id=461, 314.17375pt x 356.33125pt>
 File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
 
 <use Figures/TempSensor_bb.pdf>
@@ -2083,7 +2083,7 @@ Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 20.
 
 
 
-] <Figures/dsmem.png, id=464, 336.50719pt x 293.59688pt>
+] <Figures/dsmem.png, id=469, 336.50719pt x 293.59688pt>
 File: Figures/dsmem.png Graphic file (type png)
 
 <use Figures/dsmem.png>
@@ -2111,11 +2111,11 @@ Overfull \hbox (15.14966pt too wide) in paragraph at lines 236--238
 ][][]  
  []
 
-[21] [22]
+[21]
 
-LaTeX Warning: Reference `nonce' on page 23 undefined on input line 278.
+LaTeX Warning: Citation 'jdbc' on page 22 undefined on input line 259.
 
-[23] [24]) [25]
+[22] [23] [24]) [25]
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.tex
 Chapter 5.
 
@@ -2205,21 +2205,23 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E99E38A39E49396F66CC61C783545645;7697.
+(rerunfilecheck)             Checksum: E11E9F3225DB52ED0E1CC8E06A4ED294;7882.
 
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 43595 strings out of 493921
- 908568 string characters out of 3144858
- 1139448 words of memory out of 3000000
- 45903 multiletter control sequences out of 15000+200000
+ 43604 strings out of 493921
+ 908705 string characters out of 3144858
+ 1140512 words of memory out of 3000000
+ 45911 multiletter control sequences out of 15000+200000
  43568 words of font info for 75 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  64i,20n,77p,10402b,2206s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2234,9 +2236,9 @@ es (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files
 rw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on main.pdf (42 pages, 1907734 bytes).
+Output written on main.pdf (42 pages, 1908717 bytes).
 PDF statistics:
- 922 PDF objects out of 1000 (max. 8388607)
- 303 named destinations out of 1000 (max. 500000)
- 496 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 928 PDF objects out of 1000 (max. 8388607)
+ 304 named destinations out of 1000 (max. 500000)
+ 504 words of extra memory for PDF output out of 10000 (max. 10000000)
 
