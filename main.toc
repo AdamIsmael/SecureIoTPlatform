@@ -43,18 +43,18 @@
 \contentsline {section}{\numberline {4.6}Public Key Transmission}{23}{section.203}
 \contentsline {section}{\numberline {4.7}TweetNaCl Library}{25}{section.224}
 \contentsline {chapter}{\numberline {5}Strength Of Security}{26}{chapter.225}
-\contentsline {section}{\numberline {5.1}Sign then Encrypt}{26}{section.226}
+\contentsline {section}{\numberline {5.1}Encrypt then sign}{26}{section.226}
 \contentsline {section}{\numberline {5.2}Storing data in plaintext}{26}{section.227}
 \contentsline {section}{\numberline {5.3}Public Key Transmission}{27}{section.228}
 \contentsline {section}{\numberline {5.4}Bit Flipping}{27}{section.229}
 \contentsline {section}{\numberline {5.5}Timing Attacks}{27}{section.230}
 \contentsline {section}{\numberline {5.6}Replay Attacks}{27}{section.231}
-\contentsline {section}{\numberline {5.7}Length of cipher text}{27}{section.232}
+\contentsline {section}{\numberline {5.7}Cipher Text Characteristics}{28}{section.232}
 \contentsline {chapter}{\numberline {6}Results}{29}{chapter.235}
 \contentsline {section}{\numberline {6.1}Basic Objectives}{29}{section.236}
 \contentsline {section}{\numberline {6.2}Power Consumption}{29}{section.237}
 \contentsline {section}{\numberline {6.3}Additional Objectives}{30}{section.238}
 \contentsline {subsection}{\numberline {6.3.1}Transmission of public keys}{30}{subsection.239}
-\contentsline {subsection}{\numberline {6.3.2}Secure transmission of nonces}{30}{subsection.240}
+\contentsline {subsection}{\numberline {6.3.2}Secure Transmission of Nonces}{30}{subsection.240}
 \contentsline {chapter}{\numberline {7}Critical Evaluation}{31}{chapter.241}
 \contentsline {chapter}{\numberline {8}Conclusion}{33}{chapter.242}
