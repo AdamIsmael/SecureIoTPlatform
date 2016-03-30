@@ -11,16 +11,25 @@ The basic objectives were to sign and encrypt a message in order to stop an atta
 
 \section{Power Consumption}
 
-As this is to be a low power system that might run on batteries for a good amount of time, it is important to analyse the power consumption of the device. Although, saving power wasn't a top priority in the creation of the application. There are ways to save power such as completely shutting down modules on the Arduino Due that are never used. The temperature won't be taken every second so between bursts of activity the Due could be put into a sleep mode and be woken up on an interrupt rather than the busy wait implemented in this prototype.
+As this is to be a low power system that might run on batteries for a good amount of time, it is important to analyse the power consumption of the device. Although, saving power wasn't a top priority in the creation of the application. The device used to record the power consumption was the PortaPow Premium USB + DC power monitor \cite{portapow}. It has a error of +/- 0.2\% upto 2A and less than 1\% up to 5A. There are ways to save power such as completely shutting down modules on the Arduino Due that are never used. The temperature won't be taken every second so between bursts of activity the Due could be put into a sleep mode and be woken up on an interrupt rather than the busy wait implemented in this prototype.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.1\linewidth]{Figures/power.png}
+	\caption{Asymmetric Key Encryption}
+	\label{fig:power}
+\end{figure}
+
 
 To start, the power was recorded as the temperature was being taken with the DS18S20 temperature sensor, in both parasite power mode and regular power mode. It was found that during both operations the power consumption was the exact same at 0.123A and 0.613W. This result was not surprising as the power consumption of the temperature sensor is so small compared to the Due that even though it doesn't consume power in parasite mode, the overall consumption of power is barely affected.
 
 To isolate the the power consumed when the Due was only signing and encrypting, the Ethernet shield was left unplugged. This way the effect of the encryption would be seen without the effects of powering an Ethernet shield throughout. 
 The readings upon start up were 0.123A and 0.613W, when the data was being given a signature the readings were 0.17A and 0.970W and when the message was encrypted it rose to 0.20A and 1W. 
 
-In addition the power consumption when the Ethernet shield was attached but had no cable plugged was recorded. The power consumed during the signature and encryption process was the same as above but during DCHP the readings were .199A and 0.990W as it tried to gain an IP address from the router. Once the loop iteration was complete, the code went straight into a busy loop which was a tiny drop in power at 0.198A and 980mW. A busy wait is a waste of power and resources so at this point the Arduino Due should go into a sleep mode and be woken up by an interrupt when it was to record the temperature again. 
+In addition the power consumption when the Ethernet shield was attached but had no cable plugged was recorded. The power consumed during the signature and encryption process was the same as above but during DCHP the readings were 0.199A and 0.990W as it tried to gain an IP address from the router. Once the loop iteration was complete, the code went straight into a busy loop which was a tiny drop in power at 0.198A and 0.980W. A busy wait is a waste of power and resources so at this point the Arduino Due should go into a sleep mode and be woken up by an interrupt when it was to record the temperature again. 
 
-The next test was with the shield plugged in and connected to the router with the Ethernet cable. The power consumption shot up to 0.265a and 1.30W during DHCP at the start of the sketch and there it remained even during the encryption process. Evidently the shield requires such a significant of the power that by comparison the cryptographic library is as good as unnoticeable. There are versions of the Ethernet Shield with an extra module that allows power over Ethernet. This extra module doesn't add a significant increase to the overall cost to the shield but can alleviate battery problems and extend the life of batteries by extracting power from the Ethernet cable that is connected to the router
+The next test was with the shield plugged in and connected to the router with the Ethernet cable. The power consumption shot up to 0.265A and 1.30W during DHCP at the start of the sketch and there it remained even during the encryption process. Evidently the shield requires such a significant of the power that by comparison the cryptographic library is as good as unnoticeable. There are versions of the Ethernet Shield with an extra module that allows power over Ethernet. This extra module doesn't add a significant increase to the overall cost to the shield but can alleviate battery problems and extend the life of batteries by extracting power from the Ethernet cable that is connected to the router
 %voltage changes??
 
 The final test was to find out if there was a difference in power consumption depending on the length of message sent. Messages of size 20 and size 250 were sent with no appreciable difference in power consumption found.

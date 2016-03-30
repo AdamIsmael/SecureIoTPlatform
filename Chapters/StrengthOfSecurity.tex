@@ -7,9 +7,18 @@
 %Has this become the results section??
 %In the result, you simply display results, don't discuss, that's for critical evaluation
 
-\section{Encrypt then sign}
+\section{Naive Sign \& Encrypt or Encrypt \& Sign}
 
-Generally encryption stops unauthorised parties from accessing information, assuming authorised parties are the only party with access to a secret key, and prove message integrity. Signatures prove that the message came from a known sender and the sender cannot deny sending the message. These are two distinct operations and the order of these operations matters. If a user was to encrypt a message then sign and send it, as the signature is added to the plain text message, it can be stripped off by an attacker. They can now use the signature to impersonated the real recipient. Signing after encryption partly defeats the purpose of signing, which is to prove that the owner of the signature saw the data and cannot disprove that they didn't send it if their signature is attached to it. If an encrypted message is signed then it is entirely possible that the owner of the signature was not aware what was in the message. In this application the message is signed first so the hash is taken of the plaintext message before being encrypted and it can be proved that the signer was aware of the message contents\cite{signencrypt}.
+There are problems with naive implementations of Signatures and Encryption. They are treated as two different distinct operations but that isn't exactly the case. If a message is signed by Alice and sent to Bob encrypted with his public key. Bob can decrypt this message with Alice's signature and send it to Charlie encrypted with Charlie's public key. Charlie has been tricked by Bob into thinking Alice has sent he a message. 
+
+If the opposite were to happen, if Alice sent a message to Bob that she encrypted before signing. Charlie might be able to capture the message, strip off Alice's signature, replace with his own and take credit for the message. One assumes that Charlie knows what the message will contain. Also, by signing a cipher text it can no longer be proved that the owner of the signature was aware of the message contents. These are fairly rare edge cases but they should still be considered. It could be argued that Alice should not have trusted her first message with Bob or that Alice shouldn't be sending her very important message to Charlie over an insecure channel. However, these are weak arguments as important messages sometimes need to be sent over insecure channels and their is never a guarantee the receiver is trustworthy \cite{signencrypt}. 
+
+This application gets around those problems by using TweetNaCl's authenticated encryption as well as a signature and prepending the messages sent by the Arduino with it's own unique identifier and the unique identifier of who it sent the message to. By using authenticated encryption the server can prove the message was sent by the Arduino, had not been altered in transit nor viewed by another party. After decryption the server is still able to re-encrypt with it's own private key and send to another party and prove that it was originally sent by the Arduino. The signature provides another layer of the security as the server can prove again that the message sent by the Arduino is the same as received and it can use the two identifiers to prove that the Arduino sent it to the server.
+
+
+
+
+%Generally encryption stops unauthorised parties from accessing information, assuming authorised parties are the only party with access to a secret key, and prove message integrity. Signatures prove that the message came from a known sender and the sender cannot deny sending the message. These are two distinct operations and the order of these operations matters. If a user was to encrypt a message then sign and send it, as the signature is added to the plain text message, it can be stripped off by an attacker. They can now use the signature to impersonated the real recipient. Signing after encryption partly defeats the purpose of signing, which is to prove that the owner of the signature saw the data and cannot disprove that they didn't send it if their signature is attached to it. If an encrypted message is signed then it is entirely possible that the owner of the signature was not aware what was in the message. In this application the message is signed first so the hash is taken of the plaintext message before being encrypted and it can be proved that the signer was aware of the message contents\cite{signencrypt}.
 
 
 \section{Storing data in plaintext}
@@ -35,7 +44,7 @@ This attack is the act of resending captured valid messages to repeat a valid ac
 
 \section{Cipher Text Characteristics}
 
-It is possible to find out the length of the message when it is encrypted with TweetNaCl. For example if the message is a very long message in contrast to a short message there are noticeable differences. It is a vulnerability that exists in the cryptography chosen but it is a common weakness and one that does not have much consequence. Although the attacker might not know if the message was signed first, it still provides only two options for the length. If the length can be found from the cipher text is it possible for any other details to be leaked out. If the message is of a really high number, does that mean that more of the byte values are higher or conversely if it is a very low number. To test this and look at the output for different String messages, the messages were YES, NO, 1 and 9999 were encrypted. 
+It is possible to find out the length of the message when it is encrypted with TweetNaCl. For example if the message is a very long message in contrast to a short message there are noticeable differences. It is a vulnerability that exists in the cryptography chosen but it is a common weakness and one that does not have much consequence. Although the attacker might not know if the message was signed first, it still provides only two options for the length. If the length can be found from the cipher text is it possible for any other details to be leaked out. If the message is of a really high number, does that mean that more of the byte values are higher or conversely if it is a very low number. To test this and look at the output for different String messages, the messages were YES, NO, 0, 1 and 99999 were encrypted. 
 
 \begin{table}[H]
 	\centering
@@ -56,9 +65,9 @@ From theses message it is possible to tell the number of bytes sent if you know 
 	\begin{tabular}{ | l | p{7cm} | }
 	\hline
 	Plaintext Message & Encrypted Message \\ \hline
-	00 & 0x5B, 0x74, 0x76, 0x4C, 0xF4, 0x19, 0x65, 0x37, 0xC4, 0x53, 0xAF, 0xB0, 0xCE, 0x18, 0x1, 0x1, 0x30, 0x9E \\ \hline
+	0 & 0x5B, 0x74, 0x76, 0x4C, 0xF4, 0x19, 0x65, 0x37, 0xC4, 0x53, 0xAF, 0xB0, 0xCE, 0x18, 0x01, 0x01, 0x30, 0x9E \\ \hline
 	1 & 0x49, 0x1B, 0x1E, 0x52, 0x10, 0x38, 0xD7, 0x38, 0x30, 0x65, 0x71, 0xBC, 0xEE, 0x65, 0x3D, 0x6, 0x31, 0x9E\\ \hline
-	99999 & 0xC, 0xC, 0x29, 0xE2, 0x4E, 0x81, 0x67, 0x5, 0x78, 0x49, 0x8C, 0xA1, 0x4F, 0x69, 0x8, 0xBB, 0x9, 0xA7, 0x5D, 0x63, 0x4D \\ \hline
+	99999 & 0x0C, 0x0C, 0x29, 0xE2, 0x4E, 0x81, 0x67, 0x05, 0x78, 0x49, 0x8C, 0xA1, 0x4F, 0x69, 0x08, 0xBB, 0x09, 0xA7, 0x5D, 0x63, 0x4D \\ \hline
 	\end{tabular}
 	\caption{Resulting ciphers for encrypting numbers}
 	\label{tab:9999}

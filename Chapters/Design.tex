@@ -5,8 +5,8 @@
 
 \section{Aims}
 
-The basic aims are to design and implement a basic protocol for the transmission data to a server. This protocol will have security such that the messages are protected from modification, spoofing and can't be read in transit. There is to be a server application that allows the user to view the data being sent to the server.
-Following on, the needs of machine to machine communication will be considered and the protocol will be expanded to include direct communication and transmission of keys. Finally, as this will be on a low powered device, the power usage is to be measured to establish performance and power overhead of security. 
+The basic aims are to design and implement a basic protocol for the transmission of DS18S20 temperature sensor data to a web server from an Arduino Due. This protocol will have security such that the messages are protected from modification, spoofing and can't be read in transit. There is to be a server application that allows the user to view the data being sent to the server.
+Following on, the needs of machine to machine communication will be considered and the protocol will be expanded to include direct communication and transmission of keys to an Arduino Uno. Finally, as this will be on a low powered device, the power usage is to be measured to establish performance and power overhead of security. 
 
 %``prevents rogue devices from transmitting data to others''?!?!
 
@@ -18,12 +18,12 @@ Following on, the needs of machine to machine communication will be considered a
     \node[block, name=web] {Web Server};
     \node[block, below of=web] (due) {Arduino Due};
     \node[block, right of=due,  node distance=4cm] (uno) {Arduino Uno};
-    \node[block, below of=due] (uno1) {Arduino Uno};
+    %\node[block, below of=due] (uno1) {Arduino Uno};
     \node[block, left of=due, node distance=3.5cm](ds) {DS18S20};
     
     \draw [->] (due) -- node[name=key] {$key$} (uno);
     \draw [draw,->] (ds) -- node {$data$} (due);
-    \draw [->] (due) -- node[name=key] {$key$} (uno1);
+    %\draw [->] (due) -- node[name=key] {$key$} (uno1);
     \draw[->]([xshift=.3cm] web.south) -- node[name=key] {$key$}([xshift=.3cm] due.north);
     \draw[->]([xshift=-.3cm] due.north) -- node[name=key] {\emph{encrypted data}}([xshift=-.3cm] web.south);
      
@@ -35,7 +35,7 @@ Following on, the needs of machine to machine communication will be considered a
 
 \section{Microcontroller}
 
-The first step in this application is the acquisition of data. For example data, a variable that is monitored for important applications in the real world was chosen, this being temperature. There are a range of temperature sensors out there but one that is compact, cheap, freely available, has a large temperature range, high precision and can derive power directly from the data line, so called parasite power, is the DS18S20. It returns a 9-bit byte array so is ready to encrypt straight away. 
+The first step in this application is the acquisition of data. For example data, a variable that is monitored for important applications in the real world was chosen, this being temperature. There are a range of temperature sensors out there but one that is compact, cheap, freely available, has a large temperature range, high precision and can derive power directly from the data line, so called parasite power, is Maxim's DS18S20. It returns a 9-bit byte array so is ready to encrypt straight away. The image shown is taken from fluuuz.de \cite{dsimage}.
 
 \begin{figure}[H]
 	\centering
@@ -44,7 +44,7 @@ The first step in this application is the acquisition of data. For example data,
 	\label{fig:ds}
 \end{figure}
 
-The Arduino Due is a large Arduino, it is the first one with a 32-bit ARM core micrcontroller, has 54 digital I/O pins, 512KB flash memory, 96KB SRAM and a 84MHz clock speed. A lot of microcontrollers are 8-bit which means that they are limited in their cryptographic options. With a 32-bit architecture and a large amount of flash memory it is possible to have a light weight cryptographic library for our application but the Due is still low cost enough that it can be used for an IoT sensor application. Because it is an Arduino it benefits from the large community, wide range of compatible components and large set of open source libraries.
+The Arduino Due is a large Arduino, it is the first one with a 32-bit ARM core micrcontroller, has 54 digital I/O pins, 512KB flash memory, 96KB SRAM and a 84MHz clock speed. A lot of microcontrollers are 8-bit which means that they are limited in their cryptographic options. With a 32-bit architecture and a large amount of flash memory it is possible to have a light weight cryptographic library for our application but the Due is still low cost enough that it can be used for an IoT sensor application. Because it is an Arduino it benefits from the large community, wide range of compatible components and large set of open source libraries. The image shown is taken arduino.cc \cite{dueimage}.
 
 \begin{figure}[H]
 	\centering
@@ -53,7 +53,7 @@ The Arduino Due is a large Arduino, it is the first one with a 32-bit ARM core m
 	\label{fig:due}
 \end{figure}
 
-Once the temperature data is on the microcontroller there needs to be a way to transmit the data. As the data is being sent over a network the natural choice is an Ethernet or WiFi shield. The Ethernet Shield was chosen as it is much cheaper than the WiFi Shield but completes the same job. The first revision of the shield is no longer made so the second revision, R2, will be utilised. It allows for easy connection of the Arduino to the Internet, it uses the Wiznet W5500 Ethernet chip, supports up to 8 different socket connections at a speed of 10/100Mb and has a MicroSD card slot to store network settings. It needs an different library than the first revision\cite{eth2}. Fortunately the two libraries share the same API so software that was built for the first revision is compatible with the second. Simply swap put the older shield and library and replace with the newer one.
+Once the temperature data is on the microcontroller there needs to be a way to transmit the data. As the data is being sent over a network the natural choice is an Ethernet or WiFi shield. The Ethernet Shield was chosen as it is much cheaper than the WiFi Shield but completes the same job. The first revision of the shield is no longer made so the second revision, R2, will be utilised. It allows for easy connection of the Arduino to the Internet, it uses the Wiznet W5500 Ethernet chip, supports up to 8 different socket connections at a speed of 10/100Mb and has a MicroSD card slot to store network settings. It needs an different library than the first revision\cite{eth2}. Fortunately the two libraries share the same API so software that was built for the first revision is compatible with the second. Simply swap put the older shield and library and replace with the newer one. The image shown is taken from arduino.cc \cite{ethimage}.
 
 \begin{figure}[H]
 	\centering
