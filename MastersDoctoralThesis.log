@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  1 FEB 2016 11:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  30 MAR 2016 12:50
 entering extended mode
 **MastersDoctoralThesis.cls
-(E:\UNINotes\4th\Project\Report1\MastersDoctoralThesis.cls
+(E:\UNINotes\4th\Project\IoTPlatform\MastersDoctoralThesis.cls
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -216,4 +216,4 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.60 ...head}{\vspace*{50\p@}}{\abovechapterspace}
-                        
+                   

@@ -131,11 +131,9 @@ Once the data has been encrypted it is to be packaged up and sent across the net
 #include<SPI.h>
 
 byte mac[] = {
-0x90, 0xA2, 0xDA, 0x10, 0x2D, 0xD6 //of the Ethernet Shield
-};
+0x90, 0xA2, 0xDA, 0x10, 0x2D, 0xD6 }; //MAC address of the Ethernet Shield
 char server[] = "192.168.0.6"; //IP of apache web server
 EthernetClient client;
-
 IPAddress clientIP(192, 168, 0, 30);
 
  if(Ethernet.begin(mac)==0){
@@ -144,7 +142,6 @@ IPAddress clientIP(192, 168, 0, 30);
   }else{
      Serial.println("Assigned IP");
   }
-
 if(client.connect(server,80)){
      String data = "temperatureHex=";
      int contentLength = data.length()+final.length();
@@ -160,7 +157,6 @@ if(client.connect(server,80)){
    }else{
        Serial.println("Failed to Connect");
    }
-   
    client.stop();
 \end{lstlisting}
 \caption{Ethernet interfacing and transmission Code }

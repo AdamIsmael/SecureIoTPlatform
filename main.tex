@@ -25,10 +25,10 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
-11pt, % The default document font size, options: 10pt, 11pt, 12pt
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 english, % ngerman for German
-singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
@@ -36,12 +36,18 @@ singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespac
 %parskip, % Uncomment to add space between paragraphs
 %nohyperref, % Uncomment to not load the hyperref package
 headsepline, % Uncomment to get a line under the header
+oneside,
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{palatino} % Use the Palatino font by default
+%\usepackage{mathptmx}
+
+
+
+
 
 %autocite = superscript    maybe without natbib=true
 \usepackage[backend=bibtex,natbib=true,style=numeric,sorting=none]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
@@ -166,7 +172,7 @@ headsepline, % Uncomment to get a line under the header
 \geometry{
 	paper=a4paper, % Change to letterpaper for US letter
 	inner=2.5cm, % Inner margin
-	outer=3.8cm, % Outer margin
+	outer=4.0cm, % Outer margin
 	bindingoffset=2cm, % Binding offset
 	top=1.5cm, % Top margin
 	bottom=1.5cm, % Bottom margin
@@ -179,7 +185,7 @@ headsepline, % Uncomment to get a line under the header
 
 \thesistitle{Secure Internet Of Things Sensor Platform} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Dr. James Irvine} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
-\examiner{Dr Alex Coddington} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\examiner{Dr. Alex Coddington} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Computer and Electronic Systems} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Adam Kidd} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
@@ -206,42 +212,59 @@ headsepline, % Uncomment to get a line under the header
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
+\vspace{50cm}
 \begin{titlepage}
+\vspace{50cm}
 \begin{center}
 
-\textsc{\LARGE \univname}\\[1.5cm] % University name
-\textsc{\Large Technical Report}\\[0.5cm] % Thesis type
+%\textsc{\LARGE \univname}\\[1.5cm] % University name
+%\textsc{\Large Technical Report}\\[0.5cm] % Thesis type
 
-\HRule \\[0.4cm] % Horizontal line
+
+\bigskip
+
+\begin{minipage}{1\textwidth}
+\vspace{2.5cm}
+\noindent I hereby declare that this work has not been submitted for any other degree/course at this University or any other institution and that, except where reference is made to the work of other authors, the material presented is original and entirely the result of my own work at the University of Strathclyde under the supervision of \supname”
+
+\end{minipage}\\[.1cm]
+
+\vspace{10.5cm}
+ 
+% \begin{minipage}{0.4\textwidth}
+%\begin{flushleft} \large
+%\emph{Author:}\\
+%\href{http://www.johnsmith.com}{\authorname} \\ % Author name - remove the \href bracket to remove the link
+%\emph{Examiner:}\\
+%\examname
+%\end{flushleft}
+%\end{minipage}
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushright} \large
+%\emph{Supervisor:} \\
+%\href{http://www.jamessmith.com}{\supname}\\ % Supervisor name - remove the \href bracket to remove the link  
+%\emph{Phd Student:}\\
+%\phdname
+%\end{flushright}
+%\end{minipage}\\[3cm]
+ 
+% \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-\HRule \\[1.5cm] % Horizontal line
+%\HRule \\[1.5cm] % Horizontal line
  
-\begin{minipage}{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-\href{http://www.johnsmith.com}{\authorname} \\ % Author name - remove the \href bracket to remove the link
-\emph{Examiner:}\\
-\examname
-\end{flushleft}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\begin{flushright} \large
-\emph{Supervisor:} \\
-\href{http://www.jamessmith.com}{\supname}\\ % Supervisor name - remove the \href bracket to remove the link  
-\emph{Phd Student:}\\
-\phdname
-\end{flushright}
-\end{minipage}\\[3cm]
+ \emph{Author: } \authorname \\
+ \emph{Supervisor: } \supname \\
+ \emph{Second Assessor:} \examname
  
-\large \textit{A technical report submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-\textit{in the}\\[0.4cm]
-\deptname\\[1cm] % Research group name and department name
+%\large \textit{A technical report submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+%\textit{in the}\\[0.4cm]
+%\deptname\\[1cm] % Research group name and department name
 
 
 
  {\large \today}\\[1cm] % Date
  \bigskip
-\includegraphics{img/uni_logo_eng.jpg} % University/department logo - uncomment to place it
+%\includegraphics{img/uni_logo_eng.jpg} % University/department logo - uncomment to place it
  
 \vfill
 \end{center}
@@ -251,17 +274,17 @@ headsepline, % Uncomment to get a line under the header
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
 
-\begin{declaration}
-\addchaptertocentry{\authorshipname}
+%\begin{declaration}
+%\addchaptertocentry{\authorshipname}
 
-\bigskip
+%\bigskip
 
-\noindent I, \authorname, “I hereby declare that this work titled, \enquote{\ttitle} has not been submitted for any other degree/course
-at this University or any other institution and that, except where reference is made
-to the work of other authors, the material presented is original and entirely the
-result of my own work at the University of Strathclyde under the supervision of ..
-insert supervisor’s name.”
-\\
+%\noindent I, \authorname, “I hereby declare that this work titled, \enquote{\ttitle} has not been submitted for any other degree/course
+%at this University or any other institution and that, except where reference is made
+%to the work of other authors, the material presented is original and entirely the
+%result of my own work at the University of Strathclyde under the supervision of ..
+%insert supervisor’s name.”
+%\\
 
 %\begin{itemize} 
 %\item This work was done wholly or mainly while in candidature for a research degree at this University.
@@ -272,14 +295,14 @@ insert supervisor’s name.”
 %\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
 %\end{itemize}
  
-\noindent Signed:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+%\noindent Signed:\\
+%\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
  
-\noindent Date:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
-\end{declaration}
+%\noindent Date:\\
+%\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+%\end{declaration}
 
-\cleardoublepage
+%\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
@@ -321,7 +344,7 @@ Over the course of this project I was helped on more than one occasion. I would 
 
 \listoffigures % Prints the list of figures
 
-%\listoftables % Prints the list of tables
+\listoftables % Prints the list of tables
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS

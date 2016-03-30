@@ -220,10 +220,12 @@
 }
 \pagestyle{thesis}
 \ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
+
 \PreventPackageFromLoading[\ClassError{\classname}{Package `fancyhdr' is
 incompatible\MessageBreak with this class}{The pagesyles are defined 
 using package `scrlayer-scrpage', please consult the\MessageBreak 
 KOMA-script documentation for details.}]{fancyhdr}
+
 
 
 \newcommand{\blank@p@gestyle}{empty}
