@@ -26,9 +26,9 @@
 
 \documentclass[
 12pt, % The default document font size, options: 10pt, 11pt, 12pt
-%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side %(tree killer option)
 english, % ngerman for German
-onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+onespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
@@ -36,7 +36,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 %parskip, % Uncomment to add space between paragraphs
 %nohyperref, % Uncomment to not load the hyperref package
 headsepline, % Uncomment to get a line under the header
-oneside,
 ]{MastersDoctoralThesis} % The class file specifying the document structure
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
@@ -68,12 +67,30 @@ oneside,
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 
+% Block Diagrams
 \tikzstyle{block} = [draw, fill=blue!20, rectangle, 
     minimum height=3em, minimum width=6em]
 \tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
 \tikzstyle{input} = [coordinate]
 \tikzstyle{output} = [coordinate]
 \tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+% flow chart
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{blockf} = [rectangle, draw, fill=blue!20, 
+    text width=6em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+
+%----------------------------------------------------------------------------------------
+%	PGF-UMLSD SETTINGS
+%----------------------------------------------------------------------------------------
+
+\usepackage{pgf-umlsd}
+\usepgflibrary{arrows}
 
 %----------------------------------------------------------------------------------------
 %    CODE LISTING SETTINGS
@@ -90,6 +107,9 @@ oneside,
 \usepackage{mwe} 
 \usepackage{etoolbox}  
 
+ 	\definecolor{babyblueeyes}{rgb}{0.63, 0.79, 0.95}
+\definecolor{ballblue}{rgb}{0.13, 0.67, 0.8}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{grey}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}

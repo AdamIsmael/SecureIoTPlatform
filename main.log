@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  30 MAR 2016 22:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  31 MAR 2016 14:44
 entering extended mode
 **main.tex
 (E:\UNINotes\4th\Project\IoTPlatform\main.tex
@@ -1144,7 +1144,7 @@ LaTeX Info: Redefining \pageref on input line 6369.
 )
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
-(scrhack)             need that hack, on input line 55.
+(scrhack)             need that hack, on input line 54.
 
 
 Package hyperref Message: Driver (autodetected): hpdftex.
@@ -1161,17 +1161,17 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 55.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 55.
-Package hyperref Info: Option `colorlinks' set `true' on input line 55.
-Package hyperref Info: Option `unicode' set `true' on input line 55.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 54.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 54.
+Package hyperref Info: Option `colorlinks' set `true' on input line 54.
+Package hyperref Info: Option `unicode' set `true' on input line 54.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\puenc.def"
 File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 55.
+Package hyperref Info: Option `breaklinks' set `true' on input line 54.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\xcolor\xcolor.sty"
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
@@ -1549,15 +1549,39 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.0 (rcs-revision 1.1)
 code.tex"
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
 \arrowsize=\dimen285
-)) ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\float\float.sty"
+))
+("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\pgf-umlsd\pgf-umlsd.sty"
+Package: pgf-umlsd 2011/07/27 v0.6 Some LaTeX macros for UML Sequence Diagrams.
+
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\generic\pgf\frontendlayer\tikz\librarie
+s\tikzlibraryshadows.code.tex"
+File: tikzlibraryshadows.code.tex 2008/01/13 v3.0.0 (rcs-revision 1.3)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\generic\pgf\frontendlayer\tikz\librarie
+s\tikzlibraryfadings.code.tex"
+File: tikzlibraryfadings.code.tex 2009/11/15 v3.0.0 (rcs-revision 1.2)
+
+("C:\Program Files (x86)\MiKTeK 2.9\tex\generic\pgf\libraries\pgflibraryfadings
+.code.tex"
+File: pgflibraryfadings.code.tex 2008/02/07 v3.0.0 (rcs-revision 1.3)
+)))
+\c@preinst=\count369
+\c@instnum=\count370
+\c@threadnum=\count371
+\c@seqlevel=\count372
+\c@callevel=\count373
+\c@callselflevel=\count374
+\c@blocklevel=\count375
+) ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count369
+\c@float@type=\count376
 \float@exts=\toks33
 \float@box=\box83
 \@float@everytoks=\toks34
 \@floatcapt=\box84
 )
-Package scrhack Info: loading float hack on input line 83.
+Package scrhack Info: loading float hack on input line 100.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\float.hak"
 File: float.hak 2015/10/03 v3.19a KOMA-Script package (hacking package float)
@@ -1570,29 +1594,29 @@ Package scrhack Info: redefining \listof on input line 161.
 Package scrhack Info: undefining \float@addtolists on input line 161.
 )
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count370
+\lst@mode=\count377
 \lst@gtempboxa=\box85
 \lst@token=\toks35
-\lst@length=\count371
+\lst@length=\count378
 \lst@currlwidth=\dimen286
-\lst@column=\count372
-\lst@pos=\count373
+\lst@column=\count379
+\lst@pos=\count380
 \lst@lostspace=\dimen287
 \lst@width=\dimen288
-\lst@newlines=\count374
-\lst@lineno=\count375
+\lst@newlines=\count381
+\lst@lineno=\count382
 \lst@maxwidth=\dimen289
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
-\c@lstnumber=\count376
-\lst@skipnumbers=\count377
+\c@lstnumber=\count383
+\lst@skipnumbers=\count384
 \lst@framebox=\box86
 )
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2014/03/04 1.5c listings configuration
 ))
-Package scrhack Info: loading listings hack on input line 84.
+Package scrhack Info: loading listings hack on input line 101.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\koma-script\listings.hak"
 File: listings.hak 2015/10/03 v3.19a KOMA-Script package (hacking package listi
@@ -1610,7 +1634,7 @@ Package typearea, 2015/10/03 v3.19a KOMA-Script package (type area)
                   Copyright (C) Markus Kohm, 1994-
 
 \ta@bcor=\skip70
-\ta@div=\count378
+\ta@div=\count385
 Package typearea Info: You've used standard option `oneside'.
 (typearea)             This is correct!
 (typearea)             Internally I'm using `twoside=false'.
@@ -1634,13 +1658,13 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \evensidemargin = 2.4185pt
 (typearea)              \oddsidemargin  = 2.4185pt
 (typearea)             \paperheight     = 845.04694pt
-(typearea)              \textheight     = 641.80614pt
-(typearea)              \topmargin      = -51.33417pt
-(typearea)              \headheight     = 22.49307pt
-(typearea)              \headsep        = 26.99168pt
+(typearea)              \textheight     = 635.5pt
+(typearea)              \topmargin      = -41.72441pt
+(typearea)              \headheight     = 18.125pt
+(typearea)              \headsep        = 21.75pt
 (typearea)              \topskip        = 12.0pt
-(typearea)              \footskip       = 62.9806pt
-(typearea)              \baselineskip   = 17.99446pt
+(typearea)              \footskip       = 50.75pt
+(typearea)              \baselineskip   = 14.5pt
 (typearea)              on input line 1509.
 )
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\base\fontenc.sty"
@@ -1655,7 +1679,7 @@ Package: mwe 2012/05/15 v0.3 Package to support minimal working examples (MWE)
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\lipsum\lipsum.sty"
 Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count379
+\c@lips@count=\count386
 )
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\blindtext\blindtext.sty"
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
@@ -1663,24 +1687,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count380
-\c@Blindtext=\count381
-\c@blind@countparstart=\count382
-\blind@countxx=\count383
-\blindtext@numBlindtext=\count384
-\blind@countyy=\count385
-\c@blindlist=\count386
-\c@blindlistlevel=\count387
-\c@blindlist@level=\count388
-\blind@listitem=\count389
-\c@blind@listcount=\count390
-\c@blind@levelcount=\count391
-\blind@mathformula=\count392
-\blind@Mathformula=\count393
-\c@blind@randomcount=\count394
-\c@blind@randommax=\count395
-\c@blind@pangramcount=\count396
-\c@blind@pangrammax=\count397
+\c@blindtext=\count387
+\c@Blindtext=\count388
+\c@blind@countparstart=\count389
+\blind@countxx=\count390
+\blindtext@numBlindtext=\count391
+\blind@countyy=\count392
+\c@blindlist=\count393
+\c@blindlistlevel=\count394
+\c@blindlist@level=\count395
+\blind@listitem=\count396
+\c@blind@listcount=\count397
+\c@blind@levelcount=\count398
+\blind@mathformula=\count399
+\blind@Mathformula=\count400
+\c@blind@randomcount=\count401
+\c@blind@randommax=\count402
+\c@blind@pangramcount=\count403
+\c@blind@pangrammax=\count404
 ))
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2014/03/04 1.5c listings language file
@@ -1698,8 +1722,12 @@ File: english.lbx 2015/12/22 v3.2 biblatex localization (PK/JW/AB)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count398
-\@quotereset=\count399
+\@quotelevel=\count405
+\@quotereset=\count406
+
+LaTeX Warning: Unused global option(s):
+    [onespacing].
+
 (E:\UNINotes\4th\Project\IoTPlatform\main.aux
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
@@ -1729,22 +1757,22 @@ LaTeX Warning: Label `snip:post' multiply defined.
 LaTeX Warning: Label `snip:post' multiply defined.
 
 ))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 205.
-LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
  ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\base\ts1enc.dfu"
@@ -1828,16 +1856,16 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2015/01/21 v2.6e siunitx: Abbreviated units
 ) ("C:\Program Files (x86)\MiKTeK 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count400
+\scratchcounter=\count407
 \scratchdimen=\dimen290
 \scratchbox=\box87
-\nofMPsegments=\count401
-\nofMParguments=\count402
+\nofMPsegments=\count408
+\nofMParguments=\count409
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count403
+\MPscratchCnt=\count410
 \MPscratchDim=\dimen291
-\MPnumerator=\count404
-\makeMPintoPDFobject=\count405
+\MPnumerator=\count411
+\makeMPintoPDFobject=\count412
 \everyMPtoPDFconversion=\toks37
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -1859,14 +1887,14 @@ Package caption Info: End \AtBeginDocument code.
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=412.56497pt
-* \textheight=649.05469pt
+* \textheight=666.52698pt
 * \oddsidemargin=41.54103pt
 * \evensidemargin=41.54103pt
 * \topmargin=-29.59087pt
 * \headheight=20.66162pt
-* \headsep=26.99168pt
+* \headsep=21.75pt
 * \topskip=12.0pt
-* \footskip=62.9806pt
+* \footskip=50.75pt
 * \marginparwidth=49.79233pt
 * \marginparsep=12.8401pt
 * \columnsep=10.0pt
@@ -1880,12 +1908,12 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package scrbase Info: activating english \authorshipname on input line 205.
-Package scrbase Info: activating english \byname on input line 205.
-Package scrbase Info: activating english \abbrevname on input line 205.
-Package scrbase Info: activating english \constantsname on input line 205.
-Package scrbase Info: activating english \symbolsname on input line 205.
-Package scrbase Info: activating english \acknowledgementname on input line 205
+Package scrbase Info: activating english \authorshipname on input line 225.
+Package scrbase Info: activating english \byname on input line 225.
+Package scrbase Info: activating english \abbrevname on input line 225.
+Package scrbase Info: activating english \constantsname on input line 225.
+Package scrbase Info: activating english \symbolsname on input line 225.
+Package scrbase Info: activating english \acknowledgementname on input line 225
 .
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
@@ -1943,41 +1971,41 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                - Invalid format of field 'month'.
 
 )
-Package biblatex Info: Reference section=0 on input line 205.
-Package biblatex Info: Reference segment=0 on input line 205.
+Package biblatex Info: Reference section=0 on input line 225.
+Package biblatex Info: Reference segment=0 on input line 225.
 \AtBeginShipoutBox=\box88
-Package hyperref Info: Link coloring ON on input line 205.
+Package hyperref Info: Link coloring ON on input line 225.
  ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count406
+\c@section@level=\count413
 )
-LaTeX Info: Redefining \ref on input line 205.
-LaTeX Info: Redefining \pageref on input line 205.
-LaTeX Info: Redefining \nameref on input line 205.
+LaTeX Info: Redefining \ref on input line 225.
+LaTeX Info: Redefining \pageref on input line 225.
+LaTeX Info: Redefining \nameref on input line 225.
 
 (E:\UNINotes\4th\Project\IoTPlatform\main.out)
 (E:\UNINotes\4th\Project\IoTPlatform\main.out)
 \@outlinefile=\write5
 
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count407
-Package scrhack Info: undefining \float@addtolists on input line 205.
-\c__siunitx_mathsf_int=\count408
+\c@lstlisting=\count414
+Package scrhack Info: undefining \float@addtolists on input line 225.
+\c__siunitx_mathsf_int=\count415
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 205.
+(Font)              <12> on input line 225.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 205.
+(Font)              <8> on input line 225.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 205.
-\c__siunitx_mathtt_int=\count409
+(Font)              <6> on input line 225.
+\c__siunitx_mathtt_int=\count416
 
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 252.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 272.
 [1
 
 
@@ -1987,7 +2015,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 321.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 341.
 1: section
 [1
 
@@ -2002,19 +2030,19 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
 1: section
 [3
 
-] [4])
+])
 \tf@toc=\write6
- [5] (E:\UNINotes\4th\Project\IoTPlatform\main.lof)
+ [4] (E:\UNINotes\4th\Project\IoTPlatform\main.lof)
 \tf@lof=\write7
 
 1: section
-[6
+[5
 
 ] (E:\UNINotes\4th\Project\IoTPlatform\main.lot)
 \tf@lot=\write8
 
 1: section
-[7
+[6
 
 ]
 1: section
@@ -2026,135 +2054,145 @@ Overfull \hbox (8.37479pt too wide) in paragraph at lines 22--23
 t is sim-i-lar in strength
  []
 
-1: section
-[1
 
-
-
-]
 Overfull \hbox (1.35788pt too wide) in paragraph at lines 24--25
 \T1/ppl/m/n/12 later upon in-de-pen-dent in-ves-ti-ga-tors dis-cov-er-ing that 
 in-for-ma-tion, about dates
  []
 
-[2]) [3] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.tex
+1: section
+[1
+
+
+
+]) [2] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.tex
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 13.
 
-LaTeX Warning: Citation 'NetworkSec' on page 4 undefined on input line 15.
+LaTeX Warning: Citation 'NetworkSec' on page 3 undefined on input line 15.
 
-1: section
-[4
-
-
-
-] <Figures/publickeyex.png, id=471, 468.5505pt x 198.14024pt>
+<Figures/publickeyex.png, id=497, 468.5505pt x 198.14024pt>
 File: Figures/publickeyex.png Graphic file (type png)
 
 <use Figures/publickeyex.png>
 Package pdftex.def Info: Figures/publickeyex.png used on input line 19.
 (pdftex.def)             Requested size: 412.56497pt x 174.46974pt.
- [5 <E:/UNINotes/4th/Project/IoTPlatform/Figures/publickeyex.png>] [6]
-Overfull \hbox (38.1379pt too wide) in paragraph at lines 48--49
+
+1: section
+[3
+
+
+
+] [4 <E:/UNINotes/4th/Project/IoTPlatform/Figures/publickeyex.png>] [5]
+Overfull \hbox (38.1379pt too wide) in paragraph at lines 49--50
 \T1/ppl/m/n/12 cre-ate a en-cryp-tion key pair; and sim-i-larly for sig-na-ture
  key-pairs crypto_sign_keypair,
  []
 
 
-Overfull \hbox (22.74286pt too wide) in paragraph at lines 52--53
+Overfull \hbox (22.74286pt too wide) in paragraph at lines 53--54
 \T1/ppl/m/n/12 pher for mes-sage en-cryp-tion and Poly1305 for mes-sage au-then
 -ti-ca-tion. Curve25519
  []
 
-[7] [8] [9] [10]) [11] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
+[6] [7] [8]) [9] [10] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
 Chapter 3.
 
-LaTeX Warning: Citation 'dsimage' on page 12 undefined on input line 38.
+LaTeX Warning: Citation 'dsimage' on page 11 undefined on input line 38.
 
-1: section
-[12
-
-
-
-] <Figures/ds.jpg, id=527, 803.0pt x 602.25pt>
+<Figures/ds.jpg, id=551, 803.0pt x 602.25pt>
 File: Figures/ds.jpg Graphic file (type jpg)
  <use Figures/ds.jpg>
 Package pdftex.def Info: Figures/ds.jpg used on input line 42.
 (pdftex.def)             Requested size: 165.02347pt x 123.7653pt.
 
+1: section
+[11
 
-LaTeX Warning: Citation 'dueimage' on page 13 undefined on input line 47.
 
-<Figures/due.jpg, id=528, 1284.8pt x 722.7pt>
+
+]
+
+LaTeX Warning: Citation 'dueimage' on page 12 undefined on input line 47.
+
+<Figures/due.jpg, id=557, 1284.8pt x 722.7pt>
 File: Figures/due.jpg Graphic file (type jpg)
  <use Figures/due.jpg>
 Package pdftex.def Info: Figures/due.jpg used on input line 51.
 (pdftex.def)             Requested size: 165.02347pt x 92.81845pt.
 
 
-LaTeX Warning: Citation 'ethimage' on page 13 undefined on input line 56.
+LaTeX Warning: Citation 'ethimage' on page 12 undefined on input line 56.
 
-[13 <E:/UNINotes/4th/Project/IoTPlatform/Figures/ds.jpg> <E:/UNINotes/4th/Proje
-ct/IoTPlatform/Figures/due.jpg>]
-<Figures/ethernet.jpg, id=534, 451.6875pt x 321.2pt>
+<Figures/ethernet.jpg, id=559, 451.6875pt x 321.2pt>
 File: Figures/ethernet.jpg Graphic file (type jpg)
 
 <use Figures/ethernet.jpg>
 Package pdftex.def Info: Figures/ethernet.jpg used on input line 60.
 (pdftex.def)             Requested size: 165.02347pt x 117.3522pt.
- [14 <E:/UNINotes/4th/Project/IoTPlatform/Figures/ethernet.jpg>]) [15] [16]
+ [12 <E:/UNINotes/4th/Project/IoTPlatform/Figures/ds.jpg> <E:/UNINotes/4th/Proj
+ect/IoTPlatform/Figures/due.jpg>] [13 <E:/UNINotes/4th/Project/IoTPlatform/Figu
+res/ethernet.jpg>]) [14]
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Implementation.tex
 Chapter 4.
-
-LaTeX Warning: Citation 'fritz' on page 17 undefined on input line 16.
-
+\pgf@layerbox@umlsd@background=\box89
+\pgf@layerboxsaved@umlsd@background=\box90
+\pgf@layerbox@umlsd@threadlayer=\box91
+\pgf@layerboxsaved@umlsd@threadlayer=\box92
 1: section
-[17
+[15
 
 
 
-] <Figures/TempSensor_bb.pdf, id=555, 314.17375pt x 356.33125pt>
+]
+
+LaTeX Warning: Citation 'fritz' on page 16 undefined on input line 56.
+
+<Figures/TempSensor_bb.pdf, id=583, 314.17375pt x 356.33125pt>
 File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
 
 <use Figures/TempSensor_bb.pdf>
-Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 20.
+Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 60.
 (pdftex.def)             Requested size: 206.28249pt x 233.96141pt.
- [18 <E:/UNINotes/4th/Project/IoTPlatform/Figures/TempSensor_bb.pdf>] <Figures/
-dsmem.png, id=611, 336.50719pt x 293.59688pt>
+ [16]
+<Figures/dsmem.png, id=591, 336.50719pt x 293.59688pt>
 File: Figures/dsmem.png Graphic file (type png)
-
-<use Figures/dsmem.png>
-Package pdftex.def Info: Figures/dsmem.png used on input line 30.
+ <use Figures/dsmem.png>
+Package pdftex.def Info: Figures/dsmem.png used on input line 70.
 (pdftex.def)             Requested size: 247.54149pt x 215.97702pt.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 38.
+
+[17 <E:/UNINotes/4th/Project/IoTPlatform/Figures/TempSensor_bb.pdf>]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 78.
 
 ("C:\Program Files (x86)\MiKTeK 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 48.
- [19 <E:/UNINotes/4th/Project/IoTPlatform/Figures/dsmem.png>] [20]
-Overfull \hbox (47.6245pt too wide) in paragraph at lines 87--89
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 88.
+ [18 <E:/UNINotes/4th/Project/IoTPlatform/Figures/dsmem.png>] [19]
+Overfull \hbox (47.6245pt too wide) in paragraph at lines 166--168
 [][][][][][][][][][][][][][][][]  
  []
 
-[21] [22] [23] [24
+[20] [21] [22] [23
 
-] [25] [26] [27] [28] [29] [30] [31] [32]) [33]
+] [24] [25] [26] [27] [28] [29]) [30]
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/StrengthOfSecurity.tex
 Chapter 5.
 1: section
-[34
+[31
 
 
 
-] [35] [36] [37]) [38]
-(E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.tex
+] [32] [33]) [34] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.tex
 Chapter 6.
-<Figures/power.png, id=874, 546.24075pt x 256.5585pt>
+
+LaTeX Warning: Citation 'portapow' on page 35 undefined on input line 14.
+
+<Figures/power.png, id=896, 546.24075pt x 256.5585pt>
 File: Figures/power.png Graphic file (type png)
  <use Figures/power.png>
 Package pdftex.def Info: Figures/power.png used on input line 19.
@@ -2165,80 +2203,80 @@ Overfull \hbox (41.259pt too wide) in paragraph at lines 19--20
  []
 
 1: section
-[39
+[35
 
 
 
-] [40 <E:/UNINotes/4th/Project/IoTPlatform/Figures/power.png (PNG copy)>]
-[41]) [42] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.tex
+] [36 <E:/UNINotes/4th/Project/IoTPlatform/Figures/power.png (PNG copy)>])
+[37] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.tex
 Chapter 7.
 1: section
-[43
+[38
 
 
 
-]) [44] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.tex
+]) [39] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.tex
 Chapter 8.
 1: section
-[45
+[40
 
 
 
-]) [46] (E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.tex
+]) [41] (E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.tex
 Chapter 9.
 1: section
-[47
+[42
 
 
 
-]) [48]
-Overfull \hbox (10.47665pt too wide) in paragraph at lines 444--444
+]) [43]
+Overfull \hbox (10.47665pt too wide) in paragraph at lines 464--464
 $\T1/pcr/m/n/12 www . tomsguide . com / us / hackers -[] hijack -[] prius -[] w
 ith -[] laptop ,[]$
  []
 
 
-Overfull \hbox (2.12788pt too wide) in paragraph at lines 444--444
+Overfull \hbox (2.12788pt too wide) in paragraph at lines 464--464
 []\T1/ppl/m/n/12 Arduino. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/
 12 https : / / www . arduino . cc / en / Reference / Random$[][]\T1/ppl/m/n/12 
 . 
  []
 
 
-Overfull \hbox (14.42253pt too wide) in paragraph at lines 444--444
+Overfull \hbox (14.42253pt too wide) in paragraph at lines 464--464
 []\T1/ppl/m/n/12 Daniel J. Bern-stein. \T1/ppl/m/it/12 Snuf-fle 2005: the Salsa
 20 en-cryp-tion func-tion\T1/ppl/m/n/12 . \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [
 ][]$\T1/pcr/m/n/12 https :$
  []
 
 
-Overfull \hbox (11.03409pt too wide) in paragraph at lines 444--444
+Overfull \hbox (11.03409pt too wide) in paragraph at lines 464--464
 []\T1/ppl/m/n/12 Daniel J. Bern-stein. \T1/ppl/m/it/12 A state-of-the-art messa
 ge-authentication code\T1/ppl/m/n/12 . \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]
 $\T1/pcr/m/n/12 http :$
  []
 
-1: section
-[49
 
-
-]
-Overfull \hbox (2.12788pt too wide) in paragraph at lines 444--444
+Overfull \hbox (2.12788pt too wide) in paragraph at lines 464--464
 []\T1/ppl/m/n/12 Arduino. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/
 12 http : / / labs . arduino . org / Ethernet + 2 + Library$[][]\T1/ppl/m/n/12 
 . 
  []
 
+1: section
+[44
 
-Overfull \hbox (31.40355pt too wide) in paragraph at lines 444--444
+
+]
+Overfull \hbox (31.40355pt too wide) in paragraph at lines 464--464
 []\T1/ppl/m/n/12 Ian Pre-ston. \T1/ppl/m/it/12 tweetnacl-java\T1/ppl/m/n/12 . 2
 016. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/12 https : / / github
  . com / ianopolous /$
  []
 
-[50]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 463.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 463.
+[45]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 483.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 483.
  (E:\UNINotes\4th\Project\IoTPlatform\main.aux
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
@@ -2249,10 +2287,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 463.
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 463.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 463.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 483.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 483.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9CF2CADE43A8A1425845D57B45365468;9323.
+(rerunfilecheck)             Checksum: BBAF48DBB19FCEEB169ABE5B335649BD;9679.
 
 
 LaTeX Warning: There were undefined references.
@@ -2268,13 +2306,13 @@ Package biblatex Warning: Please (re)run BibTeX on the file(s):
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 43656 strings out of 493921
- 909739 string characters out of 3144858
- 1133301 words of memory out of 3000000
- 45919 multiletter control sequences out of 15000+200000
+ 44086 strings out of 493921
+ 918968 string characters out of 3144858
+ 1151276 words of memory out of 3000000
+ 46338 multiletter control sequences out of 15000+200000
  33780 words of font info for 64 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 64i,20n,77p,10402b,2206s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 64i,20n,84p,10402b,2206s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeK 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program 
 Files (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fil
@@ -2286,9 +2324,9 @@ es (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
 rw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on main.pdf (58 pages, 1925558 bytes).
+Output written on main.pdf (52 pages, 1937868 bytes).
 PDF statistics:
- 1074 PDF objects out of 1200 (max. 8388607)
- 341 named destinations out of 1000 (max. 500000)
- 592 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1092 PDF objects out of 1200 (max. 8388607)
+ 339 named destinations out of 1000 (max. 500000)
+ 710 words of extra memory for PDF output out of 10000 (max. 10000000)
 
