@@ -40,12 +40,12 @@
 \contentsline {section}{\numberline {4.2}Security}{19}{section.68}
 \contentsline {section}{\numberline {4.3}Data transmission}{23}{section.110}
 \contentsline {section}{\numberline {4.4}Server Side}{24}{section.144}
-\contentsline {subsection}{\numberline {4.4.1}Decryption and Temperature Data Display}{26}{subsection.165}
+\contentsline {subsection}{\numberline {4.4.1}Decryption and Temperature Data Display}{25}{subsection.165}
 \contentsline {section}{\numberline {4.5}Encrypted Nonce transmission}{28}{section.203}
 \contentsline {section}{\numberline {4.6}Public Key Transmission}{28}{section.204}
 \contentsline {section}{\numberline {4.7}TweetNaCl Library}{29}{section.225}
 \contentsline {chapter}{\numberline {5}Strength Of Security}{31}{chapter.226}
-\contentsline {section}{\numberline {5.1}Naive Sign \& Encrypt or Encrypt \& Sign}{31}{section.227}
+\contentsline {section}{\numberline {5.1}Naive Sign \& Encrypt}{31}{section.227}
 \contentsline {section}{\numberline {5.2}Storing data in plaintext}{32}{section.228}
 \contentsline {section}{\numberline {5.3}Public Key Transmission}{32}{section.229}
 \contentsline {section}{\numberline {5.4}Bit Flipping}{32}{section.230}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  31 MAR 2016 14:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.29)  1 APR 2016 00:11
 entering extended mode
 **main.tex
 (E:\UNINotes\4th\Project\IoTPlatform\main.tex
@@ -1742,9 +1742,6 @@ LaTeX Warning: Unused global option(s):
 LaTeX Warning: Label `snip:jspcode' multiply defined.
 
 
-LaTeX Warning: Label `snip:jspcode' multiply defined.
-
-
 LaTeX Warning: Label `snip:php' multiply defined.
 
 
@@ -1957,6 +1954,11 @@ Package biblatex Warning: BibTeX reported the following issues
 
 
 Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'NetworkSec':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'ian':
 (biblatex)                - Invalid format of field 'month'.
 
@@ -2005,7 +2007,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 1: section
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 272.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 268.
 [1
 
 
@@ -2015,7 +2017,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
  Abstract
 --------------------
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 341.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 337.
 1: section
 [1
 
@@ -2054,12 +2056,6 @@ Overfull \hbox (8.37479pt too wide) in paragraph at lines 22--23
 t is sim-i-lar in strength
  []
 
-
-Overfull \hbox (1.35788pt too wide) in paragraph at lines 24--25
-\T1/ppl/m/n/12 later upon in-de-pen-dent in-ves-ti-ga-tors dis-cov-er-ing that 
-in-for-ma-tion, about dates
- []
-
 1: section
 [1
 
@@ -2071,10 +2067,7 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 13.
-
-LaTeX Warning: Citation 'NetworkSec' on page 3 undefined on input line 15.
-
-<Figures/publickeyex.png, id=497, 468.5505pt x 198.14024pt>
+<Figures/publickeyex.png, id=500, 468.5505pt x 198.14024pt>
 File: Figures/publickeyex.png Graphic file (type png)
 
 <use Figures/publickeyex.png>
@@ -2087,23 +2080,15 @@ Package pdftex.def Info: Figures/publickeyex.png used on input line 19.
 
 
 ] [4 <E:/UNINotes/4th/Project/IoTPlatform/Figures/publickeyex.png>] [5]
-Overfull \hbox (38.1379pt too wide) in paragraph at lines 49--50
-\T1/ppl/m/n/12 cre-ate a en-cryp-tion key pair; and sim-i-larly for sig-na-ture
- key-pairs crypto_sign_keypair,
+[6] [7] [8]
+Overfull \hbox (5.90694pt too wide) in paragraph at lines 97--98
+\T1/ppl/m/n/12 man-ag-ing data stored in re-la-tional databases. SQL or-gan-ise
+s data into databases
  []
 
-
-Overfull \hbox (22.74286pt too wide) in paragraph at lines 53--54
-\T1/ppl/m/n/12 pher for mes-sage en-cryp-tion and Poly1305 for mes-sage au-then
--ti-ca-tion. Curve25519
- []
-
-[6] [7] [8]) [9] [10] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
+) [9] [10] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Design.tex
 Chapter 3.
-
-LaTeX Warning: Citation 'dsimage' on page 11 undefined on input line 38.
-
-<Figures/ds.jpg, id=551, 803.0pt x 602.25pt>
+<Figures/ds.jpg, id=557, 803.0pt x 602.25pt>
 File: Figures/ds.jpg Graphic file (type jpg)
  <use Figures/ds.jpg>
 Package pdftex.def Info: Figures/ds.jpg used on input line 42.
@@ -2114,20 +2099,13 @@ Package pdftex.def Info: Figures/ds.jpg used on input line 42.
 
 
 
-]
-
-LaTeX Warning: Citation 'dueimage' on page 12 undefined on input line 47.
-
-<Figures/due.jpg, id=557, 1284.8pt x 722.7pt>
+] <Figures/due.jpg, id=566, 1284.8pt x 722.7pt>
 File: Figures/due.jpg Graphic file (type jpg)
  <use Figures/due.jpg>
 Package pdftex.def Info: Figures/due.jpg used on input line 51.
 (pdftex.def)             Requested size: 165.02347pt x 92.81845pt.
 
-
-LaTeX Warning: Citation 'ethimage' on page 12 undefined on input line 56.
-
-<Figures/ethernet.jpg, id=559, 451.6875pt x 321.2pt>
+<Figures/ethernet.jpg, id=569, 451.6875pt x 321.2pt>
 File: Figures/ethernet.jpg Graphic file (type jpg)
 
 <use Figures/ethernet.jpg>
@@ -2147,18 +2125,14 @@ Chapter 4.
 
 
 
-]
-
-LaTeX Warning: Citation 'fritz' on page 16 undefined on input line 56.
-
-<Figures/TempSensor_bb.pdf, id=583, 314.17375pt x 356.33125pt>
+] <Figures/TempSensor_bb.pdf, id=597, 314.17375pt x 356.33125pt>
 File: Figures/TempSensor_bb.pdf Graphic file (type pdf)
 
 <use Figures/TempSensor_bb.pdf>
 Package pdftex.def Info: Figures/TempSensor_bb.pdf used on input line 60.
 (pdftex.def)             Requested size: 206.28249pt x 233.96141pt.
  [16]
-<Figures/dsmem.png, id=591, 336.50719pt x 293.59688pt>
+<Figures/dsmem.png, id=606, 336.50719pt x 293.59688pt>
 File: Figures/dsmem.png Graphic file (type png)
  <use Figures/dsmem.png>
 Package pdftex.def Info: Figures/dsmem.png used on input line 70.
@@ -2173,7 +2147,7 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 88.
  [18 <E:/UNINotes/4th/Project/IoTPlatform/Figures/dsmem.png>] [19]
-Overfull \hbox (47.6245pt too wide) in paragraph at lines 166--168
+Overfull \hbox (47.6245pt too wide) in paragraph at lines 172--174
 [][][][][][][][][][][][][][][][]  
  []
 
@@ -2189,10 +2163,7 @@ Chapter 5.
 
 ] [32] [33]) [34] (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Results.tex
 Chapter 6.
-
-LaTeX Warning: Citation 'portapow' on page 35 undefined on input line 14.
-
-<Figures/power.png, id=896, 546.24075pt x 256.5585pt>
+<Figures/power.png, id=921, 546.24075pt x 256.5585pt>
 File: Figures/power.png Graphic file (type png)
  <use Figures/power.png>
 Package pdftex.def Info: Figures/power.png used on input line 19.
@@ -2230,37 +2201,30 @@ Chapter 9.
 
 
 ]) [43]
-Overfull \hbox (10.47665pt too wide) in paragraph at lines 464--464
+Overfull \hbox (10.47665pt too wide) in paragraph at lines 460--460
 $\T1/pcr/m/n/12 www . tomsguide . com / us / hackers -[] hijack -[] prius -[] w
 ith -[] laptop ,[]$
  []
 
 
-Overfull \hbox (2.12788pt too wide) in paragraph at lines 464--464
+Overfull \hbox (2.12788pt too wide) in paragraph at lines 460--460
 []\T1/ppl/m/n/12 Arduino. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/
 12 https : / / www . arduino . cc / en / Reference / Random$[][]\T1/ppl/m/n/12 
 . 
  []
 
 
-Overfull \hbox (14.42253pt too wide) in paragraph at lines 464--464
+Overfull \hbox (14.42253pt too wide) in paragraph at lines 460--460
 []\T1/ppl/m/n/12 Daniel J. Bern-stein. \T1/ppl/m/it/12 Snuf-fle 2005: the Salsa
 20 en-cryp-tion func-tion\T1/ppl/m/n/12 . \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [
 ][]$\T1/pcr/m/n/12 https :$
  []
 
 
-Overfull \hbox (11.03409pt too wide) in paragraph at lines 464--464
+Overfull \hbox (11.03409pt too wide) in paragraph at lines 460--460
 []\T1/ppl/m/n/12 Daniel J. Bern-stein. \T1/ppl/m/it/12 A state-of-the-art messa
 ge-authentication code\T1/ppl/m/n/12 . \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]
 $\T1/pcr/m/n/12 http :$
- []
-
-
-Overfull \hbox (2.12788pt too wide) in paragraph at lines 464--464
-[]\T1/ppl/m/n/12 Arduino. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/
-12 http : / / labs . arduino . org / Ethernet + 2 + Library$[][]\T1/ppl/m/n/12 
-. 
  []
 
 1: section
@@ -2268,15 +2232,41 @@ Overfull \hbox (2.12788pt too wide) in paragraph at lines 464--464
 
 
 ]
-Overfull \hbox (31.40355pt too wide) in paragraph at lines 464--464
+Overfull \hbox (2.12788pt too wide) in paragraph at lines 460--460
+[]\T1/ppl/m/n/12 Arduino. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/
+12 http : / / labs . arduino . org / Ethernet + 2 + Library$[][]\T1/ppl/m/n/12 
+. 
+ []
+
+
+Overfull \hbox (23.38803pt too wide) in paragraph at lines 460--460
+[]\T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/12 https : / / www . ard
+uino . cc / en / Main / ArduinoEthernetShield$[][]\T1/ppl/m/n/12 . 
+ []
+
+
+Overfull \hbox (8.371pt too wide) in paragraph at lines 460--460
+[]\T1/ppl/m/n/12 Friends Of Fritz-ing. \T1/ppl/m/it/12 Fritz-ing\T1/ppl/m/n/12 
+. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/12 http : / / fritzing .
+ org / download/$[][]\T1/ppl/m/n/12 . 
+ []
+
+
+Overfull \hbox (31.40355pt too wide) in paragraph at lines 460--460
 []\T1/ppl/m/n/12 Ian Pre-ston. \T1/ppl/m/it/12 tweetnacl-java\T1/ppl/m/n/12 . 2
 016. \T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/12 https : / / github
  . com / ianopolous /$
  []
 
+
+Overfull \hbox (42.48802pt too wide) in paragraph at lines 460--460
+[]\T1/ppl/m/sc/12 url\T1/ppl/m/n/12 : [][]$\T1/pcr/m/n/12 http : / / stackoverf
+low . com / questions / 3408706 / hexadecimal -[]$
+ []
+
 [45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 483.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 483.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 479.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 479.
  (E:\UNINotes\4th\Project\IoTPlatform\main.aux
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Introduction.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Background.aux)
@@ -2287,29 +2277,21 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 483.
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/CriticalEvaluation.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Chapters/Conclusion.aux)
 (E:\UNINotes\4th\Project\IoTPlatform\Appendices/AppendixA.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 483.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 483.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 479.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 479.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BBAF48DBB19FCEEB169ABE5B335649BD;9679.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: BA09190D5C58017338D68AC263C5CB12;9574.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
- 44086 strings out of 493921
- 918968 string characters out of 3144858
- 1151276 words of memory out of 3000000
- 46338 multiletter control sequences out of 15000+200000
+ 44109 strings out of 493921
+ 919326 string characters out of 3144858
+ 1151466 words of memory out of 3000000
+ 46351 multiletter control sequences out of 15000+200000
  33780 words of font info for 64 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  64i,20n,84p,10402b,2206s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2324,9 +2306,9 @@ es (x86)/MiKTeK 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files
 rw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb><C:/Program Files (x86)/MiKTeK 2.9/fonts/type1/urw/palatino/uplr
 i8a.pfb>
-Output written on main.pdf (52 pages, 1937868 bytes).
+Output written on main.pdf (52 pages, 1950379 bytes).
 PDF statistics:
- 1092 PDF objects out of 1200 (max. 8388607)
- 339 named destinations out of 1000 (max. 500000)
+ 1136 PDF objects out of 1200 (max. 8388607)
+ 349 named destinations out of 1000 (max. 500000)
  710 words of extra memory for PDF output out of 10000 (max. 10000000)
 
