@@ -73,7 +73,7 @@ int assigned = 0;
  void postRequest(String final){
   
    client.stop();
-   //needs to be done again otherwise Dur hangs
+   //needs to be done again otherwise Due hangs
    if(Ethernet.begin(mac)==0){
       Serial.println(F("Failed to configure Ethernet using DHCP"));
       Ethernet.begin(mac, ip);
@@ -83,12 +83,12 @@ int assigned = 0;
     }
     Serial.println(F("connecting..."));
   
-  if(client.connect(server,80)){ //server address port:21
+  if(client.connect(server,80)){ 
      String title = "temperatureHex=";
      int contentLength = title.length()+final.length();
      Serial.println(F("Connected"));   
      client.println("POST /tempLog1/add.php HTTP/1.1"); 
-     client.println("HOST: 192.168.0.9"); //server address
+     client.println("HOST: 192.168.0.3"); //server address
      client.println("Content-Type: application/x-www-form-urlencoded");
      client.print("Content-Length: ");
      client.println(contentLength);
@@ -136,8 +136,6 @@ void passAlongPublicKey(String final){
 }
   
 void setup() {
-  //delay(7000);
-  
   Serial.begin(9600);
   Serial.println("start");
   
@@ -158,10 +156,7 @@ void setup() {
   Serial.print("DNS Server IP     : ");
   Serial.println(Ethernet.dnsServerIP());
   delay(1000);
-   
 }
-
-
 
 void loop() {
   
@@ -200,7 +195,7 @@ void loop() {
   //inital arrays are sent char by char so are twice as long as normal
   //0xde is sent as d and then e
   char keynew[64]={0};
-  char noncenewtemp[240] = {0};//+16 as the hextostring chops off 16 zeros so
+  char noncenewtemp[240] = {0};
   int counter=0;
   
   while(!client.available()){
@@ -264,25 +259,21 @@ void loop() {
    if(serverpkold[0]==NULL){
      //which  means it is the first iteration and we need to use the preinstalled keys to get the next set
     Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenewtemp, scnlenwz, preinstallnonce, serverpk, arduinosk); 
- 
    }else{
      Suc_Decrypt = tuit.crypto_box_open(snoncewz, scnoncenewtemp, scnlenwz, nonceold, serverpkold, arduinosk);
-    
    }
      
    //copy new into old
     for(i = 0;i<sizeof(serverpkold)/sizeof(serverpkold[0]);i++){
        serverpkold[i] = serverpknew[i];
-       }
+    }
 
-   
    int Suc_unsign=20;
    unsigned long long nlen;
    int snlenwoz=24+64;  //signed nonce with out zeros
    byte nonce[crypto_box_NONCEBYTES];
    byte snoncewoz[snlenwoz];
    
-     
    for(i=0;i<snlenwoz;i++){
        snoncewoz[i] = snoncewz[i+32];
    }
@@ -292,7 +283,7 @@ void loop() {
      //copy new into old  
      for(i = 0;i<sizeof(nonceold)/sizeof(nonceold[0]);i++){
        nonceold[i] = nonce[i];
-       }
+      }
     
   byte present = 0;
   byte type_s;

@@ -3,16 +3,13 @@ package updateKey;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import tweetNaCl.TweetNaCl;
 import tempLog.DecryptTemp;
-
 
 /**
  * Servlet implementation class SecretKey
@@ -58,11 +55,6 @@ public class SecretKey extends HttpServlet {
     		,(byte) 0x82,0x19,(byte) 0xe0,0x03,0x6b,0x7a,0x0b,0x37
     		} ;
      
-     public static byte[] publicArduinoFirstSigningKey = {(byte) 0xb6,(byte) 0xa6,(byte) 0x83,(byte) 0x9a,0x41,0x03,0x25,(byte) 0xb1
-    		 ,(byte) 0xc8,0x04,0x33,(byte) 0xc1,0x19,0x50,(byte) 0xdd,0x26
-    		 ,(byte) 0x96,0x62,(byte) 0xb1,0x67,(byte) 0xe9,0x0b,(byte) 0xa5,0x46
-    		 ,(byte) 0xe7,0x48,0x5f,(byte) 0xa9,0x15,0x10,0x2e,0x51};
-	
      public static byte[] secretServerFirstSigningKey = {
     		 (byte) 0xfd,0x3c,0x13,(byte) 0xe0,0x1e,0x4b,0x79,0x06
     		 ,0x3a,(byte) 0xa1,(byte) 0xbe,(byte) 0xf6,(byte) 0xd0,0x3d,(byte) 0x80,(byte) 0xe3
@@ -74,13 +66,6 @@ public class SecretKey extends HttpServlet {
     		 ,0x10,(byte) 0x93,(byte) 0x81,0x7e,0x5b,(byte) 0x83,0x35,(byte) 0xe0
      };
 	
-      byte[] serverpk 
-    		    = { (byte) 0xde, (byte) 0x9e, (byte) 0xdb, 0x7d, 0x7b, 0x7d, (byte) 0xc1, (byte) 0xb4, 
-    		        (byte) 0xd3, 0x5b, 0x61, (byte) 0xc2, (byte) 0xec, (byte) 0xe4, 0x35, 0x37, 
-    		        0x3f, (byte) 0x83, 0x43, (byte) 0xc8, 0x5b, 0x78, 0x67, 0x4d, 
-    		        (byte) 0xad, (byte) 0xfc, 0x7e, 0x14, 0x6f, (byte) 0x88, 0x2b, 0x4f };
-     
-       
  	public String getServerPublicKey(){
  		String key="";
  		try{
@@ -96,11 +81,9 @@ public class SecretKey extends HttpServlet {
  		}catch(Exception e){
  			e.printStackTrace(pw);
  		}
- 		
  		return key;
  	}
- 	
- 	
+	
  	private byte[] getRandomNonce() {
 		byte[] randomNonce = new byte[24];
 	    prng.nextBytes(randomNonce);	//get randomNonce
@@ -111,7 +94,6 @@ public class SecretKey extends HttpServlet {
  	
  	
  	private byte[] getSignedNonce(byte[] nonce){
- 		
  		int nlen = nonce.length;
  		int snlen=nlen+TweetNaCl.SIGNATURE_SIZE_BYTES;
  		byte[] sntemp = new byte[snlen];
@@ -127,26 +109,20 @@ public class SecretKey extends HttpServlet {
  		     sn[32+i]=sntemp[i]; 
  		  }
  		return sn;
- 		
  	}
  	
  	private String getEncryptedNonce(byte[] sn){
  		int suc_encrypt = 20;
  		byte[] sc = new byte[24+TweetNaCl.SIGNATURE_SIZE_BYTES+32];
  		
- 		pw.println("SecretKeySetNumber "+keySetNumber);
- 		
 		if(keySetNumber==1){ // new public key has just been sent but we need to use preinstalled keys to encrypt nonce
 			suc_encrypt = TweetNaCl.crypto_box(sc, sn, 24+TweetNaCl.SIGNATURE_SIZE_BYTES+32 , nonceFirstArray, arduinoFirstpkArray, serverFirstskArray);
-			
 		}else{
 			//can use previous keys and nonce to encrypt next nonce
 			byte[] nonce = DecryptTemp.nonceCollection[keySetNumber-2];
 			byte[] secretKey = DecryptTemp.keyCollection[keySetNumber-2];
 			suc_encrypt = TweetNaCl.crypto_box(sc, sn, 24+TweetNaCl.SIGNATURE_SIZE_BYTES+32 , nonce , arduinoFirstpkArray, secretKey);
-			
 		}
- 		
  		String scnonce = DecryptTemp.bytesToHex(sc);
  		return scnonce;
  	}
@@ -159,14 +135,11 @@ public class SecretKey extends HttpServlet {
 		response.setContentType("text/html");
 		pw = response.getWriter();
         try{
-
         	pw.println("<"+getServerPublicKey()+">");
         	pw.println("("+getEncryptedNonce(getSignedNonce(getRandomNonce()))+")");
         	}catch(Exception e){
-        	e.printStackTrace(pw);
-        }
+				e.printStackTrace(pw);
+			}
 
-	}
-
-
+		}
 }

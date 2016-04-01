@@ -10,6 +10,4 @@
  
    	mysql_query($query,$link);
 	mysql_close($link);
- 
-   	header("Location: index.php");
 ?>

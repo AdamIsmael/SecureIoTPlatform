@@ -24,7 +24,7 @@ import updateKey.SecretKey;
 public class DecryptTemp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static byte[][] keyCollection = new byte[50][]; //Server private key storage
-	public static byte[][] nonceCollection = new byte[50][]; // Nonce storage
+	public static byte[][] nonceCollection = new byte[50][]; //Nonce storage
     private int sqlentry;
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,7 +43,7 @@ public class DecryptTemp extends HttpServlet {
         printWriter.println("</head>");
         printWriter.println("<body>");
         printWriter.println("<h1>Temperature Sensor Readings</h1>");
-        printWriter.println("<table border=1 cellspacing=1 cellpadding=1>");  //work with ' instead of "?
+        printWriter.println("<table border=1 cellspacing=1 cellpadding=1>"); 
         printWriter.println("<tr>");
         printWriter.println("<td>&nbsp;ID&nbsp;</td>");
         printWriter.println("<td>&nbsp;Timestamp&nbsp;</td>");
@@ -132,9 +132,6 @@ public class DecryptTemp extends HttpServlet {
 	        catch(Exception e){
 	        	e.printStackTrace(printWriter);
 	        }
-		
-		
-		
 	}
 	
 	private float convertHextoInt(byte[] message,PrintWriter printWriter){
@@ -168,8 +165,6 @@ public class DecryptTemp extends HttpServlet {
         return celsius;
 	}
 
-	
-	    
 	public static byte[] hexStringToByteArray(String s) {
 	    int len = s.length();
 	    byte[] data = new byte[len / 2];
@@ -179,6 +174,4 @@ public class DecryptTemp extends HttpServlet {
 	    }
 	    return data;
 	}
-	
-
 }
