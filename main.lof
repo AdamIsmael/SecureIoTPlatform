@@ -3,32 +3,30 @@
 \select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Asymmetric Key Encryption\relax }}{4}{figure.caption.10}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Asymmetric Key Encryption\relax }}{5}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Prototype\relax }}{11}{figure.caption.33}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces DS18S20 Temperature Sensor\relax }}{12}{figure.caption.35}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Due Microcontroller\relax }}{12}{figure.caption.36}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Arduino Ethernet Shield\relax }}{13}{figure.caption.37}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Prototype\relax }}{14}{figure.caption.33}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces DS18S20 Temperature Sensor\relax }}{15}{figure.caption.35}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Due Microcontroller\relax }}{15}{figure.caption.36}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Arduino Ethernet Shield\relax }}{16}{figure.caption.37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces System sequence diagram\relax }}{16}{figure.caption.44}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces DS18S20 in parasitic power mode connected to Arduino\relax }}{17}{figure.caption.46}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces DS18S20's memory organisation\relax }}{18}{figure.caption.47}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces DS18S20 temperature sensor Arduino Code\relax }}{18}{figure.caption.48}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Nonce Decision Tree\relax }}{20}{figure.caption.69}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Decrypting the next nonce\relax }}{21}{figure.caption.70}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces TweetNaCl Arduino Signature and Encryption Code\relax }}{22}{figure.caption.92}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Ethernet interfacing and transmission Code \relax }}{23}{figure.caption.111}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Arduino to SQL interfacing code\relax }}{25}{figure.caption.145}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces SQL database creation code\relax }}{25}{figure.caption.162}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Prepping the client printer in JSP\relax }}{26}{figure.caption.166}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Accessing the SQL database in JSP\relax }}{26}{figure.caption.173}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Decryption of message and verification of signature in JSP\relax }}{27}{figure.caption.199}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Handling POST requests in Arduino\relax }}{29}{figure.caption.205}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Asymmetric Key Encryption\relax }}{36}{figure.caption.239}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces System sequence diagram\relax }}{20}{figure.caption.44}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces DS18S20 in parasitic power mode connected to Arduino\relax }}{21}{figure.caption.46}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces DS18S20's memory organisation\relax }}{22}{figure.caption.47}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces DS18S20 temperature sensor Arduino Code\relax }}{23}{figure.caption.48}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Nonce Decision Tree\relax }}{25}{figure.caption.69}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Decrypting the next nonce\relax }}{26}{figure.caption.70}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces TweetNaCl Arduino Signature and Encryption Code\relax }}{27}{figure.caption.92}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ethernet interfacing and transmission Code \relax }}{30}{figure.caption.111}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Arduino to SQL interfacing code\relax }}{32}{figure.caption.145}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces SQL database creation code\relax }}{32}{figure.caption.162}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Prepping the client printer in JSP\relax }}{33}{figure.caption.166}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Accessing the SQL database in JSP\relax }}{34}{figure.caption.173}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Decryption of message and verification of signature in JSP\relax }}{35}{figure.caption.199}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Handling POST requests in Arduino\relax }}{37}{figure.caption.205}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Asymmetric Key Encryption\relax }}{45}{figure.caption.239}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Handling POST requests in Arduino\relax }}{52}{figure.caption.649}
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Handling POST requests in Arduino\relax }}{52}{figure.caption.653}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

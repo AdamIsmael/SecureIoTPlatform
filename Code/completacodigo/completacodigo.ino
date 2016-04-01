@@ -10,6 +10,7 @@ TweetNaCl2 tuit;
 
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x10, 0x04, 0xB5 };
 char server[] = "192.168.0.3";
+char serverUno[] = "192.168.0.50";
 IPAddress ip(192, 168, 0, 177);
 EthernetClient client;
 EthernetClient client1;
@@ -72,6 +73,7 @@ int assigned = 0;
  void postRequest(String final){
   
    client.stop();
+   //needs to be done again otherwise Dur hangs
    if(Ethernet.begin(mac)==0){
       Serial.println(F("Failed to configure Ethernet using DHCP"));
       Ethernet.begin(mac, ip);
@@ -100,7 +102,38 @@ int assigned = 0;
        Serial.println(F("Failed to Connect"));
    }
 }
+
+void passAlongPublicKey(String final){
   
+  if(Ethernet.begin(mac)==0){
+      Serial.println(F("Failed to configure Ethernet using DHCP"));
+      Ethernet.begin(mac, ip);
+   }else{
+      Serial.println("Assigned IP");
+      Ethernet.begin(mac, ip);
+    }
+    Serial.println(F("connecting..."));
+  
+    if (client.connect(serverUno,8081)) {
+    Serial.println("connected");
+    // Make a HTTP request:
+    client.println("POST arduino HTTP/1.1 ");
+    client.println("Host: 192.168.0.50 ");
+    client.println("User-Agent: Arduino/1.0 ");
+    client.println("Content-Type: application/x-www-form-urlencoded ");
+    client.print("Content-Length: ");
+    client.println(final.length());
+    client.print();
+    client.print("Content: ");
+    client.print(final);
+    client.println();
+  }
+  else {
+    // if you didn't get a connection to the server:
+    Serial.println("connection failed");
+  }
+  
+}
   
 void setup() {
   //delay(7000);

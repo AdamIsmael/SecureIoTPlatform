@@ -392,6 +392,12 @@
   \endverb
 \endentry
 
+\entry{tweetdl}{misc}{}
+  \verb{url}
+  \verb http://tweetnacl.cr.yp.to/software.html
+  \endverb
+\endentry
+
 \entry{fritz}{misc}{}
   \name{author}{1}{}{%
     {{}%
@@ -467,6 +473,13 @@
 \endentry
 
 \entry{onewire}{misc}{}
+\endentry
+
+\entry{blah}{misc}{}
+  \verb{url}
+  \verb http://stackoverflow.com/questions/9655181/how-to-convert-a-byte-array-
+  \verb to-a-hex-string-in-java
+  \endverb
 \endentry
 
 \entry{String2}{misc}{}
